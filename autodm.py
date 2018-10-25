@@ -8,7 +8,8 @@ import random
 
 # --------------------------- Dictionary of monsters ---------------------------
 
-allmonsters = [{"Name" : "commoner",
+allmonsters = [# Monster Manual
+               {"Name" : "commoner",
                 "CR"   : "0",
                 "Env"  : ["arctic", "coastal", "desert", "forest", "grassland", "hill", "urban"]},
                {"Name" : "Owl",
@@ -1042,7 +1043,43 @@ allmonsters = [{"Name" : "commoner",
                 "Env"  : ["urban"]},
                {"Name" : "tarrasque",
                 "CR"   : "30",
-                "Env"  : ["urban"]}]
+                "Env"  : ["urban"]},
+               {"Name" : "ice devil",
+                "CR"   : "14",
+                "Env"  : []},
+               {"Name" : "adult blue dracolich",
+                "CR"   : "17",
+                "Env"  : []},
+               {"Name" : "death knight",
+                "CR"   : "17",
+                "Env"  : []},
+               {"Name" : "goristro",
+                "CR"   : "17",
+                "Env"  : []},
+               {"Name" : "demilich not in lair",
+                "CR"   : "18",
+                "Env"  : []},
+               {"Name" : "balor",
+                "CR"   : "19",
+                "Env"  : []},
+               {"Name" : "demilich in lair",
+                "CR"   : "20",
+                "Env"  : []},
+               {"Name" : "pit fiend",
+                "CR"   : "20",
+                "Env"  : []},
+               {"Name" : "lich not in lair",
+                "CR"   : "21",
+                "Env"  : []},
+               {"Name" : "solar",
+                "CR"   : "21",
+                "Env"  : []},
+               {"Name" : "lich in lair",
+                "CR"   : "22",
+                 "Env" : []},
+               {"Name" : "Empyrean",
+                "CR"   : "23",
+                "Env"  : []}]
 
 
 # ------------------- Helpers that build all of the responses ------------------
@@ -1151,9 +1188,10 @@ def monster_by_cr_in_session(intent, session):
     if monsterCR != "ERROR":
         monsterEnv    = "None"
         monster       = get_monster(monsterCR, monsterEnv)
-        speech_output = " A " + \
-                        monster + \
-                        " attacks! "
+        if monster != "None":
+            speech_output = " A " + monster + " attacks! "
+        else:
+            speech_output = " I'm sorry, no monster matches what you want. "
         reprompt_text = " Would you like another monster? "
     else:
         speech_output = " I'm not sure what type of monster you want. " \
@@ -1182,9 +1220,10 @@ def monster_by_env_in_session(intent, session):
         monsterCR     = "None"
         monsterEnv    = intent['slots']['env']['value']
         monster       = get_monster(monsterCR, monsterEnv)
-        speech_output = " A " + \
-                        monster + \
-                        " attacks! "
+        if monster != "None":
+            speech_output = " A " + monster + " attacks! "
+        else:
+            speech_output = " I'm sorry, no monster matches what you want. "
         reprompt_text = " Would you like another monster? "
     else:
         speech_output = " I'm not sure what type of monster you want. " \
@@ -1219,9 +1258,7 @@ def monster_by_cr_and_env_in_session(intent, session):
         monsterEnv    = intent['slots']['env']['value']
         monster       = get_monster(monsterCR, monsterEnv)
         if monster != "None":
-            speech_output = " A " + \
-                            monster + \
-                            " attacks! "
+            speech_output = " A " + monster + " attacks! "
         else:
             speech_output = " I'm sorry, no monster matches what you want. "
         reprompt_text = " Would you like another monster? "           
