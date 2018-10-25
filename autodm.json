@@ -16,7 +16,12 @@
                         "i want a c r {cr} monster",
                         "give me a c r {cr} monster",
                         "what is a c r {cr} monster",
-                        "generate a c r {cr} monster"
+                        "generate a c r {cr} monster",
+                        "get a challenge rating {cr} monster",
+                        "i want a challenge rating {cr} monster",
+                        "give me a challenge rating {cr} monster",
+                        "what is a challenge rating {cr} monster",
+                        "generate a challenge rating {cr} monster"
                     ]
                 },
                 {
@@ -52,7 +57,12 @@
                         "i want a c r {cr} {env} monster",
                         "give me a c r {cr} {env} monster",
                         "what is a c r {cr} {env} monster",
-                        "generate a c r {cr} {env} monster"
+                        "generate a c r {cr} {env} monster",
+                        "get a challenge rating {cr} {env} monster",
+                        "i want a challenge rating {cr} {env} monster",
+                        "give me a challenge rating {cr} {env} monster",
+                        "what is a challenge rating {cr} {env} monster",
+                        "generate a challenge rating {cr} {env} monster"
                     ]
                 },
                 {
@@ -217,6 +227,16 @@
                         {
                             "name": {
                                 "value": "24"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "25"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "26"
                             }
                         },
                         {
