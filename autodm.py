@@ -1888,8 +1888,31 @@ def get_welcome_response():
     # If the user either does not reply to the welcome message or says something
     # that is not understood, they will be prompted again with this text.
     reprompt_text = " What type of monster would you like? " \
-                    " You can say Give me a C R 1 moster or " \
-                    " Give me a swamp monster. "
+                    " You can say 'Give me a C R 1 moster' or " \
+                    " 'Give me a swamp monster'. "
+    should_end_session = False
+
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
+
+
+def get_help_response():
+    """ If we wanted to initialize the session to have some attributes we could
+    add those here
+    """
+
+    session_attributes = {}
+    card_title = "Help"
+    speech_output = " You can request a monster by challange rating, " \
+                    " environment, or both. " \
+                    " For example, you can say 'Give me a C R 1 moster' or " \
+                    " 'Give me a swamp monster'. " \
+                    " What type of monster would you like? "
+    # If the user either does not reply to the welcome message or says something
+    # that is not understood, they will be prompted again with this text.
+    reprompt_text = " What type of monster would you like? " \
+                    " You can say 'Give me a C R 1 moster' or " \
+                    " 'Give me a swamp monster'. "
     should_end_session = False
 
     return build_response(session_attributes, build_speechlet_response(
@@ -1930,6 +1953,16 @@ def get_monster(monsterCR, monsterEnv):
     else:
         monster = "None"
 
+    # Set first word
+    if monster != "None":
+        if monster[:3] != "the":
+            if monster[0] in {'a', 'e', 'i', 'o', 'u'}:
+                monster = "An " + monster
+            else:
+                monster = "A " + monster
+        else:
+            monster[0] = "T"
+
     # Return
     return monster
 
@@ -1950,7 +1983,8 @@ def monster_by_cr_in_session(intent, session):
         monsterEnv    = "None"
         monster       = get_monster(monsterCR, monsterEnv)
         if monster != "None":
-            speech_output = " A " + monster + " attacks! "
+            speech_output = monster + " attacks! " \
+                            " Would you like another monster? "
         else:
             speech_output = " I'm sorry, no monster matches what you want. "
         reprompt_text = " Would you like another monster? "
@@ -1959,8 +1993,8 @@ def monster_by_cr_in_session(intent, session):
                         " Please try again. "
         reprompt_text = " I'm not sure what type of monster you want. " \
                         " What type of monster would you like? " \
-                        " You can say Give me a C R 1 moster or " \
-                        " Give me a swamp monster. "
+                        " You can say 'Give me a C R 1 moster' or " \
+                        " 'Give me a swamp monster'. "
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
@@ -1982,7 +2016,8 @@ def monster_by_env_in_session(intent, session):
         monsterEnv    = intent['slots']['env']['value']
         monster       = get_monster(monsterCR, monsterEnv)
         if monster != "None":
-            speech_output = " A " + monster + " attacks! "
+            speech_output = monster + " attacks! " \
+                            " Would you like another monster? "
         else:
             speech_output = " I'm sorry, no monster matches what you want. "
         reprompt_text = " Would you like another monster? "
@@ -1991,8 +2026,8 @@ def monster_by_env_in_session(intent, session):
                         " Please try again. "
         reprompt_text = " I'm not sure what type of monster you want. " \
                         " What type of monster would you like? " \
-                        " You can say Give me a C R 1 moster or " \
-                        " Give me a swamp monster. "
+                        " You can say 'Give me a C R 1 moster' or " \
+                        " 'Give me a swamp monster'. "
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
@@ -2019,7 +2054,8 @@ def monster_by_cr_and_env_in_session(intent, session):
         monsterEnv    = intent['slots']['env']['value']
         monster       = get_monster(monsterCR, monsterEnv)
         if monster != "None":
-            speech_output = " A " + monster + " attacks! "
+            speech_output = monster + " attacks! " \
+                            " Would you like another monster? "
         else:
             speech_output = " I'm sorry, no monster matches what you want. "
         reprompt_text = " Would you like another monster? "           
@@ -2028,8 +2064,8 @@ def monster_by_cr_and_env_in_session(intent, session):
                         " Please try again. "
         reprompt_text = " I'm not sure what type of monster you want. " \
                         " What type of monster would you like? " \
-                        " You can say Give me a C R 1 moster or " \
-                        " Give me a swamp monster. "
+                        " You can say 'Give me a C R 1 moster' or " \
+                        " 'Give me a swamp monster'. "
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
@@ -2071,7 +2107,7 @@ def on_intent(intent_request, session):
     elif intent_name == "MonsterByCRandEnvironmentIntent":
         return monster_by_cr_and_env_in_session(intent, session)
     elif intent_name == "AMAZON.HelpIntent":
-        return get_welcome_response()
+        return get_help_response()
     elif intent_name == "AMAZON.CancelIntent" or intent_name == "AMAZON.StopIntent":
         return handle_session_end_request()
     else:

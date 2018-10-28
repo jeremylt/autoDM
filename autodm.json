@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "auto d m",
+            "invocationName": "auto d. m.",
             "intents": [
                 {
                     "name": "MonsterByCRIntent",
@@ -12,6 +12,11 @@
                         }
                     ],
                     "samples": [
+                        "ask auto d m to get a c r {cr} moster",
+                        "tell auto d m i want a c r {cr} moster",
+                        "ask auto d m to give me a c r {cr} moster",
+                        "ask auto d m what is a c r {cr} moster",
+                        "ask auto d m to generate a c r {cr} moster",
                         "get a c r {cr} monster",
                         "i want a c r {cr} monster",
                         "give me a c r {cr} monster",
@@ -33,6 +38,11 @@
                         }
                     ],
                     "samples": [
+                        "ask auto d m to get a {env} moster",
+                        "tell auto d m i want a {env} moster",
+                        "ask auto d m to give me a {env} moster",
+                        "ask auto d m what is a {env} moster",
+                        "ask auto d m to generate a {env} moster",
                         "get a {env} monster",
                         "i want a {env} monster",
                         "give me a {env} monster",
@@ -53,6 +63,11 @@
                         }
                     ],
                     "samples": [
+                        "ask auto d m to get a c r {cr} {env} moster",
+                        "tell auto d m i want a c r {cr} {env} moster",
+                        "ask auto d m to give me a c r {cr} {env} moster",
+                        "ask auto d m what is a c r {cr} {env} moster",
+                        "ask auto d m to generate a c r {cr} {env} moster",
                         "get a c r {cr} {env} monster",
                         "i want a c r {cr} {env} monster",
                         "give me a c r {cr} {env} monster",
@@ -76,6 +91,9 @@
                 {
                     "name": "AMAZON.StopIntent",
                     "samples": [
+                        "no",
+                        "no thank you",
+                        "no thanks",
                         "goodbye",
                         "good bye",
                         "goodnight",
