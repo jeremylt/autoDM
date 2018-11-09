@@ -1843,6 +1843,260 @@ allmonsters = [# Monster Manual
                 "Env"  : []}]
 
 
+# ---------------------- Dictionaries of Monster Features ----------------------
+
+allfeatures = ["aggressive", "ambusher", "amorphus", "angelic weapons",
+               "antimagic susceptibility", "avoidance", "blind senses",
+               "blood frenzy", "breath weapon", "brute", "chameleon skin",
+               "change shape", "charge", "charm", "constrict",
+               "damage absorption", "damage transfer", "death burst",
+               "devil sight", "dive attack", "echolocation", "elemental body",
+               "enlarge", "ethearlness", "false appearance", "fey ancestry",
+               "fiendish blessing", "flyby", "frightful presence", "grappler",
+               "hold breath", "horifying visage", "illumination",
+               "illusory appearance", "immutable form", "incorporeal movement",
+               "innate spellcasting", "inscrutable", "invisibility",
+               "keen senses", "labyrinthine recall", "leadership",
+               "legendary resistance", "life drain", "light sensitivity",
+               "magic resistance", "magic weapons", "martial advantage",
+               "mimicry", "nimble escape", "otherworldly perception",
+               "pack tactics", "possession", "pounce", "psychic defense",
+               "rampage", "read thoughts", "reckless", "redirect attack",
+               "reel", "regeneration", "rejuvenation", "relentless",
+               "shadow stealth", "shapechanger", "siege monster",
+               "slippery", "spellcasting", "spider climb", "standing leap",
+               "steadfast", "stench", "sunlight sensitivity",
+               "superior invisibility", "sure footed", "surprise attack",
+               "swallow", "teleport", "terrain camouflage", "tunneler",
+               "turn resistance", "two heads", "undead fortitude",
+               "web", "web sense", "web walker", "wounded fury"]
+
+
+allcrs = ["0",   "1/8", "1/4", "1/2",
+          "1",   "2",   "3",   "4",   "5",
+          "6",   "7",   "8",   "9",   "10",
+          "11",  "12",  "13",  "14",  "15",
+          "16",  "17",  "18",  "19",  "20",
+          "21",  "22",  "23",  "24",  "25",
+          "26",  "27",  "28",  "29",  "30"]
+
+
+allprof = { "0"   : "2",
+            "1/8" : "2",
+            "1/4" : "2",
+            "1/2" : "2",
+            "1"   : "2",
+            "2"   : "2",
+            "3"   : "2",
+            "4"   : "2",
+            "5"   : "3",
+            "6"   : "3",
+            "7"   : "3",
+            "8"   : "3",
+            "9"   : "4",
+            "10"  : "4",
+            "11"  : "4",
+            "12"  : "4",
+            "13"  : "5",
+            "14"  : "5",
+            "15"  : "5",
+            "16"  : "5",
+            "17"  : "6",
+            "18"  : "6",
+            "19"  : "6",
+            "20"  : "6",
+            "21"  : "7",
+            "22"  : "7",
+            "23"  : "7",
+            "24"  : "7",
+            "25"  : "8",
+            "26"  : "8",
+            "27"  : "8",
+            "28"  : "8",
+            "29"  : "9",
+            "30"  : "9" }
+
+
+allac   = { "0"   : "13",
+            "1/8" : "13",
+            "1/4" : "13",
+            "1/2" : "13",
+            "1"   : "13",
+            "2"   : "13",
+            "3"   : "13",
+            "4"   : "14",
+            "5"   : "15",
+            "6"   : "15",
+            "7"   : "15",
+            "8"   : "16",
+            "9"   : "16",
+            "10"  : "17",
+            "11"  : "17",
+            "12"  : "17",
+            "13"  : "18",
+            "14"  : "18",
+            "15"  : "18",
+            "16"  : "18",
+            "17"  : "19",
+            "18"  : "19",
+            "19"  : "19",
+            "20"  : "19",
+            "21"  : "19",
+            "22"  : "19",
+            "23"  : "19",
+            "24"  : "19",
+            "25"  : "19",
+            "26"  : "19",
+            "27"  : "19",
+            "28"  : "19",
+            "29"  : "19",
+            "30"  : "19" }
+
+
+allhp   = { "0"   : [1,   6],
+            "1/8" : [7,   35],
+            "1/4" : [36,  49],
+            "1/2" : [50,  70],
+            "1"   : [71,  85],
+            "2"   : [86,  100],
+            "3"   : [101, 115],
+            "4"   : [116, 130],
+            "5"   : [131, 145],
+            "6"   : [146, 160],
+            "7"   : [161, 175],
+            "8"   : [176, 190],
+            "9"   : [191, 205],
+            "10"  : [206, 220],
+            "11"  : [221, 235],
+            "12"  : [236, 250],
+            "13"  : [251, 265],
+            "14"  : [266, 280],
+            "15"  : [281, 295],
+            "16"  : [296, 310],
+            "17"  : [311, 325],
+            "18"  : [326, 340],
+            "19"  : [341, 355],
+            "20"  : [356, 400],
+            "21"  : [401, 445],
+            "22"  : [446, 490],
+            "23"  : [491, 535],
+            "24"  : [536, 580],
+            "25"  : [581, 625],
+            "26"  : [626, 670],
+            "27"  : [671, 715],
+            "28"  : [716, 760],
+            "29"  : [761, 805],
+            "30"  : [806, 850] }
+
+
+allattk = { "0"   : "3",
+            "1/8" : "3",
+            "1/4" : "3",
+            "1/2" : "3",
+            "1"   : "3",
+            "2"   : "3",
+            "3"   : "4",
+            "4"   : "5",
+            "5"   : "6",
+            "6"   : "6",
+            "7"   : "6",
+            "8"   : "7",
+            "9"   : "7",
+            "10"  : "7",
+            "11"  : "8",
+            "12"  : "8",
+            "13"  : "8",
+            "14"  : "8",
+            "15"  : "8",
+            "16"  : "9",
+            "17"  : "10",
+            "18"  : "10",
+            "19"  : "10",
+            "20"  : "10",
+            "21"  : "11",
+            "22"  : "11",
+            "23"  : "11",
+            "24"  : "12",
+            "25"  : "12",
+            "26"  : "12",
+            "27"  : "13",
+            "28"  : "13",
+            "29"  : "13",
+            "30"  : "14" }
+
+
+alldpr  = { "0"   : [0,   1],
+            "1/8" : [2,   3],
+            "1/4" : [4,   5],
+            "1/2" : [6,   8],
+            "1"   : [9,   14],
+            "2"   : [15,  20],
+            "3"   : [21,  26],
+            "4"   : [27,  32],
+            "5"   : [33,  38],
+            "6"   : [39,  44],
+            "7"   : [45,  50],
+            "8"   : [51,  56],
+            "9"   : [57,  62],
+            "10"  : [63,  68],
+            "11"  : [69,  74],
+            "12"  : [75,  80],
+            "13"  : [81,  86],
+            "14"  : [87,  92],
+            "15"  : [93,  98],
+            "16"  : [99,  104],
+            "17"  : [105, 110],
+            "18"  : [111, 116],
+            "19"  : [117, 122],
+            "20"  : [123, 140],
+            "21"  : [141, 158],
+            "22"  : [159, 176],
+            "23"  : [177, 194],
+            "24"  : [195, 212],
+            "25"  : [213, 230],
+            "26"  : [231, 248],
+            "27"  : [249, 266],
+            "28"  : [267, 284],
+            "29"  : [285, 302],
+            "30"  : [303, 320] }
+
+
+alldc   = { "0"   : "13",
+            "1/8" : "13",
+            "1/4" : "13",
+            "1/2" : "13",
+            "1"   : "13",
+            "2"   : "13",
+            "3"   : "13",
+            "4"   : "14",
+            "5"   : "15",
+            "6"   : "15",
+            "7"   : "15",
+            "8"   : "16",
+            "9"   : "16",
+            "10"  : "16",
+            "11"  : "17",
+            "12"  : "17",
+            "13"  : "18",
+            "14"  : "18",
+            "15"  : "18",
+            "16"  : "18",
+            "17"  : "19",
+            "18"  : "19",
+            "19"  : "19",
+            "20"  : "19",
+            "21"  : "20",
+            "22"  : "20",
+            "23"  : "20",
+            "24"  : "21",
+            "25"  : "21",
+            "26"  : "21",
+            "27"  : "22",
+            "28"  : "22",
+            "29"  : "22",
+            "30"  : "23" }
+
+
 # ------------------- Helpers that build all of the responses ------------------
 
 def build_speechlet_response(title, output, reprompt_text, should_end_session):
@@ -1853,8 +2107,8 @@ def build_speechlet_response(title, output, reprompt_text, should_end_session):
         },
         'card': {
             'type': 'Simple',
-            'title': "SessionSpeechlet - " + title,
-            'content': "SessionSpeechlet - " + output
+            'title': title,
+            'content': output
         },
         'reprompt': {
             'outputSpeech': {
@@ -1883,13 +2137,14 @@ def get_welcome_response():
 
     session_attributes = {}
     card_title = "Welcome"
-    speech_output = " Welcome to the Auto D M. " \
+    speech_output = " Welcome to the Tabletop Monster Maker!\n\n " \
                     " How do you want to do this? "
     # If the user either does not reply to the welcome message or says something
     # that is not understood, they will be prompted again with this text.
-    reprompt_text = " What type of monster would you like? " \
-                    " You can say 'Give me a C R 1 moster' or " \
-                    " 'Give me a swamp monster'. "
+    reprompt_text = " What type of monster would you like?\n\n " \
+                    " You can say 'Give me a C R 1 moster', " \
+                    " 'Give me a swamp monster', or " \
+                    " 'Build a C R 3 monster.' "
     should_end_session = False
 
     return build_response(session_attributes, build_speechlet_response(
@@ -1904,15 +2159,18 @@ def get_help_response():
     session_attributes = {}
     card_title = "Help"
     speech_output = " You can request a monster by challange rating, " \
-                    " environment, or both. " \
-                    " For example, you can say 'Give me a C R 1 moster' or " \
-                    " 'Give me a swamp monster'. " \
+                    " environment, or both. Also, you can ask for " \
+                    " a new monster to be built. \n\n" \
+                    " For example, you can say 'Give me a C R 1 moster', " \
+                    " 'Give me a swamp monster', or " \
+                    " 'Build a C R 3 monster.'\n\n " \
                     " What type of monster would you like? "
     # If the user either does not reply to the welcome message or says something
     # that is not understood, they will be prompted again with this text.
-    reprompt_text = " What type of monster would you like? " \
-                    " You can say 'Give me a C R 1 moster' or " \
-                    " 'Give me a swamp monster'. "
+    reprompt_text = " What type of monster would you like? \n\n" \
+                    " You can say 'Give me a C R 1 moster', " \
+                    " 'Give me a swamp monster', or " \
+                    " 'Build a C R 3 monster.' "
     should_end_session = False
 
     return build_response(session_attributes, build_speechlet_response(
@@ -1921,7 +2179,7 @@ def get_help_response():
 
 def handle_session_end_request():
     card_title = "Session Ended"
-    speech_output = "Thank you for using the Auto D M! "
+    speech_output = "Thank you for using the Tabletop Monster Maker! "
     # Setting this to true ends the session and exits the skill.
     should_end_session = True
 
@@ -1967,11 +2225,55 @@ def get_monster(monsterCR, monsterEnv):
     return monster
 
 
+def build_monster(monsterCR):
+    # Check for CR
+    if monsterCR in allcrs:
+        valid = True
+    else:
+        valid = False
+        monster = "None"
+
+    # Build monster
+    if valid:
+        # Get feature
+        feature = random.choice(allfeatures)
+        if feature[0] in {'a', 'e', 'i', 'o', 'u'}:
+            monster = "An " + feature + " monster "
+        else:
+            monster = "A " + feature + " monster "
+
+        # Get proficency bounus
+        monster = monster + "with proficiency bonus " + allprof[monsterCR]
+
+        # Get armor class
+        monster = monster + ", armor class " + allac[monsterCR]
+
+        # Get hit points
+        hprange = allhp[monsterCR]
+        monster = monster + ", " + \
+                  str(random.randint(hprange[0], hprange[1])) + \
+                  " hit points"
+
+        # Get attack bonus
+        monster = monster + ", attack bonus " + allattk[monsterCR]
+
+        # Get damage per round
+        dprrange = alldpr[monsterCR]
+        monster = monster + ", " + str(dprrange[0]) + " to " + \
+                  str(dprrange[1]) + " damage per round"
+
+        # Get save DC
+        monster = monster + ", and save d c " + alldc[monsterCR]
+
+    # Return
+    return monster
+
+
 def monster_by_cr_in_session(intent, session):
     """ Gets a random monster at the specifiecd CR
     """
 
-    card_title = "Monster By CR Return"
+    card_title = "Random Monster By CR"
     session_attributes = {}
     should_end_session = False
     try:
@@ -1983,18 +2285,20 @@ def monster_by_cr_in_session(intent, session):
         monsterEnv    = "None"
         monster       = get_monster(monsterCR, monsterEnv)
         if monster != "None":
-            speech_output = monster + " attacks! " \
+            speech_output = monster + " attacks!\n\n " \
                             " Would you like another monster? "
         else:
-            speech_output = " I'm sorry, no monster matches what you want. "
+            speech_output = " I'm sorry, no monster matches what you want.\n\n " \
+                            " Would you like another monster? "
         reprompt_text = " Would you like another monster? "
     else:
-        speech_output = " I'm not sure what type of monster you want. " \
+        speech_output = " I'm not sure what type of monster you want.\n\n " \
                         " Please try again. "
-        reprompt_text = " I'm not sure what type of monster you want. " \
-                        " What type of monster would you like? " \
-                        " You can say 'Give me a C R 1 moster' or " \
-                        " 'Give me a swamp monster'. "
+        reprompt_text = " I'm not sure what type of monster you want.\n\n " \
+                        " What type of monster would you like?\n\n " \
+                        " You can say 'Give me a C R 1 moster', " \
+                        " 'Give me a swamp monster', or " \
+                        " 'Build a C R 3 monster.' "
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
@@ -2003,7 +2307,7 @@ def monster_by_env_in_session(intent, session):
     """ Gets a random monster from the specifiecd environment
     """
 
-    card_title = "Monster By Env Return"
+    card_title = "Random Monster By Environment"
     session_attributes = {}
     should_end_session = False
     try:
@@ -2016,18 +2320,20 @@ def monster_by_env_in_session(intent, session):
         monsterEnv    = intent['slots']['env']['value']
         monster       = get_monster(monsterCR, monsterEnv)
         if monster != "None":
-            speech_output = monster + " attacks! " \
+            speech_output = monster + " attacks!\n\n " \
                             " Would you like another monster? "
         else:
-            speech_output = " I'm sorry, no monster matches what you want. "
+            speech_output = " I'm sorry, no monster matches what you want.\n\n " \
+                            " Would you like another monster? "
         reprompt_text = " Would you like another monster? "
     else:
-        speech_output = " I'm not sure what type of monster you want. " \
+        speech_output = " I'm not sure what type of monster you want.\n\n " \
                         " Please try again. "
-        reprompt_text = " I'm not sure what type of monster you want. " \
-                        " What type of monster would you like? " \
-                        " You can say 'Give me a C R 1 moster' or " \
-                        " 'Give me a swamp monster'. "
+        reprompt_text = " I'm not sure what type of monster you want.\n\n " \
+                        " What type of monster would you like?\n\n " \
+                        " You can say 'Give me a C R 1 moster', " \
+                        " 'Give me a swamp monster', or " \
+                        " 'Build a C R 3 monster.' "
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
@@ -2037,7 +2343,7 @@ def monster_by_cr_and_env_in_session(intent, session):
     environment
     """
 
-    card_title = "Monster By CR and Env Return"
+    card_title = "Random Monster By CR and Environment"
     session_attributes = {}
     should_end_session = False
     try:
@@ -2054,18 +2360,54 @@ def monster_by_cr_and_env_in_session(intent, session):
         monsterEnv    = intent['slots']['env']['value']
         monster       = get_monster(monsterCR, monsterEnv)
         if monster != "None":
-            speech_output = monster + " attacks! " \
+            speech_output = monster + " attacks!\n\n " \
                             " Would you like another monster? "
         else:
-            speech_output = " I'm sorry, no monster matches what you want. "
+            speech_output = " I'm sorry, no monster matches what you want.\n\n " \
+                            " Would you like another monster? "
         reprompt_text = " Would you like another monster? "           
     else:
-        speech_output = " I'm not sure what type of monster you want. " \
+        speech_output = " I'm not sure what type of monster you want.\n\n " \
                         " Please try again. "
-        reprompt_text = " I'm not sure what type of monster you want. " \
-                        " What type of monster would you like? " \
-                        " You can say 'Give me a C R 1 moster' or " \
-                        " 'Give me a swamp monster'. "
+        reprompt_text = " I'm not sure what type of monster you want.\n\n " \
+                        " What type of monster would you like?\n\n " \
+                        " You can say 'Give me a C R 1 moster', " \
+                        " 'Give me a swamp monster', or " \
+                        " 'Build a C R 3 monster.' "
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
+
+
+def build_monster_in_session(intent, session):
+    """ Builds a random monster at the specifiecd CR
+    """
+
+    card_title = "Random New Monster"
+    session_attributes = {}
+    should_end_session = False
+    try:
+        monsterCR     = intent['slots']['cr']['value']
+    except:
+        monsterCR     = "ERROR"
+
+    if monsterCR != "ERROR":
+        monsterCR     = intent['slots']['cr']['value']
+        monster       = build_monster(monsterCR)
+        if monster != "None":
+            speech_output = monster + " attacks!\n\n " \
+                            " Would you like another monster? "
+        else:
+            speech_output = " I'm sorry, no monster matches what you want.\n\n " \
+                            " Would you like another monster? "
+        reprompt_text = " Would you like another monster? "           
+    else:
+        speech_output = " I'm not sure what type of monster you want.\n\n " \
+                        " Please try again. "
+        reprompt_text = " I'm not sure what type of monster you want.\n\n " \
+                        " What type of monster would you like?\n\n " \
+                        " You can say 'Give me a C R 1 moster', " \
+                        " 'Give me a swamp monster', or " \
+                        " 'Build a C R 3 monster.' "
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
@@ -2106,6 +2448,8 @@ def on_intent(intent_request, session):
         return monster_by_env_in_session(intent, session)
     elif intent_name == "MonsterByCRandEnvironmentIntent":
         return monster_by_cr_and_env_in_session(intent, session)
+    elif intent_name == "BuildMonsterIntent":
+        return build_monster_in_session(intent, session)
     elif intent_name == "AMAZON.HelpIntent":
         return get_help_response()
     elif intent_name == "AMAZON.CancelIntent" or intent_name == "AMAZON.StopIntent":

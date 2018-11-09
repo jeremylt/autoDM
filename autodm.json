@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "auto d. m.",
+            "invocationName": "monster maker",
             "intents": [
                 {
                     "name": "MonsterByCRIntent",
@@ -12,21 +12,18 @@
                         }
                     ],
                     "samples": [
-                        "ask auto d m to get a c r {cr} moster",
-                        "tell auto d m i want a c r {cr} moster",
-                        "ask auto d m to give me a c r {cr} moster",
-                        "ask auto d m what is a c r {cr} moster",
-                        "ask auto d m to generate a c r {cr} moster",
+                        "ask monster maker to get a c r {cr} monster ",
+                        "tell monster maker i want a c r {cr} monster ",
+                        "ask monster maker to give me a c r {cr} monster ",
+                        "ask monster maker what is a c r {cr} monster ",
                         "get a c r {cr} monster",
                         "i want a c r {cr} monster",
                         "give me a c r {cr} monster",
                         "what is a c r {cr} monster",
-                        "generate a c r {cr} monster",
                         "get a challenge rating {cr} monster",
                         "i want a challenge rating {cr} monster",
                         "give me a challenge rating {cr} monster",
-                        "what is a challenge rating {cr} monster",
-                        "generate a challenge rating {cr} monster"
+                        "what is a challenge rating {cr} monster"
                     ]
                 },
                 {
@@ -38,16 +35,14 @@
                         }
                     ],
                     "samples": [
-                        "ask auto d m to get a {env} moster",
-                        "tell auto d m i want a {env} moster",
-                        "ask auto d m to give me a {env} moster",
-                        "ask auto d m what is a {env} moster",
-                        "ask auto d m to generate a {env} moster",
+                        "ask monster maker to get a {env} monster ",
+                        "tell monster maker i want a {env} monster ",
+                        "ask monster maker to give me a {env} monster ",
+                        "ask monster maker what is a {env} monster ",
                         "get a {env} monster",
                         "i want a {env} monster",
                         "give me a {env} monster",
-                        "what is a {env} monster",
-                        "generate a {env} monster"
+                        "what is a {env} monster"
                     ]
                 },
                 {
@@ -63,21 +58,45 @@
                         }
                     ],
                     "samples": [
-                        "ask auto d m to get a c r {cr} {env} moster",
-                        "tell auto d m i want a c r {cr} {env} moster",
-                        "ask auto d m to give me a c r {cr} {env} moster",
-                        "ask auto d m what is a c r {cr} {env} moster",
-                        "ask auto d m to generate a c r {cr} {env} moster",
+                        "ask monster maker to get a c r {cr} {env} monster ",
+                        "tell monster maker i want a c r {cr} {env} monster ",
+                        "ask monster maker to give me a c r {cr} {env} monster ",
+                        "ask monster maker what is a c r {cr} {env} monster ",
                         "get a c r {cr} {env} monster",
                         "i want a c r {cr} {env} monster",
                         "give me a c r {cr} {env} monster",
                         "what is a c r {cr} {env} monster",
-                        "generate a c r {cr} {env} monster",
                         "get a challenge rating {cr} {env} monster",
                         "i want a challenge rating {cr} {env} monster",
                         "give me a challenge rating {cr} {env} monster",
-                        "what is a challenge rating {cr} {env} monster",
-                        "generate a challenge rating {cr} {env} monster"
+                        "what is a challenge rating {cr} {env} monster"
+                    ]
+                },
+                {
+                    "name": "BuildMonsterIntent",
+                    "slots": [
+                        {
+                            "name": "cr",
+                            "type": "LIST_OF_CRS"
+                        }
+                    ],
+                    "samples": [
+                        "ask monster maker to make a new c r {cr} monster ",
+                        "tell monster maker to build a new c r {cr} monster ",
+                        "ask monster maker to create a new c r {cr} monster ",
+                        "ask monster maker to generate a new c r {cr} monster ",
+                        "ask monster maker to make a new challenge rating {cr} monster ",
+                        "ask monster maker to build a new challenge rating {cr} monster ",
+                        "tell monster maker to create a new challenge rating {cr} monster ",
+                        "ask monster maker to generate a new challenge rating {cr} monster ",
+                        "make a new c r {cr} monster",
+                        "build a new c r {cr} monster",
+                        "create a new c r {cr} monster",
+                        "generate a new c r {cr} monster",
+                        "make a new challenge rating {cr} monster",
+                        "build a new challenge rating {cr} monster",
+                        "create a new challenge rating {cr} monster",
+                        "generate a new challenge rating {cr} monster"
                     ]
                 },
                 {
@@ -91,14 +110,16 @@
                 {
                     "name": "AMAZON.StopIntent",
                     "samples": [
-                        "no",
-                        "no thank you",
-                        "no thanks",
                         "goodbye",
                         "good bye",
                         "goodnight",
                         "farewell",
+                        "no",
+                        "no thanks",
+                        "no thank you",
                         "stop",
+                        "exit",
+                        "quit",
                         "thank you"
                     ]
                 }
@@ -255,6 +276,21 @@
                         {
                             "name": {
                                 "value": "26"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "27"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "28"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "29"
                             }
                         },
                         {
