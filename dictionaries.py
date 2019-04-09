@@ -1,14 +1,14 @@
 """
-This code provides an Auto DM for tabletop RPG games that provides monsters
-within given specifications (Challange Rating and Environment).
+    Auto DM 
+
+    Jeremy L Thompson
+
+    This file provides dictionaries for random modules
 """
-
-from __future__ import print_function
-import random
-
-# --------------------------- Dictionary of monsters ---------------------------
-
-allmonsters = [# Monster Manual
+# ------------------------------------------------------------------------------
+# Dictionary of Monsters
+# ------------------------------------------------------------------------------
+allMonsters = [# Monster Manual
                {"Name" : "commoner",
                 "CR"   : "0",
                 "Env"  : ["arctic", "coastal", "desert", "forest", "grassland", "hill", "urban"]},
@@ -17,7 +17,7 @@ allmonsters = [# Monster Manual
                 "Env"  : ["arctic", "forest"]},
                {"Name" : "bandit",
                 "CR"   : "1/8",
-                "Env"  : ["artic", "costal", "desert", "forest", "hill", "urban"]},
+                "Env"  : ["arctic", "costal", "desert", "forest", "hill", "urban"]},
                {"Name" : "blood hawk",
                 "CR"   : "1/8",
                 "Env"  : ["arctic", "coastal", "forest", "grassland", "hill", "mountain"]},
@@ -273,7 +273,7 @@ allmonsters = [# Monster Manual
                {"Name" : "axe beak",
                 "CR"   : "1/4",
                 "Env"  : ["grassland", "hill"]},
-               {"Name" : "rinding horse",
+               {"Name" : "riding horse",
                 "CR"   : "1/4",
                 "Env"  : ["grassland", "urban"]},
                {"Name" : "cockatrice",
@@ -282,7 +282,7 @@ allmonsters = [# Monster Manual
                {"Name" : "giant goat",
                 "CR"   : "1/2",
                 "Env"  : ["grassland", "hill"]},
-               {"Name" : "tippogriff",
+               {"Name" : "hippogriff",
                 "CR"   : "1",
                 "Env"  : ["grassland", "hill", "mountain"]},
                {"Name" : "scarecrow",
@@ -440,13 +440,16 @@ allmonsters = [# Monster Manual
                 "Env"  : ["urban"]},
                {"Name" : "bandit captain",
                 "CR"   : "2",
-                "Env"  : ["arctic", "coastal", "desert", "forest", "hill", "urban"]},
+                "Env"  : ["arctic", "coastal", "desert", "forest", "hill", "urban"],
+                "NPC"  : True},
                {"Name" : "berserker",
                 "CR"   : "2",
-                "Env"  : ["arctic", "coastal", "desert", "forest", "hill", "mountain"]},
+                "Env"  : ["arctic", "coastal", "desert", "forest", "hill", "mountain"],
+                "NPC"  : True},
                {"Name" : "druid",
                 "CR"   : "2",
-                "Env"  : ["arctic", "coastal", "desert", "forest", "grassland", "hill", "mountain", "swamp", "underdark"]},
+                "Env"  : ["arctic", "coastal", "desert", "forest", "grassland", "hill", "mountain", "swamp", "underdark"],
+                "NPC"  : True},
                {"Name" : "griffon",
                 "CR"   : "2",
                 "Env"  : ["arctic", "coastal", "grassland", "hill", "mountain"]},
@@ -470,7 +473,8 @@ allmonsters = [# Monster Manual
                 "Env"  : ["arctic", "coastal", "hill", "mountain"]},
                {"Name" : "veteran",
                 "CR"   : "3",
-                "Env"  : ["arctic", "coastal", "forest", "grassland", "hill", "mountain", "underdark", "urban"]},
+                "Env"  : ["arctic", "coastal", "forest", "grassland", "hill", "mountain", "underdark", "urban"],
+                "NPC"  : True},
                {"Name" : "winter wolf",
                 "CR"   : "3",
                 "Env"  : ["arctic"]},
@@ -506,13 +510,15 @@ allmonsters = [# Monster Manual
                 "Env"  : ["desert", "forest", "swamp", "underdark"]},
                {"Name" : "gnoll pack lord",
                 "CR"   : "2",
-                "Env"  : ["desert", "forest", "grassland", "hill"]},
+                "Env"  : ["desert", "forest", "grassland", "hill"],
+                "NPC"  : True},
                {"Name" : "giant scorpion",
                 "CR"   : "3",
                 "Env"  : ["desert"]},
                {"Name" : "hobgoblin captain",
                 "CR"   : "3",
-                "Env"  : ["desert", "forest", "grassland", "hill", "underdark"]},
+                "Env"  : ["desert", "forest", "grassland", "hill", "underdark"],
+                "NPC"  : True},
                {"Name" : "mummy",
                 "CR"   : "3",
                 "Env"  : ["desert"]},
@@ -528,7 +534,7 @@ allmonsters = [# Monster Manual
                {"Name" : "couatl",
                 "CR"   : "4",
                 "Env"  : ["desert", "forest", "grassland", "urban"]},
-               {"Name" : "gnoll fand of Yeenoghu",
+               {"Name" : "gnoll hand of Yeenoghu",
                 "CR"   : "4",
                 "Env"  : ["desert", "forest", "grassland", "hill"]},
                {"Name" : "lamia",
@@ -554,7 +560,8 @@ allmonsters = [# Monster Manual
                 "Env"  : ["forest"]},
                {"Name" : "centaur",
                 "CR"   : "2",
-                "Env"  : ["forest", "grassland"]},
+                "Env"  : ["forest", "grassland"],
+                "NPC"  : True},
                {"Name" : "ettercap",
                 "CR"   : "2",
                 "Env"  : ["forest"]},
@@ -590,7 +597,8 @@ allmonsters = [# Monster Manual
                 "Env"  : ["forest"]},
                {"Name" : "green hag",
                 "CR"   : "3",
-                "Env"  : ["forest", "hill", "swamp"]},
+                "Env"  : ["forest", "hill", "swamp"],
+                "NPC"  : True},
                {"Name" : "owlbear",
                 "CR"   : "3",
                 "Env"  : ["forest"]},
@@ -722,7 +730,8 @@ allmonsters = [# Monster Manual
                 "Env"  : ["underdark"]},
                {"Name" : "drow elite warrior",
                 "CR"   : "5",
-                "Env"  : ["underdark"]},
+                "Env"  : ["underdark"],
+                "NPC"  : True},
                {"Name" : "earth elemental",
                 "CR"   : "5",
                 "Env"  : ["underdark"]},
@@ -758,13 +767,16 @@ allmonsters = [# Monster Manual
                 "Env"  : ["underwater"]},
                {"Name" : "cult fanatic",
                 "CR"   : "2",
-                "Env"  : ["urban"]},
+                "Env"  : ["urban"],
+                "NPC"  : True},
                {"Name" : "priest",
                 "CR"   : "2",
-                "Env"  : ["urban"]},
+                "Env"  : ["urban"],
+                "NPC"  : True},
                {"Name" : "knight",
                 "CR"   : "3",
-                "Env"  : ["urban"]},
+                "Env"  : ["urban"],
+                "NPC"  : True},
                {"Name" : "succubus",
                 "CR"   : "4",
                 "Env"  : ["urban"]},
@@ -776,7 +788,8 @@ allmonsters = [# Monster Manual
                 "Env"  : ["urban"]},
                {"Name" : "gladiator",
                 "CR"   : "5",
-                "Env"  : ["urban"]},
+                "Env"  : ["urban"],
+                "NPC"  : True},
                {"Name" : "mammoth",
                 "CR"   : "6",
                 "Env"  : ["arctic"]},
@@ -797,10 +810,12 @@ allmonsters = [# Monster Manual
                 "Env"  : ["arctic", "coastal", "desert", "hill", "mountain"]},
                {"Name" : "adult white dragon",
                 "CR"   : "13",
-                "Env"  : ["arctic"]},
+                "Env"  : ["arctic"],
+                "NPC"  : True},
                {"Name" : "ancient white dragon",
                 "CR"   : "20",
-                "Env"  : ["arctic"]},
+                "Env"  : ["arctic"],
+                "NPC"  : True},
                {"Name" : "cyclops",
                 "CR"   : "6",
                 "Env"  : ["coastal", "desert", "grassland", "hill", "mountain", "underdark"]},
@@ -812,7 +827,8 @@ allmonsters = [# Monster Manual
                 "Env"  : ["coastal", "desert"]},
                {"Name" : "djinni",
                 "CR"   : "11",
-                "Env"  : ["coastal"]},
+                "Env"  : ["coastal"],
+                "NPC"  : True},
                {"Name" : "marid",
                 "CR"   : "11",
                 "Env"  : ["coastal", "underwater"]},
@@ -821,19 +837,23 @@ allmonsters = [# Monster Manual
                 "Env"  : ["coastal", "underwater"]},
                {"Name" : "adult bronze dragon",
                 "CR"   : "15",
-                "Env"  : ["coastal"]},
+                "Env"  : ["coastal"],
+                "NPC"  : True},
                {"Name" : "adult blue dragon",
                 "CR"   : "16",
-                "Env"  : ["coastal", "desert"]},
+                "Env"  : ["coastal", "desert"],
+                "NPC"  : True},
                {"Name" : "dragon turtle",
                 "CR"   : "17",
                 "Env"  : ["coastal", "underwater"]},
                {"Name" : "ancient bronze dragon",
                 "CR"   : "22",
-                "Env"  : ["coastal"]},
+                "Env"  : ["coastal"],
+                "NPC"  : True},
                {"Name" : "ancient blue dragon",
                 "CR"   : "23",
-                "Env"  : ["coastal", "desert"]},
+                "Env"  : ["coastal", "desert"],
+                "NPC"  : True},
                {"Name" : "medusa",
                 "CR"   : "6",
                 "Env"  : ["desert"]},
@@ -842,7 +862,8 @@ allmonsters = [# Monster Manual
                 "Env"  : ["desert"]},
                {"Name" : "yuan-ti abomination",
                 "CR"   : "7",
-                "Env"  : ["desert", "forest", "swamp"]},
+                "Env"  : ["desert", "forest", "swamp"],
+                "NPC"  : True},
                {"Name" : "gaurdian naga",
                 "CR"   : "10",
                 "Env"  : ["desert", "forest"]},
@@ -854,7 +875,8 @@ allmonsters = [# Monster Manual
                 "Env"  : ["desert"]},
                {"Name" : "adult brass dragon",
                 "CR"   : "13",
-                "Env"  : ["desert"]},
+                "Env"  : ["desert"],
+                "NPC"  : True},
                {"Name" : "mummy lord",
                 "CR"   : "15",
                 "Env"  : ["desert"]},
@@ -863,13 +885,15 @@ allmonsters = [# Monster Manual
                 "Env"  : ["desert"]},
                {"Name" : "adult blue dracolich",
                 "CR"   : "17",
-                "Env"  : ["desert"]},
+                "Env"  : ["desert"],
+                "NPC"  : True},
                {"Name" : "androsphinx",
                 "CR"   : "17",
                 "Env"  : ["desert"]},
                {"Name" : "ancient brass dragon",
                 "CR"   : "20",
-                "Env"  : ["desert"]},
+                "Env"  : ["desert"],
+                "NPC"  : True},
                {"Name" : "giant ape",
                 "CR"   : "7",
                 "Env"  : ["forest"]},
@@ -893,16 +917,20 @@ allmonsters = [# Monster Manual
                 "Env"  : ["forest", "grassland"]},
                {"Name" : "adult green dragon",
                 "CR"   : "15",
-                "Env"  : ["forest"]},
+                "Env"  : ["forest"],
+                "NPC"  : True},
                {"Name" : "adult gold dragon",
                 "CR"   : "17",
-                "Env"  : ["forest", "grassland"]},
+                "Env"  : ["forest", "grassland"],
+                "NPC"  : True},
                {"Name" : "ancient green dragon",
                 "CR"   : "22",
-                "Env"  : ["forest"]},
+                "Env"  : ["forest"],
+                "NPC"  : True},
                {"Name" : "ancient gold dragon",
                 "CR"   : "24",
-                "Env"  : ["forest", "grassland"]},
+                "Env"  : ["forest", "grassland"],
+                "NPC"  : True},
                {"Name" : "chimera",
                 "CR"   : "6",
                 "Env"  : ["grassland", "hill", "mountain", "underdark"]},
@@ -926,16 +954,20 @@ allmonsters = [# Monster Manual
                 "Env"  : ["hill", "mountain"]},
                {"Name" : "adult copper dragon",
                 "CR"   : "14",
-                "Env"  : ["hill"]},
+                "Env"  : ["hill"],
+                "NPC"  : True},
                {"Name" : "adult red dragon",
                 "CR"   : "17",
-                "Env"  : ["hill", "mountain"]},
+                "Env"  : ["hill", "mountain"],
+                "NPC"  : True},
                {"Name" : "ancient copper dragon",
                 "CR"   : "21",
-                "Env"  : ["hill"]},
+                "Env"  : ["hill"],
+                "NPC"  : True},
                {"Name" : "ancient red dragon",
                 "CR"   : "24",
-                "Env"  : ["hill", "mountain"]},
+                "Env"  : ["hill", "mountain"],
+                "NPC"  : True},
                {"Name" : "cloud giant",
                 "CR"   : "9",
                 "Env"  : ["mountain"]},
@@ -947,10 +979,12 @@ allmonsters = [# Monster Manual
                 "Env"  : ["mountain"]},
                {"Name" : "adult silver dragon",
                 "CR"   : "16",
-                "Env"  : ["mountain"]},
+                "Env"  : ["mountain"],
+                "NPC"  : True},
                {"Name" : "ancient silver dragon",
                 "CR"   : "23",
-                "Env"  : ["mountain"]},
+                "Env"  : ["mountain"],
+                "NPC"  : True},
                {"Name" : "young black dragon",
                 "CR"   : "7",
                 "Env"  : ["swamp"]},
@@ -959,10 +993,12 @@ allmonsters = [# Monster Manual
                 "Env"  : ["swamp"]},
                {"Name" : "adult black dragon",
                 "CR"   : "14",
-                "Env"  : ["swamp"]},
+                "Env"  : ["swamp"],
+                "NPC"  : True},
                {"Name" : "ancient black dragon",
                 "CR"   : "21",
-                "Env"  : ["swamp"]},
+                "Env"  : ["swamp"],
+                "NPC"  : True},
                {"Name" : "drider",
                 "CR"   : "6",
                 "Env"  : ["underdark"]},
@@ -971,10 +1007,12 @@ allmonsters = [# Monster Manual
                 "Env"  : ["underdark"]},
                {"Name" : "mind flayer",
                 "CR"   : "8",
-                "Env"  : ["underdark"]},
+                "Env"  : ["underdark"],
+                "NPC"  : True},
                {"Name" : "arcanist",
                 "CR"   : "8",
-                "Env"  : ["underdark"]},
+                "Env"  : ["underdark"],
+                "NPC"  : True},
                {"Name" : "spirit naga",
                 "CR"   : "8",
                 "Env"  : ["underdark"]},
@@ -986,10 +1024,12 @@ allmonsters = [# Monster Manual
                 "Env"  : ["underdark"]},
                {"Name" : "dao",
                 "CR"   : "11",
-                "Env"  : ["underdark"]},
-               {"Name" : "boholder",
+                "Env"  : ["underdark"],
+                "NPC"  : True},
+               {"Name" : "beholder",
                 "CR"   : "13",
-                "Env"  : ["underdark"]},
+                "Env"  : ["underdark"],
+                "NPC"  : True},
                {"Name" : "young red shadow dragon",
                 "CR"   : "13",
                 "Env"  : ["underdark"]},
@@ -1007,13 +1047,15 @@ allmonsters = [# Monster Manual
                 "Env"  : ["urban"]},
                {"Name" : "mage",
                 "CR"   : "6",
-                "Env"  : ["urban"]},
+                "Env"  : ["urban"],
+                "NPC"  : True},
                {"Name" : "shield guardian",
                 "CR"   : "7",
                 "Env"  : ["urban"]},
                {"Name" : "assassin",
                 "CR"   : "8",
-                "Env"  : ["urban"]},
+                "Env"  : ["urban"],
+                "NPC"  : True},
                {"Name" : "gray slaad",
                 "CR"   : "9",
                 "Env"  : ["urban"]},
@@ -1022,25 +1064,32 @@ allmonsters = [# Monster Manual
                 "Env"  : ["urban"]},
                {"Name" : "archmage",
                 "CR"   : "12",
-                "Env"  : ["urban"]},
+                "Env"  : ["urban"],
+                "NPC"  : True},
                {"Name" : "rakshasa",
                 "CR"   : "13",
-                "Env"  : ["urban"]},
+                "Env"  : ["urban"],
+                "NPC"  : True},
                {"Name" : "vampire",
                 "CR"   : "13",
-                "Env"  : ["urban"]},
+                "Env"  : ["urban"],
+                "NPC"  : True},
                {"Name" : "spellcaster vampire",
                 "CR"   : "15",
-                "Env"  : ["urban"]},
+                "Env"  : ["urban"],
+                "NPC"  : True},
                {"Name" : "warrior vampire",
                 "CR"   : "15",
-                "Env"  : ["urban"]},
+                "Env"  : ["urban"],
+                "NPC"  : True},
                {"Name" : "adult silver dragon",
                 "CR"   : "16",
-                "Env"  : ["urban"]},
+                "Env"  : ["urban"],
+                "NPC"  : True},
                {"Name" : "ancient silver dragon",
                 "CR"   : "23",
-                "Env"  : ["urban"]},
+                "Env"  : ["urban"],
+                "NPC"  : True},
                {"Name" : "tarrasque",
                 "CR"   : "30",
                 "Env"  : ["urban"]},
@@ -1049,22 +1098,26 @@ allmonsters = [# Monster Manual
                 "Env"  : []},
                {"Name" : "adult blue dracolich",
                 "CR"   : "17",
-                "Env"  : []},
+                "Env"  : [],
+                "NPC"  : True},
                {"Name" : "death knight",
                 "CR"   : "17",
-                "Env"  : []},
+                "Env"  : [],
+                "NPC"  : True},
                {"Name" : "goristro",
                 "CR"   : "17",
                 "Env"  : []},
                {"Name" : "demilich not in lair",
                 "CR"   : "18",
-                "Env"  : []},
+                "Env"  : [],
+                "NPC"  : True},
                {"Name" : "balor",
                 "CR"   : "19",
                 "Env"  : []},
                {"Name" : "demilich in lair",
                 "CR"   : "20",
-                "Env"  : []},
+                "Env"  : [],
+                "NPC"  : True},
                {"Name" : "pit fiend",
                 "CR"   : "20",
                 "Env"  : []},
@@ -1073,7 +1126,8 @@ allmonsters = [# Monster Manual
                 "Env"  : []},
                {"Name" : "solar",
                 "CR"   : "21",
-                "Env"  : []},
+                "Env"  : [],
+                "NPC"  : True},
                {"Name" : "lich in lair",
                 "CR"   : "22",
                  "Env" : []},
@@ -1095,16 +1149,20 @@ allmonsters = [# Monster Manual
                 "Env"  : ["arctic", "urban"]},
                {"Name" : "warlock of the archfey",
                 "CR"   : "4",
-                "Env"  : ["arctic", "swamp", "urban"]},
+                "Env"  : ["arctic", "swamp", "urban"],
+                "NPC"  : True},
                {"Name" : "warlock of the great old one",
                 "CR"   : "6",
-                "Env"  : ["arctic", "hill", "mountain", "urban"]},
+                "Env"  : ["arctic", "hill", "mountain", "urban"],
+                "NPC"  : True},
                {"Name" : "bheur hag",
                 "CR"   : "7",
-                "Env"  : ["arctic"]},
+                "Env"  : ["arctic"],
+                "NPC"  : True},
                {"Name" : "warlock of the fiend",
                 "CR"   : "7",
-                "Env"  : ["arctic", "desert", "underdark", "urban"]},
+                "Env"  : ["arctic", "desert", "underdark", "urban"],
+                "NPC"  : True},
                {"Name" : "shoosuva",
                 "CR"   : "8",
                 "Env"  : ["arctic", "forest", "grassland", "hill"]},
@@ -1137,7 +1195,8 @@ allmonsters = [# Monster Manual
                 "Env"  : ["coastal", "urban"]},
                {"Name" : "kraken priest",
                 "CR"   : "5",
-                "Env"  : ["coastal", "underwater"]},
+                "Env"  : ["coastal", "underwater"],
+                "NPC"  : True},
                {"Name" : "stone giant dreamwalker",
                 "CR"   : "10",
                 "Env"  : ["coastal", "hill", "mountain"]},
@@ -1182,10 +1241,12 @@ allmonsters = [# Monster Manual
                 "Env"  : ["desert", "urban"]},
                {"Name" : "necromancer",
                 "CR"   : "9",
-                "Env"  : ["desert", "urban"]},
+                "Env"  : ["desert", "urban"],
+                "NPC"  : True},
                {"Name" : "war priest",
                 "CR"   : "9",
-                "Env"  : ["desert", "urban"]},
+                "Env"  : ["desert", "urban"],
+                "NPC"  : True},
                {"Name" : "yuan-ti anathema",
                 "CR"   : "12",
                 "Env"  : ["desert", "forest", "underdark"]},
@@ -1209,7 +1270,7 @@ allmonsters = [# Monster Manual
                 "Env"  : ["forest", "swamp", "underdark", "urban"]},
                {"Name" : "orc nurtured one of yurtrus",
                 "CR"   : "1/2",
-                "Env"  : ["forest", "grassland", "hill", "mountian", "underdark"]},
+                "Env"  : ["forest", "grassland", "hill", "mountain", "underdark"]},
                {"Name" : "deinonychus",
                 "CR"   : "1",
                 "Env"  : ["forest", "grassland", "hill"]},
@@ -1242,7 +1303,8 @@ allmonsters = [# Monster Manual
                 "Env"  : ["forest", "urban"]},
                {"Name" : "hobgoblin iron shadow",
                 "CR"   : "2",
-                "Env"  : ["forest", "grassland", "hill"]},
+                "Env"  : ["forest", "grassland", "hill"],
+                "NPC"  : True},
                {"Name" : "meenlock",
                 "CR"   : "2",
                 "Env"  : ["forest", "swamp", "urban"]},
@@ -1254,7 +1316,8 @@ allmonsters = [# Monster Manual
                 "Env"  : ["forest", "hill", "swamp"]},
                {"Name" : "vegepygmy chief",
                 "CR"   : "2",
-                "Env"  : ["forest", "swamp"]},
+                "Env"  : ["forest", "swamp"],
+                "NPC"  : True},
                {"Name" : "archer",
                 "CR"   : "3",
                 "Env"  : ["forest", "urban"]},
@@ -1275,7 +1338,8 @@ allmonsters = [# Monster Manual
                 "Env"  : ["forest"]},
                {"Name" : "hobgoblin devastator",
                 "CR"   : "4",
-                "Env"  : ["forest", "grassland", "hill"]},
+                "Env"  : ["forest", "grassland", "hill"],
+                "NPC"  : True},
                {"Name" : "orc blade of ilneval",
                 "CR"   : "4",
                 "Env"  : ["forest", "grassland", "hill", "mountain", "underdark"]},
@@ -1296,7 +1360,8 @@ allmonsters = [# Monster Manual
                 "Env"  : ["forest"]},
                {"Name" : "archdruid",
                 "CR"   : "12",
-                "Env"  : ["forest", "mountain", "swamp", "underwater"]},
+                "Env"  : ["forest", "mountain", "swamp", "underwater"],
+                "NPC"  : True},
                {"Name" : "cow",
                 "CR"   : "1/4",
                 "Env"  : ["grassland", "underdark", "urban"]},
@@ -1341,7 +1406,8 @@ allmonsters = [# Monster Manual
                 "Env"  : ["hill", "mountain", "underdark"]},
                {"Name" : "annis hag",
                 "CR"   : "6",
-                "Env"  : ["hill", "mountain"]},
+                "Env"  : ["hill", "mountain"],
+                "NPC"  : True},
                {"Name" : "guard drake red",
                 "CR"   : "2",
                 "Env"  : ["mountain", "underdark", "urban"]},
@@ -1428,7 +1494,8 @@ allmonsters = [# Monster Manual
                 "Env"  : ["underdark"]},
                {"Name" : "mind flayer lich",
                 "CR"   : "22",
-                "Env"  : ["underdark"]},
+                "Env"  : ["underdark"],
+                "NPC"  : True},
                {"Name" : "apprentice",
                 "CR"   : "1/8",
                 "Env"  : ["urban"]},
@@ -1437,40 +1504,50 @@ allmonsters = [# Monster Manual
                 "Env"  : ["urban"]},
                {"Name" : "illusionist",
                 "CR"   : "3",
-                "Env"  : ["urban"]},
+                "Env"  : ["urban"],
+                "NPC"  : True},
                {"Name" : "martial arts adept",
                 "CR"   : "3",
-                "Env"  : ["urban"]},
+                "Env"  : ["urban"],
+                "NPC"  : True},
                {"Name" : "banderhobb",
                 "CR"   : "5",
                 "Env"  : ["urban"]},
                {"Name" : "enchanter",
                 "CR"   : "5",
-                "Env"  : ["urban"]},
+                "Env"  : ["urban"],
+                "NPC"  : True},
                {"Name" : "master thief",
                 "CR"   : "5",
-                "Env"  : ["urban"]},
+                "Env"  : ["urban"],
+                "NPC"  : True},
                {"Name" : "transmuter",
                 "CR"   : "5",
-                "Env"  : ["urban"]},
+                "Env"  : ["urban"],
+                "NPC"  : True},
                {"Name" : "bodak",
                 "CR"   : "6",
                 "Env"  : ["urban"]},
                {"Name" : "conjurer",
                 "CR"   : "6",
-                "Env"  : ["urban"]},
+                "Env"  : ["urban"],
+                "NPC"  : True},
                {"Name" : "diviner",
                 "CR"   : "8",
-                "Env"  : ["urban"]},
+                "Env"  : ["urban"],
+                "NPC"  : True},
                {"Name" : "abjurer",
                 "CR"   : "9",
-                "Env"  : ["urban"]},
+                "Env"  : ["urban"],
+                "NPC"  : True},
                {"Name" : "evoker",
                 "CR"   : "9",
-                "Env"  : ["urban"]},
+                "Env"  : ["urban"],
+                "NPC"  : True},
                {"Name" : "warlord",
                 "CR"   : "12",
-                "Env"  : ["urban"]},
+                "Env"  : ["urban"],
+                "NPC"  : True},
                # Mordenkainen's Tome of Foes
                {"Name" : "vampiric mist",
                 "CR"   : "3",
@@ -1483,13 +1560,14 @@ allmonsters = [# Monster Manual
                 "Env"  : ["arctic"]},
                {"Name" : "winter eladrin",
                 "CR"   : "10",
-                "Env"  : ["arctic", "forest"]},
+                "Env"  : ["arctic", "forest"],
+                "NPC"  : True},
                {"Name" : "boneclaw",
                 "CR"   : "12",
                 "Env"  : ["arctic", "desert", "urban"]},
                {"Name" : "dire troll",
                 "CR"   : "13",
-                "Env"  : ["arctic", "forest", "hill", "mountian", "underdark"]},
+                "Env"  : ["arctic", "forest", "hill", "mountain", "underdark"]},
                {"Name" : "nightwalker",
                 "CR"   : "20",
                 "Env"  : ["arctic", "desert", "swamp", "underdark"]},
@@ -1546,7 +1624,7 @@ allmonsters = [# Monster Manual
                 "Env"  : ["desert", "mountain", "urban"]},
                {"Name" : "adult kruthik",
                 "CR"   : "2",
-                "Env"  : ["desert", "mountian", "underdark"]},
+                "Env"  : ["desert", "mountain", "underdark"]},
                {"Name" : "berbalang",
                 "CR"   : "2",
                 "Env"  : ["desert"]},
@@ -1567,25 +1645,30 @@ allmonsters = [# Monster Manual
                 "Env"  : ["desert", "mountain", "underdark", "urban"]},
                {"Name" : "githyanki gish",
                 "CR"   : "10",
-                "Env"  : ["desert", "mountain", "urban"]},
+                "Env"  : ["desert", "mountain", "urban"],
+                "NPC"  : True},
                {"Name" : "githzerai enlightened",
                 "CR"   : "10",
-                "Env"  : ["desert", "mountain", "urban"]},
+                "Env"  : ["desert", "mountain", "urban"],
+                "NPC"  : True},
                {"Name" : "orthon",
                 "CR"   : "10",
                 "Env"  : ["desert", "underdark", "urban"]},
                {"Name" : "summer eladrin",
                 "CR"   : "10",
-                "Env"  : ["desert", "forest"]},
+                "Env"  : ["desert", "forest"],
+                "NPC"  : True},
                {"Name" : "githyanki kith'rak",
                 "CR"   : "12",
-                "Env"  : ["desert", "mountain", "urban"]},
+                "Env"  : ["desert", "mountain", "urban"],
+                "NPC"  : True},
                {"Name" : "oinoloth",
                 "CR"   : "12",
                 "Env"  : ["desert", "underdark"]},
                {"Name" : "githyanki supreme commander",
                 "CR"   : "14",
-                "Env"  : ["desert", "mountain", "urban"]},
+                "Env"  : ["desert", "mountain", "urban"],
+                "NPC"  : True},
                {"Name" : "retriever",
                 "CR"   : "14",
                 "Env"  : ["desert", "forest", "underdark"]},
@@ -1624,7 +1707,8 @@ allmonsters = [# Monster Manual
                 "Env"  : ["forest", "swamp", "urban"]},
                {"Name" : "autumn eladrin",
                 "CR"   : "10",
-                "Env"  : ["forest"]},
+                "Env"  : ["forest"],
+                "NPC"  : True},
                {"Name" : "ogre bolt launcher",
                 "CR"   : "2",
                 "Env"  : ["grassland", "hill", "mountain"]},
@@ -1642,7 +1726,8 @@ allmonsters = [# Monster Manual
                 "Env"  : ["grassland", "hill", "mountain"]},
                {"Name" : "sword wraith commander",
                 "CR"   : "8",
-                "Env"  : ["grassland", "swamp"]},
+                "Env"  : ["grassland", "swamp"],
+                "NPC"  : True},
                {"Name" : "spring eladrin",
                 "CR"   : "10",
                 "Env"  : ["grassland", "forest"]},
@@ -1663,28 +1748,36 @@ allmonsters = [# Monster Manual
                 "Env"  : ["mountain", "underdark"]},
                {"Name" : "duergar hammerer",
                 "CR"   : "2",
-                "Env"  : ["mountain", "underdark"]},
+                "Env"  : ["mountain", "underdark"],
+                "NPC"  : True},
                {"Name" : "duergar kavalrachni",
                 "CR"   : "2",
-                "Env"  : ["mountain", "underdark"]},
+                "Env"  : ["mountain", "underdark"],
+                "NPC"  : True},
                {"Name" : "duergar mind master",
                 "CR"   : "2",
-                "Env"  : ["mountain", "underdark"]},
+                "Env"  : ["mountain", "underdark"],
+                "NPC"  : True},
                {"Name" : "duergar stone guard",
                 "CR"   : "2",
-                "Env"  : ["mountain", "underdark"]},
+                "Env"  : ["mountain", "underdark"],
+                "NPC"  : True},
                {"Name" : "duergar xarrorn",
                 "CR"   : "2",
-                "Env"  : ["mountain", "underdark"]},
+                "Env"  : ["mountain", "underdark"],
+                "NPC"  : True},
                {"Name" : "duergar screamer",
                 "CR"   : "3",
-                "Env"  : ["mountain", "underdark"]},
+                "Env"  : ["mountain", "underdark"],
+                "NPC"  : True},
                {"Name" : "duergar warlord",
                 "CR"   : "6",
-                "Env"  : ["mountain", "underdark"]},
+                "Env"  : ["mountain", "underdark"],
+                "NPC"  : True},
                {"Name" : "duergar despot",
                 "CR"   : "12",
-                "Env"  : ["mountain", "underdark"]},
+                "Env"  : ["mountain", "underdark"],
+                "NPC"  : True},
                {"Name" : "star spawn seer",
                 "CR"   : "13",
                 "Env"  : ["mountain", "swamp", "urban"]},
@@ -1729,7 +1822,8 @@ allmonsters = [# Monster Manual
                 "Env"  : ["underdark"]},
                {"Name" : "drow house captain",
                 "CR"   : "9",
-                "Env"  : ["underdark"]},
+                "Env"  : ["underdark"],
+                "NPC"  : True},
                {"Name" : "gloom weaver",
                 "CR"   : "9",
                 "Env"  : ["underdark", "urban"]},
@@ -1738,7 +1832,8 @@ allmonsters = [# Monster Manual
                 "Env"  : ["underdark", "urban"]},
                {"Name" : "drow shadowblade",
                 "CR"   : "11",
-                "Env"  : ["underdark"]},
+                "Env"  : ["underdark"],
+                "NPC"  : True},
                {"Name" : "soul monger",
                 "CR"   : "11",
                 "Env"  : ["underdark", "urban"]},
@@ -1756,13 +1851,15 @@ allmonsters = [# Monster Manual
                 "Env"  : ["underdark", "urban"]},
                {"Name" : "drow favored consort",
                 "CR"   : "18",
-                "Env"  : ["underdark"]},
+                "Env"  : ["underdark"],
+                "NPC"  : True},
                {"Name" : "sibriex",
                 "CR"   : "18",
                 "Env"  : ["underdark"]},
                {"Name" : "drow matron mother",
                 "CR"   : "20",
-                "Env"  : ["underdark"]},
+                "Env"  : ["underdark"],
+                "NPC"  : True},
                {"Name" : "giff",
                 "CR"   : "3",
                 "Env"  : ["urban"]},
@@ -1842,10 +1939,15 @@ allmonsters = [# Monster Manual
                 "CR"   : "16",
                 "Env"  : []}]
 
+# ------------------------------------------------------------------------------
+# Dictionary of NPCs
+# ------------------------------------------------------------------------------
+allNPCs =     [npc for npc in allMonsters if npc.get("NPC")]
 
-# ---------------------- Dictionaries of Monster Features ----------------------
-
-allfeatures = ["aggressive", "ambusher", "amorphus", "angelic weapons",
+# ------------------------------------------------------------------------------
+# Dictionaries of Monster Features
+# ------------------------------------------------------------------------------
+allFeatures = ["aggressive", "ambusher", "amorphous", "angelic weapons",
                "antimagic susceptibility", "avoidance", "blind senses",
                "blood frenzy", "breath weapon", "brute", "chameleon skin",
                "change shape", "charge", "charm", "constrict",
@@ -1853,7 +1955,7 @@ allfeatures = ["aggressive", "ambusher", "amorphus", "angelic weapons",
                "devil sight", "dive attack", "echolocation", "elemental body",
                "enlarge", "ethearlness", "false appearance", "fey ancestry",
                "fiendish blessing", "flyby", "frightful presence", "grappler",
-               "hold breath", "horifying visage", "illumination",
+               "hold breath", "horrifying visage", "illumination",
                "illusory appearance", "immutable form", "incorporeal movement",
                "innate spellcasting", "inscrutable", "invisibility",
                "keen senses", "labyrinthine recall", "leadership",
@@ -1871,8 +1973,7 @@ allfeatures = ["aggressive", "ambusher", "amorphus", "angelic weapons",
                "turn resistance", "two heads", "undead fortitude",
                "web", "web sense", "web walker", "wounded fury"]
 
-
-allcrs = ["0",   "1/8", "1/4", "1/2",
+allCRs = ["0",   "1/8", "1/4", "1/2",
           "1",   "2",   "3",   "4",   "5",
           "6",   "7",   "8",   "9",   "10",
           "11",  "12",  "13",  "14",  "15",
@@ -1880,8 +1981,7 @@ allcrs = ["0",   "1/8", "1/4", "1/2",
           "21",  "22",  "23",  "24",  "25",
           "26",  "27",  "28",  "29",  "30"]
 
-
-allprof = { "0"   : "2",
+allProf = { "0"   : "2",
             "1/8" : "2",
             "1/4" : "2",
             "1/2" : "2",
@@ -1916,8 +2016,7 @@ allprof = { "0"   : "2",
             "29"  : "9",
             "30"  : "9" }
 
-
-allac   = { "0"   : "13",
+allAC   = { "0"   : "13",
             "1/8" : "13",
             "1/4" : "13",
             "1/2" : "13",
@@ -1952,8 +2051,7 @@ allac   = { "0"   : "13",
             "29"  : "19",
             "30"  : "19" }
 
-
-allhp   = { "0"   : [1,   6],
+allHP   = { "0"   : [1,   6],
             "1/8" : [7,   35],
             "1/4" : [36,  49],
             "1/2" : [50,  70],
@@ -1988,8 +2086,7 @@ allhp   = { "0"   : [1,   6],
             "29"  : [761, 805],
             "30"  : [806, 850] }
 
-
-allattk = { "0"   : "3",
+allAttk = { "0"   : "3",
             "1/8" : "3",
             "1/4" : "3",
             "1/2" : "3",
@@ -2024,8 +2121,7 @@ allattk = { "0"   : "3",
             "29"  : "13",
             "30"  : "14" }
 
-
-alldpr  = { "0"   : [0,   1],
+allDPR  = { "0"   : [0,   1],
             "1/8" : [2,   3],
             "1/4" : [4,   5],
             "1/2" : [6,   8],
@@ -2060,8 +2156,7 @@ alldpr  = { "0"   : [0,   1],
             "29"  : [285, 302],
             "30"  : [303, 320] }
 
-
-alldc   = { "0"   : "13",
+allDC   = { "0"   : "13",
             "1/8" : "13",
             "1/4" : "13",
             "1/2" : "13",
@@ -2096,394 +2191,1090 @@ alldc   = { "0"   : "13",
             "29"  : "22",
             "30"  : "23" }
 
-
-# ------------------- Helpers that build all of the responses ------------------
-
-def build_speechlet_response(title, output, reprompt_text, should_end_session):
-    return {
-        'outputSpeech': {
-            'type': 'PlainText',
-            'text': output
-        },
-        'card': {
-            'type': 'Simple',
-            'title': title,
-            'content': output
-        },
-        'reprompt': {
-            'outputSpeech': {
-                'type': 'PlainText',
-                'text': reprompt_text
-            }
-        },
-        'shouldEndSession': should_end_session
-    }
-
-
-def build_response(session_attributes, speechlet_response):
-    return {
-        'version': '1.0',
-        'sessionAttributes': session_attributes,
-        'response': speechlet_response
-    }
-
-
-# ----------------- Functions that control the skill's behavior ----------------
-
-def get_welcome_response():
-    """ If we wanted to initialize the session to have some attributes we could
-    add those here
-    """
-
-    session_attributes = {}
-    card_title = "Welcome"
-    speech_output = " Welcome to the Tabletop Monster Maker!\n\n " \
-                    " How do you want to do this? "
-    # If the user either does not reply to the welcome message or says something
-    # that is not understood, they will be prompted again with this text.
-    reprompt_text = " What type of monster would you like?\n\n " \
-                    " You can say 'Give me a C R 1 moster', " \
-                    " 'Give me a swamp monster', or " \
-                    " 'Build a C R 3 monster.' "
-    should_end_session = False
-
-    return build_response(session_attributes, build_speechlet_response(
-        card_title, speech_output, reprompt_text, should_end_session))
-
-
-def get_help_response():
-    """ If we wanted to initialize the session to have some attributes we could
-    add those here
-    """
-
-    session_attributes = {}
-    card_title = "Help"
-    speech_output = " You can request a monster by challange rating, " \
-                    " environment, or both. Also, you can ask for " \
-                    " a new monster to be built. \n\n" \
-                    " For example, you can say 'Give me a C R 1 moster', " \
-                    " 'Give me a swamp monster', or " \
-                    " 'Build a C R 3 monster.'\n\n " \
-                    " What type of monster would you like? "
-    # If the user either does not reply to the welcome message or says something
-    # that is not understood, they will be prompted again with this text.
-    reprompt_text = " What type of monster would you like? \n\n" \
-                    " You can say 'Give me a C R 1 moster', " \
-                    " 'Give me a swamp monster', or " \
-                    " 'Build a C R 3 monster.' "
-    should_end_session = False
-
-    return build_response(session_attributes, build_speechlet_response(
-        card_title, speech_output, reprompt_text, should_end_session))
-
-
-def handle_session_end_request():
-    card_title = "Session Ended"
-    speech_output = "Thank you for using the Tabletop Monster Maker! "
-    # Setting this to true ends the session and exits the skill.
-    should_end_session = True
-
-    return build_response({}, build_speechlet_response(
-        card_title, speech_output, None, should_end_session))
-
-
-def get_monster(monsterCR, monsterEnv):
-    # No CR
-    if monsterCR == "None":
-        monsters = [monster["Name"] for monster
-                    in allmonsters
-                    if monsterEnv in monster['Env']]
-    # No Env
-    elif monsterEnv == "None":
-        monsters = [monster["Name"] for monster
-                    in allmonsters
-                    if monster['CR'] == monsterCR]       
-    # Both CR and Env
-    else:
-        monsters = [monster["Name"] for monster
-                    in allmonsters
-                    if monsterEnv in monster['Env']
-                    and monster['CR'] == monsterCR]
-
-    # Get random monster
-    if len(monsters):
-        monster = random.choice(monsters)
-    else:
-        monster = "None"
-
-    # Set first word
-    if monster != "None":
-        if monster[:3] != "the":
-            if monster[0] in {'a', 'e', 'i', 'o', 'u'}:
-                monster = "An " + monster
-            else:
-                monster = "A " + monster
-        else:
-            monster[0] = "T"
-
-    # Return
-    return monster
-
-
-def build_monster(monsterCR):
-    # Check for CR
-    if monsterCR in allcrs:
-        valid = True
-    else:
-        valid = False
-        monster = "None"
-
-    # Build monster
-    if valid:
-        # Get feature
-        feature = random.choice(allfeatures)
-        if feature[0] in {'a', 'e', 'i', 'o', 'u'}:
-            monster = "An " + feature + " monster "
-        else:
-            monster = "A " + feature + " monster "
-
-        # Get proficency bounus
-        monster = monster + "with proficiency bonus " + allprof[monsterCR]
-
-        # Get armor class
-        monster = monster + ", armor class " + allac[monsterCR]
-
-        # Get hit points
-        hprange = allhp[monsterCR]
-        monster = monster + ", " + \
-                  str(random.randint(hprange[0], hprange[1])) + \
-                  " hit points"
-
-        # Get attack bonus
-        monster = monster + ", attack bonus " + allattk[monsterCR]
-
-        # Get damage per round
-        dprrange = alldpr[monsterCR]
-        monster = monster + ", " + str(dprrange[0]) + " to " + \
-                  str(dprrange[1]) + " damage per round"
-
-        # Get save DC
-        monster = monster + ", and save d c " + alldc[monsterCR]
-
-    # Return
-    return monster
-
-
-def monster_by_cr_in_session(intent, session):
-    """ Gets a random monster at the specifiecd CR
-    """
-
-    card_title = "Random Monster By CR"
-    session_attributes = {}
-    should_end_session = False
-    try:
-        monsterCR     = intent['slots']['cr']['value']
-    except:
-        monsterCR     = "ERROR"
-
-    if monsterCR != "ERROR":
-        monsterEnv    = "None"
-        monster       = get_monster(monsterCR, monsterEnv)
-        if monster != "None":
-            speech_output = monster + " attacks!\n\n " \
-                            " Would you like another monster? "
-        else:
-            speech_output = " I'm sorry, no monster matches what you want.\n\n " \
-                            " Would you like another monster? "
-        reprompt_text = " Would you like another monster? "
-    else:
-        speech_output = " I'm not sure what type of monster you want.\n\n " \
-                        " Please try again. "
-        reprompt_text = " I'm not sure what type of monster you want.\n\n " \
-                        " What type of monster would you like?\n\n " \
-                        " You can say 'Give me a C R 1 moster', " \
-                        " 'Give me a swamp monster', or " \
-                        " 'Build a C R 3 monster.' "
-    return build_response(session_attributes, build_speechlet_response(
-        card_title, speech_output, reprompt_text, should_end_session))
-
-
-def monster_by_env_in_session(intent, session):
-    """ Gets a random monster from the specifiecd environment
-    """
-
-    card_title = "Random Monster By Environment"
-    session_attributes = {}
-    should_end_session = False
-    try:
-        monsterEnv    = intent['slots']['env']['value']
-    except:
-        monsterEnv    = "ERROR"
-
-    if monsterEnv != "ERROR":
-        monsterCR     = "None"
-        monsterEnv    = intent['slots']['env']['value']
-        monster       = get_monster(monsterCR, monsterEnv)
-        if monster != "None":
-            speech_output = monster + " attacks!\n\n " \
-                            " Would you like another monster? "
-        else:
-            speech_output = " I'm sorry, no monster matches what you want.\n\n " \
-                            " Would you like another monster? "
-        reprompt_text = " Would you like another monster? "
-    else:
-        speech_output = " I'm not sure what type of monster you want.\n\n " \
-                        " Please try again. "
-        reprompt_text = " I'm not sure what type of monster you want.\n\n " \
-                        " What type of monster would you like?\n\n " \
-                        " You can say 'Give me a C R 1 moster', " \
-                        " 'Give me a swamp monster', or " \
-                        " 'Build a C R 3 monster.' "
-    return build_response(session_attributes, build_speechlet_response(
-        card_title, speech_output, reprompt_text, should_end_session))
-
-
-def monster_by_cr_and_env_in_session(intent, session):
-    """ Gets a random monster at the specifiecd CR from the specified
-    environment
-    """
-
-    card_title = "Random Monster By CR and Environment"
-    session_attributes = {}
-    should_end_session = False
-    try:
-        monsterCR     = intent['slots']['cr']['value']
-    except:
-        monsterCR     = "ERROR"
-    try:
-        monsterEnv    = intent['slots']['env']['value']
-    except:
-        monsterEnv    = "ERROR"
-
-    if monsterCR != "ERROR" and monsterEnv != "ERROR":
-        monsterCR     = intent['slots']['cr']['value']
-        monsterEnv    = intent['slots']['env']['value']
-        monster       = get_monster(monsterCR, monsterEnv)
-        if monster != "None":
-            speech_output = monster + " attacks!\n\n " \
-                            " Would you like another monster? "
-        else:
-            speech_output = " I'm sorry, no monster matches what you want.\n\n " \
-                            " Would you like another monster? "
-        reprompt_text = " Would you like another monster? "           
-    else:
-        speech_output = " I'm not sure what type of monster you want.\n\n " \
-                        " Please try again. "
-        reprompt_text = " I'm not sure what type of monster you want.\n\n " \
-                        " What type of monster would you like?\n\n " \
-                        " You can say 'Give me a C R 1 moster', " \
-                        " 'Give me a swamp monster', or " \
-                        " 'Build a C R 3 monster.' "
-    return build_response(session_attributes, build_speechlet_response(
-        card_title, speech_output, reprompt_text, should_end_session))
-
-
-def build_monster_in_session(intent, session):
-    """ Builds a random monster at the specifiecd CR
-    """
-
-    card_title = "Random New Monster"
-    session_attributes = {}
-    should_end_session = False
-    try:
-        monsterCR     = intent['slots']['cr']['value']
-    except:
-        monsterCR     = "ERROR"
-
-    if monsterCR != "ERROR":
-        monsterCR     = intent['slots']['cr']['value']
-        monster       = build_monster(monsterCR)
-        if monster != "None":
-            speech_output = monster + " attacks!\n\n " \
-                            " Would you like another monster? "
-        else:
-            speech_output = " I'm sorry, no monster matches what you want.\n\n " \
-                            " Would you like another monster? "
-        reprompt_text = " Would you like another monster? "           
-    else:
-        speech_output = " I'm not sure what type of monster you want.\n\n " \
-                        " Please try again. "
-        reprompt_text = " I'm not sure what type of monster you want.\n\n " \
-                        " What type of monster would you like?\n\n " \
-                        " You can say 'Give me a C R 1 moster', " \
-                        " 'Give me a swamp monster', or " \
-                        " 'Build a C R 3 monster.' "
-    return build_response(session_attributes, build_speechlet_response(
-        card_title, speech_output, reprompt_text, should_end_session))
-
-
-# ----------------------------------- Events -----------------------------------
-
-def on_session_started(session_started_request, session):
-    """ Called when the session starts """
-
-    print("on_session_started requestId=" + session_started_request['requestId']
-          + ", sessionId=" + session['sessionId'])
-
-
-def on_launch(launch_request, session):
-    """ Called when the user launches the skill without specifying what they
-    want
-    """
-
-    print("on_launch requestId=" + launch_request['requestId'] +
-          ", sessionId=" + session['sessionId'])
-    # Dispatch to your skill's launch
-    return get_welcome_response()
-
-
-def on_intent(intent_request, session):
-    """ Called when the user specifies an intent for this skill """
-
-    print("on_intent requestId=" + intent_request['requestId'] +
-          ", sessionId=" + session['sessionId'])
-
-    intent = intent_request['intent']
-    intent_name = intent_request['intent']['name']
-
-    # Dispatch to your skill's intent handlers
-    if intent_name == "MonsterByCRIntent":
-        return monster_by_cr_in_session(intent, session)
-    elif intent_name == "MonsterByEnvironmentIntent":
-        return monster_by_env_in_session(intent, session)
-    elif intent_name == "MonsterByCRandEnvironmentIntent":
-        return monster_by_cr_and_env_in_session(intent, session)
-    elif intent_name == "BuildMonsterIntent":
-        return build_monster_in_session(intent, session)
-    elif intent_name == "AMAZON.HelpIntent":
-        return get_help_response()
-    elif intent_name == "AMAZON.CancelIntent" or intent_name == "AMAZON.StopIntent":
-        return handle_session_end_request()
-    else:
-        raise ValueError("Invalid intent")
-
-
-def on_session_ended(session_ended_request, session):
-    """ Called when the user ends the session.
-
-    Is not called when the skill returns should_end_session=true
-    """
-    print("on_session_ended requestId=" + session_ended_request['requestId'] +
-          ", sessionId=" + session['sessionId'])
-    # add cleanup logic here
-
-
-# -------------------------------- Main handler --------------------------------
-
-def lambda_handler(event, context):
-    """ Route the incoming request based on type (LaunchRequest, IntentRequest,
-    etc.) The JSON body of the request is provided in the event parameter.
-    """
-    print("event.session.application.applicationId=" +
-          event['session']['application']['applicationId'])
-
-    if event['session']['new']:
-        on_session_started({'requestId': event['request']['requestId']},
-                           event['session'])
-
-    if event['request']['type'] == "LaunchRequest":
-        return on_launch(event['request'], event['session'])
-    elif event['request']['type'] == "IntentRequest":
-        return on_intent(event['request'], event['session'])
-    elif event['request']['type'] == "SessionEndedRequest":
-        return on_session_ended(event['request'], event['session'])
+# ------------------------------------------------------------------------------
+# Dictionary of Names
+# ------------------------------------------------------------------------------
+
+allNames = [ # Female Dragonborn
+             "Akra",
+             "Aasathra",
+             "Antrara",
+             "Arava",
+             "Biri",
+             "Blendaeth",
+             "Burana",
+             "Chassath",
+             "Daar",
+             "Dentratha",
+             "Doudra",
+             "Driindar",
+             "Eggren",
+             "Farideh",
+             "Findex",
+             "Furrele",
+             "Gesrethe",
+             "Gilkass",
+             "Harann",
+             "Havilar",
+             "Hethress",
+             "Hillanot",
+             "Jaxi",
+             "Jezean",
+             "Jheri",
+             "Kadana",
+             "Kava",
+             "Korinn",
+             "Megren",
+             "Mijira",
+             "Mishann",
+             "Nala",
+             "Nuthra",
+             "Perra",
+             "Pogranix",
+             "Pyxrin",
+             "Quespa",
+             "Raiann",
+             "Rezena",
+             "Ruloth",
+             "Saphara",
+             "Savaran",
+             "Sora",
+             "Surina",
+             "Synthrin",
+             "Tatyan",
+             "Thava",
+             "Uadjit",
+             "Vezera",
+             "Zykroff",
+             # Male Dragonborn
+             "Adrex",
+             "Arjhan",
+             "Azzakh",
+             "Balasar",
+             "Baradad",
+             "Bharash",
+             "Bidreked",
+             "Dadalan",
+             "Dazzazn",
+             "Direcris",
+             "Donaar",
+             "Fax",
+             "Gargax",
+             "Ghesh",
+             "Gorbundus",
+             "Greethen",
+             "Heskan",
+             "Hirrathak",
+             "Ildrex",
+             "Kaladan",
+             "Kerkad",
+             "Kiirith",
+             "Kriv",
+             "Maagog",
+             "Medrash",
+             "Mehen",
+             "Mozikth",
+             "Mreksh",
+             "Mugrunden",
+             "Nadarr",
+             "Nithther",
+             "Norkruuth",
+             "Nykkan",
+             "Pandjed",
+             "Patrin",
+             "Pijjirik",
+             "Quarethon",
+             "Rathkran",
+             "Rhogar",
+             "Rivaan",
+             "Sethrekar",
+             "Shamash",
+             "Shedinn",
+             "Srorthen",
+             "Tarhun",
+             "Torinn",
+             "Trynnicus",
+             "Valorean",
+             "Vrondiss",
+             "Zedaar",
+             # Female Dwarf
+             "Anbera",
+             "Artin",
+             "Audhild",
+             "Balifra",
+             "Barbena",
+             "Bardryn",
+             "Bolhild",
+             "Dagnal",
+             "Dariff",
+             "Delre",
+             "Diesa",
+             "Eldeth",
+             "Eridred",
+             "Falkrunn",
+             "Fallthra",
+             "Finellen",
+             "Gillydd",
+             "Gunnloda",
+             "Gurdis",
+             "Helgret",
+             "Helja",
+             "Hlin",
+             "Ilde",
+             "Jarana",
+             "Kathra",
+             "Kilia",
+             "Kristryd",
+             "Liftrasa",
+             "Marastyr",
+             "Mardred",
+             "Morana",
+             "Nalaed",
+             "Nora",
+             "Nurkara",
+             "Oriff",
+             "Ovina",
+             "Riswynn",
+             "Sannl",
+             "Therlin",
+             "Thodris",
+             "Torbera",
+             "Tordrid",
+             "Torgga",
+             "Urshar",
+             "Valida",
+             "Vistra",
+             "Vonana",
+             "Werydd",
+             "Whurdred",
+             "Yurgunn",
+             # Male Dwarf
+             "Adrik",
+             "Alberich",
+             "Baern",
+             "Barendd",
+             "Beloril",
+             "Brottor",
+             "Dain",
+             "Dalgal",
+             "Darrak",
+             "Delg",
+             "Duergath",
+             "Dworic",
+             "Eberk",
+             "Einkil",
+             "Elaim",
+             "Erias",
+             "Fallond",
+             "Fargrim",
+             "Gardain",
+             "Gilthur",
+             "Gimgen",
+             "Gimurt",
+             "Harbek",
+             "Kildrak",
+             "Kilvar",
+             "Morgran",
+             "Morkral",
+             "Nalral",
+             "Nordak",
+             "Nuraval",
+             "Oloric",
+             "Olunt",
+             "Orsik",
+             "Oskar",
+             "Rangrim",
+             "Reirak",
+             "Rurik",
+             "Taklinn",
+             "Thoradin",
+             "Thorin",
+             "Thradal",
+             "Tordek",
+             "Traubon",
+             "Travok",
+             "Ulfgar",
+             "Uraim",
+             "Veit",
+             "Vonbin",
+             "Vondal",
+             "Whurbin",
+             # Female Elf
+             "Adrie",
+             "Ahinar",
+             "Althaea",
+             "Anastrianna",
+             "Andraste",
+             "Antinua",
+             "Arara",
+             "Baelitae",
+             "Bethrynna",
+             "Birel",
+             "Caelynn",
+             "Chaedi",
+             "Claira",
+             "Dara",
+             "Drusilia",
+             "Elama",
+             "Enna",
+             "Faral",
+             "Felosial",
+             "Hatae",
+             "Ielenia",
+             "Ilanis",
+             "Irann",
+             "Jarsali",
+             "Jelenneth",
+             "Keyleth",
+             "Leshanna",
+             "Lia",
+             "Maiathah",
+             "Malquis",
+             "Meriele",
+             "Mialee",
+             "Myathethil",
+             "Naivara",
+             "Quelenna",
+             "Quillathe",
+             "Ridaro",
+             "Sariel",
+             "Shanairla",
+             "Shava",
+             "Silaqui",
+             "Sumnes",
+             "Theirastra",
+             "Thiala",
+             "Tiaathque",
+             "Traulam",
+             "Vadania",
+             "Valanthe",
+             "Valna",
+             "Xanaphia",
+             # Male Elf
+             "Adran",
+             "Aelar",
+             "Aerdeth",
+             "Ahvain",
+             "Aramil",
+             "Arannis",
+             "Aust",
+             "Azaki",
+             "Beiro",
+             "Berrian",
+             "Caeldrim",
+             "Carric",
+             "Dayereth",
+             "Dreali",
+             "Efferil",
+             "Eiravel",
+             "Enialis",
+             "Erdan",
+             "Erevan",
+             "Fivin",
+             "Galinndan",
+             "Gennal",
+             "Hadarai",
+             "Halimath",
+             "Heian",
+             "Himo",
+             "Immeral",
+             "Ivellios",
+             "Korfel",
+             "Lamlis",
+             "Laucian",
+             "Lucan",
+             "Mindartis",
+             "Naal",
+             "Nutae",
+             "Paelias",
+             "Peren",
+             "Quarion",
+             "Riardon",
+             "Rolen",
+             "Soveliss",
+             "Suhnae",
+             "Thamior",
+             "Tharivol",
+             "Theren",
+             "Theriatis",
+             "Thervan",
+             "Uthemar",
+             "Vanuath",
+             "Varis",
+             # Female Gnome
+             "Abalaba",
+             "Bimpnottin",
+             "Breena",
+             "Buvvie",
+             "Callybon",
+             "Caramip",
+             "Carlin",
+             "Cumpen",
+             "Dalaba",
+             "Donella",
+             "Duvamil",
+             "Ella",
+             "Ellyjoybell",
+             "Ellywick",
+             "Enidda",
+             "Lilli",
+             "Loopmottin",
+             "Lorilla",
+             "Luthra",
+             "Mardnab",
+             "Meena",
+             "Menny",
+             "Mumpena",
+             "Nissa",
+             "Numba",
+             "Nyx",
+             "Oda",
+             "Oppah",
+             "Orla",
+             "Panana",
+             "Pyntle",
+             "Quilla",
+             "Ranala",
+             "Reddlepop",
+             "Roywyn",
+             "Salanop",
+             "Shamil",
+             "Siffress",
+             "Symma",
+             "Tana",
+             "Tenena",
+             "Tervaround",
+             "Tippletoe",
+             "Ulla",
+             "Unvera",
+             "Veloptima",
+             "Virra",
+             "Waywocket",
+             "Yebe",
+             "Zanna",
+             # Male Gnome
+             "Alston",
+             "Alvyn",
+             "Anverth",
+             "Arumawann",
+             "Bilbron",
+             "Boddynock",
+             "Brocc",
+             "Burgell",
+             "Cockaby",
+             "Crampernap",
+             "Dabbledob",
+             "Delebean",
+             "Dimble",
+             "Eberdeb",
+             "Eldon",
+             "Erky",
+             "Fablen",
+             "Fibblestib",
+             "Fonkin",
+             "Frouse",
+             "Frug",
+             "Gerbo",
+             "Gimble",
+             "Glim",
+             "Igden",
+             "Jabble",
+             "Jebeddo",
+             "Kellen",
+             "Kipper",
+             "Namfoodle",
+             "Oppleby",
+             "Orryn",
+             "Paggen",
+             "Pallabar",
+             "Pog",
+             "Qualen",
+             "Ribbles",
+             "Rimple",
+             "Roondar",
+             "Sapply",
+             "Seebo",
+             "Senteq",
+             "Sindri",
+             "Umpen",
+             "Warryn",
+             "Wiggens",
+             "Wobbles",
+             "Wrenn",
+             "Zaffrab",
+             "Zook",
+             # Halfling Female
+             "Alain",
+             "Andry",
+             "Anne",
+             "Bella",
+             "Blossom",
+             "Bree",
+             "Callie",
+             "Chenna",
+             "Cora",
+             "Dee",
+             "Dell",
+             "Eida",
+             "Eran",
+             "Euphemia",
+             "Georgina",
+             "Gynnie",
+             "Harriet",
+             "Jasmine",
+             "Jillian",
+             "Jo",
+             "Kithri",
+             "Lavinia",
+             "Lidda",
+             "Maegan",
+             "Marigold",
+             "Merla",
+             "Myria",
+             "Nedda",
+             "Nikki",
+             "Nora",
+             "Olivia",
+             "Paela",
+             "Pearl",
+             "Pennie",
+             "Philomena",
+             "Portia",
+             "Robbie",
+             "Rose",
+             "Saral",
+             "Seraphina",
+             "Shaena",
+             "Stacee",
+             "Tawna",
+             "Thea",
+             "Trym",
+             "Tyna",
+             "Vani",
+             "Verna",
+             "Wella",
+             "Willow",
+             # Male Halfling
+             "Alton",
+             "Ander",
+             "Bernie",
+             "Bobbin",
+             "Cade",
+             "Callus",
+             "Corrin",
+             "Dannad",
+             "Danniel",
+             "Eddie",
+             "Egart",
+             "Eldon",
+             "Errich",
+             "Fildo",
+             "Finnan",
+             "Franklin",
+             "Garret",
+             "Garth",
+             "Gilbert",
+             "Gob",
+             "Harol",
+             "Igor",
+             "Jasper",
+             "Keith",
+             "Kevin",
+             "Lazam",
+             "Lerry",
+             "Lindal",
+             "Lyle",
+             "Merric",
+             "Mican",
+             "Milo",
+             "Morrin",
+             "Nebin",
+             "Nevil",
+             "Osborn",
+             "Ostran",
+             "Oswalt",
+             "Perrin",
+             "Poppy",
+             "Reed",
+             "Roscoe",
+             "Sam",
+             "Shardon",
+             "Tye",
+             "Ulmo",
+             "Wellby",
+             "Wendel",
+             "Wenner",
+             "Wes",
+             # Female Half-Orc
+             "Arha",
+             "Baggi",
+             "Bendoo",
+             "Bilga",
+             "Brakka",
+             "Creega",
+             "Drenna",
+             "Ekk",
+             "Emen",
+             "Engong",
+             "Fistula",
+             "Gaaki",
+             "Gorga",
+             "Grai",
+             "Greeba",
+             "Grigi",
+             "Gynk",
+             "Hrathy",
+             "Huru",
+             "Ilga",
+             "Kabbarg",
+             "Kansif",
+             "Lagazi",
+             "Lezre",
+             "Murgen",
+             "Murook",
+             "Myev",
+             "Nagrette",
+             "Neega",
+             "Nella",
+             "Nogu",
+             "Oolah",
+             "Ootah",
+             "Ovak",
+             "Ownka",
+             "Puyet",
+             "Reeza",
+             "Shautha",
+             "Silgre",
+             "Sutha",
+             "Tagga",
+             "Tawar",
+             "Tomph",
+             "Ubada",
+             "Vanchu",
+             "Vola",
+             "Volen",
+             "Vorka",
+             "Yevelda",
+             "Zagga",
+             # Male Half-Orc
+             "Argran",
+             "Braak",
+             "Brug",
+             "Cagak",
+             "Dench",
+             "Dorn",
+             "Dren",
+             "Druuk",
+             "Feng",
+             "Gell",
+             "Gnarsh",
+             "Grumbar",
+             "Gubrash",
+             "Hagren",
+             "Henk",
+             "Hogar",
+             "Holg",
+             "Imsh",
+             "Karash",
+             "Karg",
+             "Keth",
+             "Korag",
+             "Krusk",
+             "Lubash",
+             "Megged",
+             "Mhurren",
+             "Mord",
+             "Morg",
+             "Nil",
+             "Nybarg",
+             "Odorr",
+             "Ohr",
+             "Rendar",
+             "Resh",
+             "Ront",
+             "Rrath",
+             "Sark",
+             "Scrag",
+             "Sheggen",
+             "Shump",
+             "Tanglar",
+             "Tarak",
+             "Thar",
+             "Thokk",
+             "Trag",
+             "Ugarth",
+             "Varg",
+             "Vilberg",
+             "Yurk",
+             "Zed",
+             # Female Tiefling
+             "Akta",
+             "Anakis",
+             "Armara",
+             "Astaro",
+             "Aym",
+             "Azza",
+             "Beleth",
+             "Bryseis",
+             "Bune",
+             "Criella",
+             "Damaia",
+             "Decarabia",
+             "Ea",
+             "Gadreel",
+             "Gomory",
+             "Hecat",
+             "Ishte",
+             "Jezebeth",
+             "Kali",
+             "Kallista",
+             "Kasdeya",
+             "Lerissa",
+             "Lilith",
+             "Makaria",
+             "Manea",
+             "Markosian",
+             "Mastema",
+             "Naamah",
+             "Nemeia",
+             "Nija",
+             "Orianna",
+             "Osah",
+             "Phelaia",
+             "Prosperine",
+             "Purah",
+             "Pyra",
+             "Rieta",
+             "Ronobe",
+             "Ronwe",
+             "Seddit",
+             "Seere",
+             "Sekhmet",
+             "Semyaza",
+             "Shava",
+             "Shax",
+             "Sorath",
+             "Uzza",
+             "Vapula",
+             "Vepar",
+             "Verin",
+             # Male Tiefling
+             "Abad",
+             "Ahrim",
+             "Akmen",
+             "Amnon",
+             "Andram",
+             "Astar",
+             "Balam",
+             "Barakas",
+             "Bathin",
+             "Caim",
+             "Chem",
+             "Cimer",
+             "Cressel",
+             "Damakos",
+             "Ekemon",
+             "Euron",
+             "Fenriz",
+             "Forcas",
+             "Habor",
+             "Iados",
+             "Kairon",
+             "Leucis",
+             "Mamnen",
+             "Mantus",
+             "Marbas",
+             "Melech",
+             "Merihim",
+             "Modean",
+             "Mordai",
+             "Mormo",
+             "Morthos",
+             "Nicor",
+             "Nirgel",
+             "Oriax",
+             "Paymon",
+             "Pelaios",
+             "Purson",
+             "Qemuel",
+             "Raam",
+             "Rimmon",
+             "Sammal",
+             "Skamos",
+             "Tethren",
+             "Thamuz",
+             "Therai",
+             "Valafar",
+             "Vassago",
+             "Xappan",
+             "Zepar",
+             "Zephan",
+             # Female Human
+             "Alfhild",
+             "Arnbjorg",
+             "Ase",
+             "Aslog",
+             "Astrid",
+             "Auda",
+             "Audhid",
+             "Bergljot",
+             "Birghild",
+             "Bodil",
+             "Brenna",
+             "Brynhild",
+             "Dagmar",
+             "Eerika",
+             "Eira",
+             "Gudrun",
+             "Gunborg",
+             "Gunhild",
+             "Gunvor",
+             "Helga",
+             "Hertha",
+             "Hilde",
+             "Hillevi",
+             "Ingrid",
+             "Iona",
+             "Jorunn",
+             "Kari",
+             "Kenna",
+             "Magnhild",
+             "Nanna",
+             "Olga",
+             "Ragna",
+             "Ragnhild",
+             "Ranveig",
+             "Runa",
+             "Saga",
+             "Sigfrid",
+             "Signe",
+             "Sigrid",
+             "Sigrunn",
+             "Solveg",
+             "Svanhild",
+             "Thora",
+             "Torborg",
+             "Torunn",
+             "Tove",
+             "Unn",
+             "Vigdis",
+             "Ylva",
+             "Yngvild",
+             "Adelaide",
+             "Agatha",
+             "Agnes",
+             "Alice",
+             "Aline",
+             "Anne",
+             "Avelina",
+             "Avice",
+             "Beatrice",
+             "Cecily",
+             "Egelina",
+             "Eleanor",
+             "Elizabeth",
+             "Ella",
+             "Eloise",
+             "Elysande",
+             "Emeny",
+             "Emma",
+             "Emmeline",
+             "Ermina",
+             "Eva",
+             "Galiena",
+             "Geva",
+             "Giselle",
+             "Griselda",
+             "Hadwisa",
+             "Helen",
+             "Herleva",
+             "Hugolina",
+             "Ida",
+             "Isabella",
+             "Jacoba",
+             "Jane",
+             "Joan",
+             "Juliana",
+             "Katherine",
+             "Margery",
+             "Mary",
+             "Matilda",
+             "Maynild",
+             "Millicent",
+             "Oriel",
+             "Rohesia",
+             "Rosalind",
+             "Rosamund",
+             "Sarah",
+             "Susannah",
+             "Sybil",
+             "Williamina",
+             "Yvonne",
+             "Aelia",
+             "Aemilia",
+             "Agrippina",
+             "Alba",
+             "Antonia",
+             "Aquila",
+             "Augusta",
+             "Aurelia",
+             "Balbina",
+             "Blandina",
+             "Caelia",
+             "Camilla",
+             "Casia",
+             "Claudia",
+             "Cloelia",
+             "Domitia",
+             "Drusa",
+             "Fabia",
+             "Fabricia",
+             "Fausta",
+             "Flavia",
+             "Floriana",
+             "Fulvia",
+             "Germana",
+             "Glaucia",
+             "Gratiana",
+             "Hadriana",
+             "Hermina",
+             "Horatia",
+             "Hortensia",
+             "Iovita",
+             "Iulia",
+             "Laelia",
+             "Laurentia",
+             "Livia",
+             "Longina",
+             "Lucilla",
+             "Lucretia",
+             "Marcella",
+             "Marcia",
+             "Maxima",
+             "Nona",
+             "Octavia",
+             "Paulina",
+             "Petronia",
+             "Porcia",
+             "Tacita",
+             "Tullia",
+             "Verginia",
+             "Vita",
+             # Male Human
+             "Agni",
+             "Alaric",
+             "Anvindr",
+             "Arvid",
+             "Asger",
+             "Asmund",
+             "Bjarte",
+             "Bjorg",
+             "Bjorn",
+             "Brandr",
+             "Brandt",
+             "Brynjar",
+             "Calder",
+             "Colborn",
+             "Cuyler",
+             "Egil",
+             "Einar",
+             "Eric",
+             "Erland",
+             "Fiske",
+             "Folkvar",
+             "Fritjof",
+             "Frode",
+             "Geir",
+             "Halvar",
+             "Hemming",
+             "Hjalmar",
+             "Hjortr",
+             "Ingimarr",
+             "Ivar",
+             "Knud",
+             "Leif",
+             "Liufr",
+             "Manning",
+             "Oddr",
+             "Olin",
+             "Ormr",
+             "Ove",
+             "Rannulfr",
+             "Sigurd",
+             "Skari",
+             "Snorri",
+             "Sten",
+             "Stigandr",
+             "Stigr",
+             "Sven",
+             "Trygve",
+             "Ulf",
+             "Vali",
+             "Vidar",
+             "Adam",
+             "Adelard",
+             "Aldous",
+             "Anselm",
+             "Arnold",
+             "Bernard",
+             "Bertram",
+             "Charles",
+             "Clerebold",
+             "Conrad",
+             "Diggory",
+             "Drogo",
+             "Everard",
+             "Frederick",
+             "Geoffrey",
+             "Gerald",
+             "Gilbert",
+             "Godfrey",
+             "Gunter",
+             "Guy",
+             "Henry",
+             "Heward",
+             "Hubert",
+             "Hugh",
+             "Jocelyn",
+             "John",
+             "Lance",
+             "Manfred",
+             "Miles",
+             "Nicholas",
+             "Norman",
+             "Odo",
+             "Percival",
+             "Peter",
+             "Ralf",
+             "Randal",
+             "Raymond",
+             "Reynard",
+             "Richard",
+             "Robert",
+             "Roger",
+             "Roland",
+             "Rolf",
+             "Simon",
+             "Theobald",
+             "Theodoric",
+             "Thomas",
+             "Timm",
+             "William",
+             "Wymar",
+             "Aelius",
+             "Aetius",
+             "Agrippa",
+             "Albanus",
+             "Albus",
+             "Antonius",
+             "Appius",
+             "Aquilinus",
+             "Atilus",
+             "Augustus",
+             "Aurelius",
+             "Avitus",
+             "Balbus",
+             "Blandus",
+             "Blasius",
+             "Brutus",
+             "Caelius",
+             "Caius",
+             "Casian",
+             "Cassius",
+             "Cato",
+             "Celsus",
+             "Claudius",
+             "Cloelius",
+             "Cnaeus",
+             "Crispus",
+             "Cyprianus",
+             "Diocletianus",
+             "Egnatius",
+             "Ennius",
+             "Fabricius",
+             "Faustus",
+             "Gaius",
+             "Germanus",
+             "Gnaeus",
+             "Horatius",
+             "Iovianus",
+             "Iulius",
+             "Lucilius",
+             "Manius",
+             "Marcus",
+             "Marius",
+             "Maximus",
+             "Octavius",
+             "Paulus",
+             "Quintilian",
+             "Regulus",
+             "Servius",
+             "Tacitus",
+             "Varius" ]
+
+# ------------------------------------------------------------------------------
+# Dictionary of Plot Arcs
+# ------------------------------------------------------------------------------
+
+allPlots = [ "is searching for a powerful artifact",
+             "wants to live forever",
+             "wants revenge for the death of their family",
+             "seeks to overthrow the government",
+             "is trying to impress a love interest",
+             "has kidnapped someone for ransom",
+             "is searching for a missing person",
+             "has lost a valuable item",
+             "wants to acquire a legendary item to prolong life",
+             "wants to ascend to godhood",
+             "is trying to become undead",
+             "is trying to obtain a younger body",
+             "seeks to seize a position of power",
+             "seeks to seize a title",
+             "wants to win a contest",
+             "wishes to win favor with a powerful individual",
+             "is trying to place a pawn in a position of power",
+             "wants to obtain an ancient artifact",
+             "is trying to build a construct or magical device",
+             "is carrying out a deity's wishes",
+             "is offering sacrifices to a deity",
+             "is trying to contact a lost deity or power",
+             "wants to open a gate to another world",
+             "is trying to fulfill an apocalyptic prophecy",
+             "is enacting the vengeful will of a god",
+             "is enacting the vengeful will of a patron",
+             "is spreading a vile contagion",
+             "wants to trigger a natural disaster",
+             "seeks to utterly destroy a bloodline or clan",
+             "wishes to prolong the life of a loved one",
+             "wants to raise a dead loved one",
+             "is destroying rivals for another person's affection",
+             "wants to conquer a region",
+             "is inciting a rebellion",
+             "is trying to seize control of the army",
+             "is working to become the power behind the throne",
+             "seeks the favor of a ruler",
+             "wants to avenge a past humiliation or insult",
+             "wants to avenge a past imprisonment or injury",
+             "seeks to recover stolen property and punish the thief",
+             "wishes to control natural resources",
+             "wishes to control trade",
+             "is trying to marry into wealth",
+             "is trying to plunder ancient ruins",
+             "is stealing land",
+             "is stealing goods",
+             "is stealing money" ]
+
+# ------------------------------------------------------------------------------
+# Table of Difficulty Scaling
+# ------------------------------------------------------------------------------
+
+allCRScales = [ (  1, 1.0),
+                (  2, 1.5),
+                (  6, 2.0),
+                ( 10, 2.5),
+                ( 14, 3.0),
+                (100, 4.0) ]
+
+allCRScales.sort()
+
+# ------------------------------------------------------------------------------

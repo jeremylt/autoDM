@@ -4,4 +4,4 @@ This repository provides the code for an auto DM for Dungons and Dragons 5e via 
 
 ## Using the Auto DM
 
-The user can request a random monster from the Monster Manual, Volo's Guide to Monsters, or Mordenkainen's Tome of Foes. The user can request a random monter by challenge rating, environment, or challenge rating and environment.
+The user can request a monster, NPC, encounter, or plot arc by challenge rating, environment, or both. Monsters come from the Monster Manual, Volo's Guide to Monsters, and Mordenkainen's Tome of Foes.

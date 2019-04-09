@@ -1,0 +1,578 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName":"auto game master",
+            "intents": [
+                {
+                    "name":"MonsterByCRIntent",
+                    "slots": [
+                        {
+                            "name":"cr",
+                            "type":"LIST_OF_CRS"
+                        }
+                    ],
+                    "samples": [
+                        "ask auto game master to get a c r {cr} monster",
+                        "tell auto game master i want a c r {cr} monster",
+                        "ask auto game master to give me a c r {cr} monster",
+                        "ask auto game master what is a c r {cr} monster",
+                        "get a c r {cr} monster",
+                        "i want a c r {cr} monster",
+                        "give me a c r {cr} monster",
+                        "what is a c r {cr} monster",
+                        "get a challenge rating {cr} monster",
+                        "i want a challenge rating {cr} monster",
+                        "give me a challenge rating {cr} monster",
+                        "what is a challenge rating {cr} monster"
+                    ]
+                },
+                {
+                    "name":"MonsterByEnvironmentIntent",
+                    "slots": [
+                        {
+                            "name":"env",
+                            "type":"LIST_OF_ENVS"
+                        }
+                    ],
+                    "samples": [
+                        "ask auto game master to get a {env} monster",
+                        "tell auto game master i want a {env} monster",
+                        "ask auto game master to give me a {env} monster",
+                        "ask auto game master what is a {env} monster",
+                        "get a {env} monster",
+                        "i want a {env} monster",
+                        "give me a {env} monster",
+                        "what is a {env} monster"
+                    ]
+                },
+                {
+                    "name":"MonsterByCRandEnvironmentIntent",
+                    "slots": [
+                        {
+                            "name":"env",
+                            "type":"LIST_OF_ENVS"
+                        },
+                        {
+                            "name":"cr",
+                            "type":"LIST_OF_CRS"
+                        }
+                    ],
+                    "samples": [
+                        "ask auto game master to get a c r {cr} {env} monster",
+                        "tell auto game master i want a c r {cr} {env} monster",
+                        "ask auto game master to give me a c r {cr} {env} monster",
+                        "ask auto game master what is a c r {cr} {env} monster",
+                        "get a c r {cr} {env} monster",
+                        "i want a c r {cr} {env} monster",
+                        "give me a c r {cr} {env} monster",
+                        "what is a c r {cr} {env} monster",
+                        "get a challenge rating {cr} {env} monster",
+                        "i want a challenge rating {cr} {env} monster",
+                        "give me a challenge rating {cr} {env} monster",
+                        "what is a challenge rating {cr} {env} monster"
+                    ]
+                },
+                {
+                    "name":"NpcByCRIntent",
+                    "slots": [
+                        {
+                            "name":"cr",
+                            "type":"LIST_OF_CRS"
+                        }
+                    ],
+                    "samples": [
+                        "ask auto game master to get a c r {cr} n p c",
+                        "tell auto game master i want a c r {cr} n p c",
+                        "ask auto game master to give me a c r {cr} n p c",
+                        "ask auto game master what is a c r {cr} n p c",
+                        "get a c r {cr} n p c",
+                        "i want a c r {cr} n p c",
+                        "give me a c r {cr} n p c",
+                        "what is a c r {cr} n p c",
+                        "get a challenge rating {cr} n p c",
+                        "i want a challenge rating {cr} n p c",
+                        "give me a challenge rating {cr} n p c",
+                        "what is a challenge rating {cr} n p c"
+                    ]
+                },
+                {
+                    "name":"NpcByEnvironmentIntent",
+                    "slots": [
+                        {
+                            "name":"env",
+                            "type":"LIST_OF_ENVS"
+                        }
+                    ],
+                    "samples": [
+                        "ask auto game master to get a {env} n p c",
+                        "tell auto game master i want a {env} n p c",
+                        "ask auto game master to give me a {env} n p c",
+                        "ask auto game master what is a {env} n p c",
+                        "get a {env} n p c",
+                        "i want a {env} n p c",
+                        "give me a {env} n p c",
+                        "what is a {env} n p c"
+                    ]
+                },
+                {
+                    "name":"NpcByCRandEnvironmentIntent",
+                    "slots": [
+                        {
+                            "name":"env",
+                            "type":"LIST_OF_ENVS"
+                        },
+                        {
+                            "name":"cr",
+                            "type":"LIST_OF_CRS"
+                        }
+                    ],
+                    "samples": [
+                        "ask auto game master to get a c r {cr} {env} n p c",
+                        "tell auto game master i want a c r {cr} {env} n p c",
+                        "ask auto game master to give me a c r {cr} {env} n p c",
+                        "ask auto game master what is a c r {cr} {env} n p c",
+                        "get a c r {cr} {env} n p c",
+                        "i want a c r {cr} {env} n p c",
+                        "give me a c r {cr} {env} n p c",
+                        "what is a c r {cr} {env} n p c",
+                        "get a challenge rating {cr} {env} n p c",
+                        "i want a challenge rating {cr} {env} n p c",
+                        "give me a challenge rating {cr} {env} n p c",
+                        "what is a challenge rating {cr} {env} n p c"
+                    ]
+                },
+                {
+                    "name":"EncounterByCRIntent",
+                    "slots": [
+                        {
+                            "name":"cr",
+                            "type":"LIST_OF_CRS"
+                        }
+                    ],
+                    "samples": [
+                        "ask auto game master to get a c r {cr} encounter",
+                        "tell auto game master i want a c r {cr} encounter",
+                        "ask auto game master to give me a c r {cr} encounter",
+                        "ask auto game master what is a c r {cr} encounter",
+                        "get a c r {cr} encounter",
+                        "i want a c r {cr} encounter",
+                        "give me a c r {cr} encounter",
+                        "what is a c r {cr} encounter",
+                        "get a challenge rating {cr} encounter",
+                        "i want a challenge rating {cr} encounter",
+                        "give me a challenge rating {cr} encounter",
+                        "what is a challenge rating {cr} encounter"
+                    ]
+                },
+                {
+                    "name":"EncounterByEnvironmentIntent",
+                    "slots": [
+                        {
+                            "name":"env",
+                            "type":"LIST_OF_ENVS"
+                        }
+                    ],
+                    "samples": [
+                        "ask auto game master to get a {env} encounter",
+                        "tell auto game master i want a {env} encounter",
+                        "ask auto game master to give me a {env} encounter",
+                        "ask auto game master what is a {env} encounter",
+                        "get a {env} encounter",
+                        "i want a {env} encounter",
+                        "give me a {env} encounter",
+                        "what is a {env} encounter"
+                    ]
+                },
+                {
+                    "name":"EncounterByCRandEnvironmentIntent",
+                    "slots": [
+                        {
+                            "name":"env",
+                            "type":"LIST_OF_ENVS"
+                        },
+                        {
+                            "name":"cr",
+                            "type":"LIST_OF_CRS"
+                        }
+                    ],
+                    "samples": [
+                        "ask auto game master to get a c r {cr} {env} encounter",
+                        "tell auto game master i want a c r {cr} {env} encounter",
+                        "ask auto game master to give me a c r {cr} {env} encounter",
+                        "ask auto game master what is a c r {cr} {env} encounter",
+                        "get a c r {cr} {env} encounter",
+                        "i want a c r {cr} {env} encounter",
+                        "give me a c r {cr} {env} encounter",
+                        "what is a c r {cr} {env} encounter",
+                        "get a challenge rating {cr} {env} encounter",
+                        "i want a challenge rating {cr} {env} encounter",
+                        "give me a challenge rating {cr} {env} encounter",
+                        "what is a challenge rating {cr} {env} encounter"
+                    ]
+                },
+                {
+                    "name":"EncounterByItselfIntent",
+                    "slots": [],
+                    "samples": [
+                        "ask auto game master to get a encounter",
+                        "tell auto game master i want a encounter",
+                        "ask auto game master to give me a encounter",
+                        "ask auto game master what is a encounter",
+                        "get a encounter",
+                        "i want a encounter",
+                        "give me a encounter",
+                        "what is a encounter"
+                    ]
+                },
+                {
+                    "name":"PlotArcByCRIntent",
+                    "slots": [
+                        {
+                            "name":"cr",
+                            "type":"LIST_OF_CRS"
+                        }
+                    ],
+                    "samples": [
+                        "ask auto game master to get a c r {cr} plot arc",
+                        "tell auto game master i want a c r {cr} plot arc",
+                        "ask auto game master to give me a c r {cr} plot arc",
+                        "ask auto game master what is a c r {cr} plot arc",
+                        "get a c r {cr} plot arc",
+                        "i want a c r {cr} plot arc",
+                        "give me a c r {cr} plot arc",
+                        "what is a c r {cr} plot arc",
+                        "get a challenge rating {cr} plot arc",
+                        "i want a challenge rating {cr} plot arc",
+                        "give me a challenge rating {cr} plot arc",
+                        "what is a challenge rating {cr} plot arc"
+                    ]
+                },
+                {
+                    "name":"PlotArcByEnvironmentIntent",
+                    "slots": [
+                        {
+                            "name":"env",
+                            "type":"LIST_OF_ENVS"
+                        }
+                    ],
+                    "samples": [
+                        "ask auto game master to get a {env} plot arc",
+                        "tell auto game master i want a {env} plot arc",
+                        "ask auto game master to give me a {env} plot arc",
+                        "ask auto game master what is a {env} plot arc",
+                        "get a {env} plot arc",
+                        "i want a {env} plot arc",
+                        "give me a {env} plot arc",
+                        "what is a {env} plot arc"
+                    ]
+                },
+                {
+                    "name":"PlotArcByCRandEnvironmentIntent",
+                    "slots": [
+                        {
+                            "name":"env",
+                            "type":"LIST_OF_ENVS"
+                        },
+                        {
+                            "name":"cr",
+                            "type":"LIST_OF_CRS"
+                        }
+                    ],
+                    "samples": [
+                        "ask auto game master to get a c r {cr} {env} plot arc",
+                        "tell auto game master i want a c r {cr} {env} plot arc",
+                        "ask auto game master to give me a c r {cr} {env} plot arc",
+                        "ask auto game master what is a c r {cr} {env} plot arc",
+                        "get a c r {cr} {env} plot arc",
+                        "i want a c r {cr} {env} plot arc",
+                        "give me a c r {cr} {env} plot arc",
+                        "what is a c r {cr} {env} plot arc",
+                        "get a challenge rating {cr} {env} plot arc",
+                        "i want a challenge rating {cr} {env} plot arc",
+                        "give me a challenge rating {cr} {env} plot arc",
+                        "what is a challenge rating {cr} {env} plot arc"
+                    ]
+                },
+                {
+                    "name":"PlotArcByItselfIntent",
+                    "slots": [],
+                    "samples": [
+                        "ask auto game master to get a plot arc",
+                        "tell auto game master i want a plot arc",
+                        "ask auto game master to give me a plot arc",
+                        "ask auto game master what is a plot arc",
+                        "get a plot arc",
+                        "i want a plot arc",
+                        "give me a plot arc",
+                        "what is a plot arc"
+                    ]
+                },
+                {
+                    "name":"AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name":"AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name":"AMAZON.StopIntent",
+                    "samples": [
+                        "goodbye",
+                        "good bye",
+                        "goodnight",
+                        "farewell",
+                        "no",
+                        "no thanks",
+                        "no thank you",
+                        "stop",
+                        "exit",
+                        "quit",
+                        "thank you"
+                    ]
+                },
+                {
+                    "name":"AMAZON.NavigateHomeIntent",
+                    "samples": []
+                }
+            ],
+            "types": [
+                {
+                    "name":"LIST_OF_CRS",
+                    "values": [
+                        {
+                            "name": {
+                                "value":"0"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"1/8"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"1/4"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"1/2"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"1"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"2"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"3"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"4"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"5"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"6"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"7"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"8"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"9"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"10"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"11"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"12"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"13"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"14"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"15"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"16"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"17"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"18"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"19"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"20"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"21"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"22"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"23"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"24"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"25"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"26"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"27"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"28"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"29"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"30"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name":"LIST_OF_ENVS",
+                    "values": [
+                        {
+                            "name": {
+                                "value":"arctic"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"coastal"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"desert"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"forest"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"grassland"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"hill"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"mountain"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"swamp"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"underdark"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"underwater"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value":"urban"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
