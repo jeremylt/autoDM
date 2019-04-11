@@ -40,7 +40,7 @@ class AlexaCommunicator(Communicator):
         elif reply[:3] != "the":
             reply = "A " + reply
         else:
-            reply[0] = "T"
+            reply = "T" + reply[1:]
         # End matter
         if sessionType == "Monster":
             reply += " attacks!\n\nWould you like another monster?"

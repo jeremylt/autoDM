@@ -237,7 +237,6 @@ class Npc(Module):
 # ------------------------------------------------------------------------------
 class Encounter(Module):
     """ Encounter Class """
-    name = ""
     npc = None
     monsters = None
     numMob = 0
@@ -359,7 +358,6 @@ class Encounter(Module):
 # ------------------------------------------------------------------------------
 class PlotArc(Module):
     """ PlotArc Class """
-    name = ""
     npc = None
     plot = ""
     envType = ""
