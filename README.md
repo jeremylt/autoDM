@@ -9,13 +9,12 @@ The user can request a monster, NPC, encounter, or plot arc by challenge rating,
 ## Demo
 
 The Alexa skill can be accessed at the following URL:
-\begin{lstlisting}
+```
 https://www.amazon.com/Jeremy-L-Thompson-Auto-Master/dp/B07QFVN96G/
   ref=sr_1_1?keywords=auto+game+master&qid=1555011836&s
   =digital-skills&sr=1-1-catcorr
-\end{lstlisting}
+```
 or
-
 \url{http://tinyurl.com/yyt577am}\\
 
 The website can be accessed at the following URL:
