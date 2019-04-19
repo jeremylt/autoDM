@@ -1,5 +1,5 @@
 """
-    Auto DM 
+    Auto DM
 
     Jeremy L Thompson
 

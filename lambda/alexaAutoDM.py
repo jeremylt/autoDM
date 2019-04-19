@@ -1,5 +1,5 @@
 """
-    Auto DM 
+    Alexa Auto DM
 
     Jeremy L Thompson
 
@@ -11,10 +11,15 @@
 # ------------------------------------------------------------------------------
 
 # AutoDM backend
+import sys
+sys.path.append('./backend')
+sys.path.append('./utility')
 from session import *
+# Utility
+from utility import *
 
 # ------------------------------------------------------------------------------
-# Response Card Helpers, Code From Alexa Tutorial, modified by Jeremy L Thompson
+# Response Card Helpers, code From Alexa Tutorial, modified by Jeremy L Thompson
 # ------------------------------------------------------------------------------
 def build_speechlet_response(title, output, reprompt_text, should_end_session):
     """ Build the Alexa speechlet response """
@@ -137,7 +142,6 @@ def module_in_session(intent, session, sessionType, crFlag, envFlag):
     """ Get a random monster at the specified CR from the specified
     environment """
 
-
     # Build card title
     card_title = "Random " + sessionType
     if crFlag:
@@ -199,7 +203,7 @@ def module_in_session(intent, session, sessionType, crFlag, envFlag):
                                                    should_end_session))
 
 # ------------------------------------------------------------------------------
-# Events, Code From Alexa Tutorial, modified by Jeremy L Thompson
+# Events, code from Alexa tutorial, modified by Jeremy L Thompson
 # ------------------------------------------------------------------------------
 def on_session_started(session_started_request, session):
     """ Called when the session starts """
@@ -220,7 +224,7 @@ def on_launch(launch_request, session):
     return get_welcome_response()
 
 # ------------------------------------------------------------------------------
-def on_intent(intent_request, session):
+def on_alexa_intent(intent_request, session):
     """ Called when the user specifies an intent for this skill """
 
     # Get intent
@@ -233,24 +237,7 @@ def on_intent(intent_request, session):
     print(intent_name)
 
     # Get argument flags
-    # - CR
-    crFlag = 0
-    if "CR" in intent_name:
-        crFlag = 1
-    # Environment
-    envFlag = 0
-    if "Environment" in intent_name:
-        envFlag = 1
-    # Session Type
-    sessionType = ""
-    if "Monster" in intent_name:
-        sessionType = "Monster"
-    elif "Npc" in intent_name:
-        sessionType = "Npc"
-    elif "Encounter" in intent_name:
-        sessionType = "Encounter"
-    elif "PlotArc" in intent_name:
-        sessionType = "PlotArc"
+    crFlag, envFlag, sessionType = get_intent_args(intent_name)
 
     # Dispatch to the skill's intent handlers
     if "By" in intent_name:
@@ -275,9 +262,9 @@ def on_session_ended(session_ended_request, session):
     # Cleanup logic would go here
 
 # ------------------------------------------------------------------------------
-# Main Handler, Code From Alexa Tutorial, modified by Jeremy L Thompson
+# Alexa Handler, code from Alexa tutorial, modified by Jeremy L Thompson
 # ------------------------------------------------------------------------------
-def lambda_handler(event, context):
+def alexa_lambda_handler(event, context):
     """ Route the incoming request based on type (LaunchRequest, IntentRequest,
     etc.) The JSON body of the request is provided in the event parameter. """
 
@@ -294,7 +281,7 @@ def lambda_handler(event, context):
     if event['request']['type'] == "LaunchRequest":
         return on_launch(event['request'], event['session'])
     elif event['request']['type'] == "IntentRequest":
-        return on_intent(event['request'], event['session'])
+        return on_alexa_intent(event['request'], event['session'])
     elif event['request']['type'] == "SessionEndedRequest":
         return on_session_ended(event['request'], event['session'])
 
