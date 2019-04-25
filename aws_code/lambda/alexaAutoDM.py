@@ -1,4 +1,3 @@
-# coding=utf8
 """
     Alexa Auto DM
 
