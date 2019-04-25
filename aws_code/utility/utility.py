@@ -80,5 +80,4 @@ def get_intent_reply(intent, communicatorType):
 
     return sessionType, sessionReply
 
-
 # ------------------------------------------------------------------------------
