@@ -1,3 +1,4 @@
+# coding=utf8
 """
     Alexa Auto DM
 
@@ -10,12 +11,9 @@
 # Imports
 # ------------------------------------------------------------------------------
 
-# AutoDM backend
-import sys
-sys.path.append('./backend')
-sys.path.append('./utility')
-from session import *
 # Utility
+import sys
+sys.path.append('./utility')
 from utility import *
 
 # ------------------------------------------------------------------------------
@@ -138,42 +136,28 @@ def handle_session_end_request():
                                                    should_end_session))
 
 # ------------------------------------------------------------------------------
-def module_in_session(intent, session, sessionType, crFlag, envFlag):
-    """ Get a random monster at the specified CR from the specified
-    environment """
+def module_in_alexa_session(intent, session):
+    """ Get a random module at the specified CR or env from the specified
+    environment for the Alexa inteface """
+
+    # Log
+    print("module_in_alexa_session: " + intent['name'])
+
+    # Get response
+    sessionType, speech_output = get_intent_reply(intent, "Alexa")
 
     # Build card title
     card_title = "Random " + sessionType
-    if crFlag:
+    if "CR" in intent['name']:
         card_title       += " By CR"
-        if envFlag:
+        if "Env" in intent['name']:
             card_title   += " and Environment"
-    elif envFlag:
+    elif "Env" in intent['name']:
         card_title       += " By Environment"
 
     # Session details
     session_attributes    = {}
     should_end_session    = False
-
-    # Get CR and Env
-    try:
-        moduleCR          = intent['slots']['cr']['value']
-    except:
-        if crFlag:
-            moduleCR      = "ERROR"
-        else:
-            moduleCR      = ""
-    try:
-        moduleEnv         = intent['slots']['env']['value']
-    except:
-        if envFlag:
-            moduleEnv     = "ERROR"
-        else:
-            moduleEnv     = ""
-
-    # Log
-    print("module_in_session: sessionType - " + sessionType + ", moduleCR - " +
-          moduleCR + ", moduleEnv - " + moduleEnv)
 
     # Build reply
     if sessionType == "Npc":
@@ -182,10 +166,8 @@ def module_in_session(intent, session, sessionType, crFlag, envFlag):
         sessionLow        = "plot arc"
     else:
         sessionLow        = sessionType.lower()
-    if moduleCR != "ERROR" and moduleEnv != "ERROR":
-        alexaSession      = Session(sessionType, "Alexa", moduleCR, moduleEnv)
-        speech_output     = alexaSession.buildReply()
-        reprompt_text     = "Would you like another " + sessionLow + "?"           
+    if speech_output != "ERROR":
+        reprompt_text     = "Would you like another " + sessionLow + "?"
     else:
         speech_output     = "I'm not sure what type of " + sessionLow + \
                             " you want.\n\nPlease try again."
@@ -236,12 +218,9 @@ def on_alexa_intent(intent_request, session):
           ", sessionId=" + session['sessionId'])
     print(intent_name)
 
-    # Get argument flags
-    crFlag, envFlag, sessionType = get_intent_args(intent_name)
-
     # Dispatch to the skill's intent handlers
     if "By" in intent_name:
-        return module_in_session(intent, session, sessionType, crFlag, envFlag)
+        return module_in_alexa_session(intent, session)
     elif intent_name == "AMAZON.HelpIntent":
         return get_help_response()
     elif intent_name == "AMAZON.CancelIntent" or \

@@ -23,7 +23,7 @@ def lambda_handler(event, context):
 
     # Check for web reqest
     try:
-      web = event['params']['querystring']['web']
+      web = event['web']
       # Web request
       return web_lambda_handler(event, context)
     except:

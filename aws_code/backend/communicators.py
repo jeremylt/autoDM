@@ -17,7 +17,7 @@ from abc import ABC, abstractmethod
 # ------------------------------------------------------------------------------
 class Communicator:
     """ Communicator base class """
-        
+
     @abstractmethod
     def buildReply(module, sessionType):
         """ Build the Reply """
@@ -34,6 +34,7 @@ class AlexaCommunicator(Communicator):
 
         # Module description
         reply = module.getShortDesc()
+
         # Front matter
         if reply[0] in {'a', 'e', 'i', 'o', 'u'}:
             reply = "An " + reply
@@ -41,6 +42,7 @@ class AlexaCommunicator(Communicator):
             reply = "A " + reply
         else:
             reply = "T" + reply[1:]
+
         # End matter
         if sessionType == "Monster":
             reply += " attacks!\n\nWould you like another monster?"
@@ -51,12 +53,18 @@ class AlexaCommunicator(Communicator):
         else:
             reply += ".\n\nWould you like another plot arc?"
 
+        # Error checking
         if "ERROR" in reply:
+            # Log
             print("Alexa Reply: ERROR")
+            # Return
             return "I'm sorry, nothing matches what you want.\n\n" \
                    "Would you like to try again?"
 
+        # Log
         print("Alexa Reply: Success")
+
+        # Return
         return reply
 
 # ------------------------------------------------------------------------------
@@ -71,15 +79,23 @@ class WebCommunicator(Communicator):
         # Front matter
         reply = "--- Random "
         reply += sessionType + " ---\n"
+
         # Module description
         reply += module.getLongDesc()
 
-        if "Error" in reply:
+        # Error checking
+        if "ERROR" in reply:
+            # Log
             print("Web Reply: ERROR")
-            return "I'm sorry, nothing matches what you want.\n\n" \
+            # Return
+            return "I'm sorry, nothing matches what you want.\n" \
                    "Would you like to try again?"
 
+        # Log
         print("Web Reply: Success")
+
+
+        # Return
         return reply
 
 # ------------------------------------------------------------------------------

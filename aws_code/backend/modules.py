@@ -58,12 +58,12 @@ def toStr(number):
 # ------------------------------------------------------------------------------
 class Module:
     """ Module base class """
-        
+
     @abstractmethod
     def getShortDesc(self):
         """ Build the short description """
         pass
-        
+
     @abstractmethod
     def getLongDesc(self):
         """ Build the long description """
@@ -74,8 +74,8 @@ class Module:
 # ------------------------------------------------------------------------------
 class Monster(Module):
     """ Monster Class """
-    name = ""
-    hp = [0, 0]
+    name = ""   # Name of the monster
+    hp = [0, 0] # HP range of the monster
 
     # Get monster by CR and/or Env
     def getMonster(self, CR, envType):
@@ -90,7 +90,7 @@ class Monster(Module):
         elif envType == "":
             monsters = [monster["Name"] for monster
                         in allMonsters
-                        if monster['CR'] == CR]       
+                        if monster['CR'] == CR]
         # Both CR and Env
         else:
             monsters = [monster["Name"] for monster
@@ -124,11 +124,14 @@ class Monster(Module):
 
         # Build description
         desc = self.name
+
+        # Check
         desc = replyCheck(desc)
 
         # Log
         print("Monster Short Desc: " + desc)
 
+        # Return
         return desc
 
     # Long description
@@ -137,6 +140,8 @@ class Monster(Module):
 
         # Build description
         desc = self.name + " - HP: " + str(self.hp[0]) + "-" + str(self.hp[1])
+
+        # Check
         desc = replyCheck(desc)
 
         # Log
@@ -145,6 +150,7 @@ class Monster(Module):
         else:
             print("Monster Long Desc: " + self.name)
 
+        # Return
         return desc
 
 # ------------------------------------------------------------------------------
@@ -152,8 +158,8 @@ class Monster(Module):
 # ------------------------------------------------------------------------------
 class Npc(Module):
     """ Npc Class """
-    name = ""
-    npcClass = ""
+    name = ""     # Name of the NPC
+    npcClass = "" # Class of the NPC
 
     # Get NPC by CR and/or Env
     def getNPCClass(self, CR, envType):
@@ -166,7 +172,7 @@ class Npc(Module):
         # No CR or Env
         elif CR == "" and envType == "":
             npcs = [npc["Name"] for npc
-                    in allNPCs]        
+                    in allNPCs]
         # No CR
         elif CR == "":
             npcs = [npc["Name"] for npc
@@ -176,7 +182,7 @@ class Npc(Module):
         elif envType == "":
             npcs = [npc["Name"] for npc
                     in allNPCs
-                    if abs(toInt(npc['CR']) - toInt(CR)) <= 2]       
+                    if abs(toInt(npc['CR']) - toInt(CR)) <= 2]
         # Both CR and Env
         else:
             npcs = [npc["Name"] for npc
@@ -214,6 +220,7 @@ class Npc(Module):
         # Log
         print("NPC Short Desc: " + desc)
 
+        # Return
         return desc
 
     # Long description
@@ -222,6 +229,8 @@ class Npc(Module):
 
         # Build description
         desc = self.name + " - " + self.npcClass
+
+        # Check
         desc = replyCheck(desc)
 
         # Log
@@ -230,6 +239,7 @@ class Npc(Module):
         else:
             print("NPC Long Desc: " + self.npcClass)
 
+        # Return
         return desc
 
 # ------------------------------------------------------------------------------
@@ -237,9 +247,9 @@ class Npc(Module):
 # ------------------------------------------------------------------------------
 class Encounter(Module):
     """ Encounter Class """
-    npc = None
-    monsters = None
-    numMob = 0
+    npc = None      # NPC in the encounter
+    monsters = None # List of monsters in the encounter
+    numMob = 0      # Number of monsters/NPCs in the encounter
 
     # Init
     def __init__(self, CR, envType):
@@ -263,7 +273,7 @@ class Encounter(Module):
             if newNpc.getShortDesc != "ERROR":
                 self.npc = Npc(npcCR, envType)
                 self.numMob = 1
-        
+
         # Check current CR and scaling
         if self.npc != None:
             npcClass = self.npc.getShortDesc()
@@ -326,6 +336,7 @@ class Encounter(Module):
         else:
             print("Encounter Short Desc: Success")
 
+        # Return
         return desc
 
     # Long description
@@ -351,6 +362,7 @@ class Encounter(Module):
         else:
             print("Encounter Long Desc: Success")
 
+        # Return
         return desc
 
 # ------------------------------------------------------------------------------
@@ -358,15 +370,19 @@ class Encounter(Module):
 # ------------------------------------------------------------------------------
 class PlotArc(Module):
     """ PlotArc Class """
-    npc = None
-    plot = ""
-    envType = ""
+    npc = None   # NPC in the plot arc
+    plot = ""    # Plot suggestion for the plot arc
+    envType = "" # Environment type, if specified
 
     # Init
     def __init__(self, CR, envType):
-        self.plot = random.choice(allNames)
+        # Get random plot idea
         self.plot = random.choice(allPlots)
+
+        # Build random NPC
         self.npc = Npc(CR, envType)
+
+        # Set environment type, if specified
         self.envType = envType
 
     # Short description
@@ -381,6 +397,7 @@ class PlotArc(Module):
         # Environment
         if self.envType:
             desc += " in the " + self.envType
+
         # Check
         desc = replyCheck(desc)
 
@@ -390,6 +407,7 @@ class PlotArc(Module):
         else:
             print("PlotArc Short Desc: Success")
 
+        # Return
         return desc
 
     # Long description
@@ -404,6 +422,7 @@ class PlotArc(Module):
         # Environment
         if self.envType:
             desc += " in the " + self.envType
+
         # Check
         desc = replyCheck(desc)
 
@@ -412,6 +431,8 @@ class PlotArc(Module):
             print("PlotArc Long Desc: ERROR")
         else:
             print("PlotArc Long Desc: Success")
+
+        # Return
         return desc
 
 # ------------------------------------------------------------------------------

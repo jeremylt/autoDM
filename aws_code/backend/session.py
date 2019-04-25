@@ -19,9 +19,9 @@ import bisect
 # ------------------------------------------------------------------------------
 class Session:
     """ Session class """
-    module = None
-    comm = None
-    sessionType = ""
+    module = None    # Random module for the session
+    comm = None      # Communicator for the session
+    sessionType = "" # Type of session (type of module)
 
     def __init__(self, sessionType, commType, CR, envType):
         # Communicator
@@ -29,6 +29,7 @@ class Session:
             self.comm = AlexaCommunicator()
         else:
             self.comm = WebCommunicator()
+
         # Session object
         self.sessionType = sessionType
         if sessionType == "Monster":
@@ -45,12 +46,16 @@ class Session:
     def buildReply(self):
         """ Build the Reply """
 
+        # Build reply if module is found
         if self.module:
             reply = self.comm.buildReply(self.module, self.sessionType)
         else:
             reply = "Invalid Module"
 
+        # Log
         print("Session Reply:\n" + reply)
+
+        # Return
         return(reply)
 
 # ------------------------------------------------------------------------------
