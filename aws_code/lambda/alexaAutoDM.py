@@ -213,7 +213,7 @@ def on_alexa_intent(intent_request, session):
     intent_name = intent_request['intent']['name']
 
     # Log
-    print("on_intent requestId=" + intent_request['requestId'] +
+    print("on_alexa_intent requestId=" + intent_request['requestId'] +
           ", sessionId=" + session['sessionId'])
     print(intent_name)
 

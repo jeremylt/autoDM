@@ -27,11 +27,11 @@ def build_web_response(text_output):
 # Web intent, written/rewritten by Jeremy L Thompson
 # ------------------------------------------------------------------------------
 def on_web_intent(intent):
-    """ Get a random omdule at the specified CR or env from the specified
-    environment for the web interace """
+    """ Get a random module at the specified CR or env from the specified
+    environment for the web interface """
 
     # Log
-    print("module_in_web_session: " + intent['name'])
+    print("on_web_intent: " + intent['name'])
 
     # Get response
     sessionType, text_output = get_intent_reply(intent, "Web")

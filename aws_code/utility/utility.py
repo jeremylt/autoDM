@@ -4,7 +4,7 @@
 
     Jeremy L Thompson
 
-    This is a utility function for the web and Alexa lambda handlers.
+    These are utility functions for the web and Alexa lambda handlers.
 """
 
 # ------------------------------------------------------------------------------
