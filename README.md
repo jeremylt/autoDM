@@ -13,6 +13,10 @@ challenge rating calculations come from the Dungeon Master's Guide.
 The Auto DM is hosted as a Lambda function on AWS. The Alexa skill is hosted by Amazon. The web interface uses an
 Amazon API Gateway and the demo web version is hosted on GitHub Pages.
 
+## Documentation
+
+Doxygen documentation can be found [here](https://jeremylt.github.io/autoDMDocumentation/).
+
 ## Demo
 
 The Alexa skill can be accessed [here](https://www.amazon.com/Jeremy-L-Thompson-Auto-Master/dp/B07QFVN96G/ref=sr_1_1?keywords=auto+game+master&qid=1555011836&s=digital-skills&sr=1-1-catcorr).
