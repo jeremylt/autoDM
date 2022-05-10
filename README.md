@@ -1,4 +1,6 @@
-# Heterogeneous Client Auto Dungeon Master
+# Backend for Auto Dungeon Master
+
+[![CI](https://github.com/jeremylt/autoDM/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/jeremylt/autoDM/actions/workflows/main.yml)
 
 ## Overview
 
