@@ -84,14 +84,14 @@ def get_welcome_response():
 
 	# Response
 	speech_output = "Welcome to the Auto Game Master!\n\n" \
-              "How do you want to do this?"
+                    "How do you want to do this?"
 
 	# If the user either does not reply to the welcome message or says something
 	# that is not understood, they will be prompted again with this text.
 	reprompt_text = "What type of module would you like?\n\n" \
-              "You can say 'Give me a C R 1 monster', " \
-              "'Give me a swamp N P C', or " \
-              "'I want a plot arc.'"
+                    "You can say 'Give me a C R 1 monster', " \
+                    "'Give me a swamp N P C', or " \
+                    "'I want a plot arc.'"
 
 	should_end_session = False
 
@@ -119,17 +119,17 @@ def get_help_response():
 
 	# Response
 	speech_output = "You can request a monster, N P C, encounter, or plot " \
-              " arc by challenge rating, environment, or both.\n\n" \
-              "For example, you can say 'Give me a C R 1 monster', " \
-              "'Give me a swamp N P C', or " \
-              "'I want a plot arc'.\n\n" \
-              "What type of module would you like?"
+                    " arc by challenge rating, environment, or both.\n\n" \
+                    "For example, you can say 'Give me a C R 1 monster', " \
+                    "'Give me a swamp N P C', or " \
+                    "'I want a plot arc'.\n\n" \
+                    "What type of module would you like?"
 
 	# Reprompt text
 	reprompt_text = "What type of module would you like? \n\n" \
-              "You can say 'Give me a C R 1 monster', " \
-              "'Give me a swamp N P C', or " \
-              "'I want a plot arc'."
+                    "You can say 'Give me a C R 1 monster', " \
+                    "'Give me a swamp N P C', or " \
+                    "'I want a plot arc'."
 
 	should_end_session = False
 
@@ -204,12 +204,12 @@ def module_in_alexa_session(intent, session):
 
 	if "ERROR" in speech_output:
 		speech_output = "I'm not sure what type of " + module_type_spoken + \
-                        " you want.\n\nPlease try again."
+                                    " you want.\n\nPlease try again."
 		reprompt_text = "I'm not sure what type of " + module_type_spoken + \
-                        " you want.\n\n" \
-                        "You can say 'Give me a C R 1 monster', " \
-                        "'Give me a swamp N P C', or " \
-                        "'I want a plot arc'."
+                                    " you want.\n\n" \
+                                    "You can say 'Give me a C R 1 monster', " \
+                                    "'Give me a swamp N P C', or " \
+                                    "'I want a plot arc'."
 	else:
 		reprompt_text = "Would you like another " + module_type_spoken + "?"
 
@@ -273,7 +273,7 @@ def on_alexa_intent(intent_request, session):
 	elif intent_name == "AMAZON.HelpIntent":
 		return get_help_response()
 	elif intent_name == "AMAZON.CancelIntent" or \
-                  intent_name == "AMAZON.StopIntent":
+                        intent_name == "AMAZON.StopIntent":
 		return handle_session_end_request()
 	else:
 		raise ValueError("Invalid intent")
