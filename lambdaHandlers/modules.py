@@ -145,8 +145,8 @@ class Monster(Module):
 		debug_print("get_long_description")
 
 		# Build description
-		description = self._name + " - HP: " + \
-                                          str(self._hp[0]) + "-" + str(self._hp[1])
+		description = (self._name + " - HP: " + str(self._hp[0]) + "-" +
+		               str(self._hp[1]))
 
 		# Log
 		debug_print("  description: " + description)
@@ -394,14 +394,14 @@ class Encounter(Module):
 
 		# Npc
 		if self._npc is not None:
-			description += "NPC: \n\t" + self._npc.get_long_description(
-			) + "\n"
+			description += ("NPC: \n\t" + self._npc.get_long_description() +
+			                "\n")
 
 		# Monsters
 		i = 1
 		for monster in self._monsters:
-			description += "Monster " + \
-                                                             str(i) + ":\n\t" + monster.get_long_description() + "\n"
+			description += ("Monster " + str(i) + ":\n\t" +
+			                monster.get_long_description() + "\n")
 			i += 1
 
 		# Log
