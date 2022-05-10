@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Python 3.8
+      - name: Set up Python
         uses: actions/setup-python@v1
       - name: Test with pytest
         run: |
@@ -25,10 +25,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Python 3.8
+      - name: Set up Python
         uses: actions/setup-python@v1
-      - name: Test with pytest
+      - name: Format with yapf
         run: |
           pip install yapf
           yapf *.py --in-place --style='{USE_TABS=true}'
           yapf lambdaHandlers/*.py --in-place --style='{USE_TABS=true}'
+          git diff --exit-code
