@@ -146,7 +146,7 @@ class Monster(Module):
 
 		# Build description
 		description = self._name + " - HP: " + \
-                              str(self._hp[0]) + "-" + str(self._hp[1])
+                                    str(self._hp[0]) + "-" + str(self._hp[1])
 
 		# Log
 		debug_print("  description: " + description)
@@ -401,7 +401,7 @@ class Encounter(Module):
 		i = 1
 		for monster in self._monsters:
 			description += "Monster " + \
-                                           str(i) + ":\n\t" + monster.get_long_description() + "\n"
+                                                    str(i) + ":\n\t" + monster.get_long_description() + "\n"
 			i += 1
 
 		# Log

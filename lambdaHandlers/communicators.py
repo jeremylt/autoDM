@@ -42,7 +42,7 @@ class AlexaCommunicator(Communicator):
 		print("Alexa Reply: " + error)
 		# Return
 		return "I'm sorry, nothing matches what you want.\n\n" \
-                              "Would you like to try again?"
+                                    "Would you like to try again?"
 
 	def build_reply(self, module):
 		""" Build the Reply
@@ -113,7 +113,7 @@ class WebCommunicator(Communicator):
 		print("Web Reply: " + error)
 		# Return
 		return "I'm sorry, nothing matches what you want.\n" \
-                              "Would you like to try again?"
+                                    "Would you like to try again?"
 
 	def build_reply(self, module):
 		""" Build the Reply
