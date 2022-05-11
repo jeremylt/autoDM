@@ -43,7 +43,7 @@ def on_web_intent(intent):
 	text_output = comm.build_reply(module)
 
 	# Return the web response JSON
-	if "ERROR" in text_output:
+	if is_error_string(text_output):
 		return build_web_response(
 		    "I'm sorry, nothing matches what you want.\n Would you like to try again?"
 		)

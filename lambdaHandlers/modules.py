@@ -26,6 +26,9 @@ from .utilities import *
 class Module:
 	""" Module base class """
 
+	def __repr__(self):
+		return self.get_short_description()
+
 	@abstractmethod
 	def get_short_description(self):
 		""" Build the short description """
@@ -35,9 +38,6 @@ class Module:
 	def get_long_description(self):
 		""" Build the long description """
 		pass
-
-	def __repr__(self):
-		return self.get_short_description()
 
 
 # ------------------------------------------------------------------------------
@@ -85,8 +85,13 @@ class Monster(Module):
         >>> import random
         >>> random.seed(13)
         >>>
+		>>> # valid monster found
         >>> Monster("2", "")
         gargoyle
+        >>>
+		>>> # no monster found
+		>>> monster = Monster("31", "")
+		ERROR: No suitable monster found
         """
 
 		# Log
@@ -98,12 +103,12 @@ class Monster(Module):
 		self._monster = self.get_random_monster(cr, environment)
 
 		# Get HP
-		if "ERROR" not in self._monster:
+		if is_error_string(self._monster):
+			self._name = self._monster
+			self._hp = [0, 0]
+		else:
 			self._name = self._monster['Name']
 			self._hp = ALL_HP[self._monster['CR']]
-		else:
-			self._name = "ERROR: No suitable monster found"
-			self._hp = "ERROR"
 
 	# Short description
 	def get_short_description(self):
@@ -112,9 +117,16 @@ class Monster(Module):
         >>> import random
         >>> random.seed(13)
         >>>
+		>>> # valid monster found
         >>> monster = Monster("2", "")
         >>> monster.get_short_description()
         'gargoyle'
+        >>>
+		>>> # no monster found
+		>>> monster = Monster("31", "")
+		ERROR: No suitable monster found
+		>>> monster.get_short_description()
+		'ERROR: No suitable monster found'
         """
 
 		# Log
@@ -136,17 +148,26 @@ class Monster(Module):
         >>> import random
         >>> random.seed(13)
         >>>
+		>>> # valid monster found
         >>> monster = Monster("2", "")
         >>> monster.get_long_description()
         'gargoyle - HP: 86-100'
+        >>>
+		>>> # no monster found
+		>>> monster = Monster("31", "")
+		ERROR: No suitable monster found
+		>>> monster.get_long_description()
+		'ERROR: No suitable monster found'
         """
 
 		# Log
 		debug_print("get_long_description")
 
 		# Build description
-		description = (self._name + " - HP: " + str(self._hp[0]) + "-" +
-		               str(self._hp[1]))
+		description = self._name
+		if not is_error_string(description):
+			description += " - HP: " + str(self._hp[0]) + "-" + str(
+			    self._hp[1])
 
 		# Log
 		debug_print("  description: " + description)
@@ -197,8 +218,13 @@ class Npc(Module):
         >>> import random
         >>> random.seed(13)
         >>>
+		>>> # valid NPC found
         >>> Npc("9", "")
         abjurer
+		>>>
+		>>> # no NPC found
+		>>> npc = Npc("15", "mountain")
+		ERROR: No suitable NPC found
         """
 
 		# Log
@@ -208,10 +234,10 @@ class Npc(Module):
 
 		# Get NPC type
 		self._type = self.get_random_npc_type(cr, environment)
-		if "ERROR" not in self._type:
-			self._class = self._type['Name']
+		if is_error_string(self._type):
+			self._class = self._type
 		else:
-			self._class = "ERROR"
+			self._class = self._type['Name']
 
 		# Get NPC name
 		self._name = random.choice(ALL_NAMES)
@@ -223,9 +249,16 @@ class Npc(Module):
         >>> import random
         >>> random.seed(13)
         >>>
+		>>> # valid NPC found
         >>> npc = Npc("9", "")
         >>> npc.get_short_description()
         'abjurer'
+		>>>
+		>>> # no NPC found
+		>>> npc = Npc("15", "mountain")
+		ERROR: No suitable NPC found
+		>>> npc.get_short_description()
+		'ERROR: No suitable NPC found'
         """
 
 		# Log
@@ -247,19 +280,28 @@ class Npc(Module):
         >>> import random
         >>> random.seed(13)
         >>>
+		>>> # valid NPC found
         >>> npc = Npc("9", "")
         >>> npc.get_long_description()
         'Uthemar - abjurer'
+		>>>
+		>>> # no NPC found
+		>>> npc = Npc("15", "mountain")
+		ERROR: No suitable NPC found
+		>>> npc.get_long_description()
+		'ERROR: No suitable NPC found'
         """
 
 		# Log
 		debug_print("get_long_description")
 
 		# Build description
-		description = self._name + " - " + self._class
+		description = self._class
+		if not is_error_string(description):
+			description = self._name + " - " + self._class
 
 		# Log
-		debug_print("  NPC Long Description: " + description)
+		debug_print("  description: " + description)
 
 		# Return
 		return description
@@ -280,8 +322,14 @@ class Encounter(Module):
         >>> import random
         >>> random.seed(13)
         >>>
+		>>> # valid encounter build
         >>> Encounter("", "urban")
-        conjurer and meenlock
+        warlock of the great old one and meenlock
+		>>>
+		>>> # no encounter build
+		>>> encounter = Encounter("30", "dummy")
+		ERROR: No suitable NPC found
+		ERROR: No suitable monster found
         """
 		# Log
 		debug_print("__init__ for Encounter")
@@ -306,12 +354,13 @@ class Encounter(Module):
 		if tier >= 1:
 			npc_cr = to_string(2 * int(to_int(cr) / 3))
 			npc = Npc(npc_cr, environment)
-			if npc.get_short_description != "ERROR":
-				self._npc = Npc(npc_cr, environment)
+			if not is_error_string(npc.get_short_description()):
+				self._npc = npc
 				self._number_monsters = 1
 
 		# Check current CR and scaling
-		if self._npc is not None:
+		if self._npc is not None and not is_error_string(
+		    self._npc.get_short_description()):
 			current_cr = to_float(self._npc._type['CR'])
 			current_scale = ALL_CR_SCALES[bisect(
 			    ALL_CR_SCALES, (self._number_monsters + 1, ))][1]
@@ -327,14 +376,14 @@ class Encounter(Module):
 			new_cr = random.choice(ALL_CRs[1 if tier == 0 else 5:6 +
 			                               min(max(max_cr, 0), max_ind - 6)])
 			new_monster = Monster(new_cr, environment)
-			if new_monster.get_short_description != "ERROR":
+			if is_error_string(new_monster.get_short_description()):
+				break
+			else:
 				self._monsters.append(new_monster)
 				self._number_monsters += 1
 				current_cr += to_float(new_cr)
 				current_scale = ALL_CR_SCALES[bisect(
 				    ALL_CR_SCALES, (self._number_monsters + 1, ))][1]
-			else:
-				break
 
 	# Short description
 	def get_short_description(self):
@@ -345,11 +394,15 @@ class Encounter(Module):
         >>>
         >>> encounter = Encounter("19", "")
         >>> encounter.get_short_description()
-        'archdruid and ettercap'
+        'warlord and ankheg'
         """
 
 		# Log
 		debug_print("get_short_description")
+
+		# Check for valid encounter
+		if self._number_monsters == 0:
+			return "ERROR: no encounter matches specification"
 
 		description = ""
 
@@ -370,7 +423,7 @@ class Encounter(Module):
 		description += self._monsters[-1].get_short_description()
 
 		# Log
-		debug_print("  Encounter Short Description: " + description)
+		debug_print("  description: " + description)
 
 		# Return
 		return description
@@ -384,11 +437,15 @@ class Encounter(Module):
         >>>
         >>> encounter = Encounter("19", "")
         >>> encounter.get_long_description()
-        'NPC: \\n\\tForcas - archdruid\\nMonster 1:\\n\\tettercap - HP: 86-100\\n'
+        'NPC: \\n\\tUthemar - warlord\\nMonster 1:\\n\\tankheg - HP: 86-100\\n'
         """
 
 		# Log
 		debug_print("get_long_description")
+
+		# Check for valid encounter
+		if self._number_monsters == 0:
+			return "ERROR: no encounter matches specification"
 
 		description = ""
 
@@ -405,7 +462,7 @@ class Encounter(Module):
 			i += 1
 
 		# Log
-		debug_print("  Encounter Long Description: " + description)
+		debug_print("  description: " + description)
 
 		# Return
 		return description
@@ -426,8 +483,13 @@ class PlotArc(Module):
         >>> import random
         >>> random.seed(13)
         >>>
+		>>> # valid plot arc built
         >>> PlotArc("9", "")
         abjurer is trying to place a pawn in a position of power
+		>>>
+		>>> # no plot arc built
+		>>> arc = PlotArc("15", "underdark")
+		ERROR: No suitable NPC found
         """
 
 		# Log
@@ -451,18 +513,23 @@ class PlotArc(Module):
         >>> import random
         >>> random.seed(13)
         >>>
+		>>> # valid plot arc build
         >>> arc = PlotArc("9", "")
         >>> arc.get_short_description()
         'abjurer is trying to place a pawn in a position of power'
+		>>>
+		>>> # no plot arc built
+		>>> arc = PlotArc("15", "underdark")
+		ERROR: No suitable NPC found
+		>>> arc.get_short_description()
+		'ERROR: No suitable plot arc built'
         """
 
 		# Log
 		debug_print("get_short_description")
 
-		description = ""
-
 		# NPC
-		description += self._npc.get_short_description()
+		description = self._npc.get_short_description()
 
 		# Plot
 		description += " " + self._plot
@@ -472,9 +539,11 @@ class PlotArc(Module):
 			description += " in the " + self._environment
 
 		# Log
-		debug_print("  Plot Arc Short Desc: " + description)
+		debug_print("  description: " + description)
 
 		# Return
+		if is_error_string(description):
+			return "ERROR: No suitable plot arc built"
 		return description
 
 	# Long description
@@ -484,18 +553,23 @@ class PlotArc(Module):
         >>> import random
         >>> random.seed(13)
         >>>
+		>>> # valid plot arc built
         >>> arc = PlotArc("9", "")
         >>> arc.get_long_description()
         'Arnbjorg - abjurer,  is trying to place a pawn in a position of power'
+		>>>
+		>>> # no plot arc built
+		>>> arc = PlotArc("15", "underdark")
+		ERROR: No suitable NPC found
+		>>> arc.get_short_description()
+		'ERROR: No suitable plot arc built'
         """
 
 		# Log
 		debug_print("get_long_description")
 
-		description = ""
-
 		# NPC
-		description += self._npc.get_long_description() + ", "
+		description = self._npc.get_long_description() + ", "
 
 		# Plot
 		description += " " + self._plot
@@ -505,9 +579,11 @@ class PlotArc(Module):
 			description += " in the " + self._environment
 
 		# Log
-		debug_print("  Plot Arc Long Desc: " + description)
+		debug_print("  description: " + description)
 
 		# Return
+		if is_error_string(description):
+			return "ERROR: No suitable plot arc built"
 		return description
 
 

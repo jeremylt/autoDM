@@ -62,15 +62,11 @@ class AlexaCommunicator(Communicator):
 		debug_print("build_reply")
 		debug_print("  AlexaCommunicator")
 
-		# Input checking
-		if type(module) == 'string' and "ERROR" in module:
-			return self.get_error_message(module)
-
 		# Module description
 		reply = module.get_short_description()
 
 		# Error checking
-		if "ERROR" in reply:
+		if is_error_string(reply):
 			return self.get_error_message(reply)
 
 		# Front matter
@@ -133,10 +129,6 @@ class WebCommunicator(Communicator):
 		debug_print("build_reply")
 		debug_print("  WebCommunicator")
 
-		# Input checking
-		if type(module) == 'string' and "ERROR" in module:
-			return self.get_error_message(module)
-
 		# Front matter
 		reply = "--- Random "
 		reply += module.type + " ---\n"
@@ -145,7 +137,7 @@ class WebCommunicator(Communicator):
 		reply += module.get_long_description()
 
 		# Error checking
-		if "ERROR" in reply:
+		if is_error_string(reply):
 			return self.get_error_message(reply)
 
 		# Log

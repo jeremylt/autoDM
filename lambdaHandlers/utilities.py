@@ -24,6 +24,23 @@ def debug_print(*args):
 # ------------------------------------------------------------------------------
 
 
+def is_error_string(return_value):
+	""" Check if return value is error message
+
+	>>> is_error_string(42)
+	False
+	>>> is_error_string("Some message")
+	False
+	>>> is_error_string("ERROR: some error message")
+	True
+    """
+
+	return isinstance(return_value, str) and return_value.find("ERROR") != -1
+
+
+# ------------------------------------------------------------------------------
+
+
 def to_int(string):
 	""" Convert string to int
 

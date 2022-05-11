@@ -184,8 +184,7 @@ def module_in_alexa_session(intent, session):
 	speech_output = comm.build_reply(module)
 
 	# Build reply
-	module_type_spoken = "response" if "ERROR" in module else module.type.lower(
-	)
+	module_type_spoken = module.type.lower()
 	if module_type_spoken == "npc":
 		module_type_spoken = "N P C"
 
@@ -202,7 +201,7 @@ def module_in_alexa_session(intent, session):
 	session_attributes = {}
 	should_end_session = False
 
-	if "ERROR" in speech_output:
+	if is_error_string(speech_output):
 		speech_output = ("I'm not sure what type of " + module_type_spoken +
 		                 " you want.\n\nPlease try again.")
 		reprompt_text = ("I'm not sure what type of " + module_type_spoken +
