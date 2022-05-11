@@ -679,19 +679,40 @@ def module_from_intent(intent):
 	>>> import random
 	>>> random.seed(13)
 	>>> # valid monster intent
-	>>> monster_intent = {'name': "MonsterByCRandEnvironment", 'slots': {'cr': {'value': "2"}, 'env': {'value': "swamp"}}}
+	>>> monster_intent = {
+	...		'name': "MonsterByCRandEnvironment",
+	...		'slots': {
+	...			'cr': {'value': "2"},
+	...			'env': {'value': "swamp"}
+	...		}
+	...	}
 	>>> module_from_intent(monster_intent)
 	swarm of poisonous snakes
 	>>> # invalid npc intent
-	>>> npc_intent = {'name': "NPCByEnvironment", 'slots': {'cr': {'value': "2"}}}
+	>>> npc_intent = {
+	...		'name': "NPCByEnvironment",
+	...		'slots': {
+	...			'cr': {'value': "2"}
+	...		}
+	...	}
 	>>> module_from_intent(npc_intent)
 	ERROR: No environment found
 	>>> # invalid plot arc intent
-	>>> npc_intent = {'name': "PlotArcByCR", 'slots': {'environment': {'value': "swamp"}}}
+	>>> npc_intent = {
+	...		'name': "PlotArcByCR",
+	...		'slots': {
+	...			'environment': {'value': "swamp"}
+	...		}
+	...	}
 	>>> module_from_intent(npc_intent)
 	ERROR: No CR found
 	>>> # invalid module type intent
-	>>> error_intent = {'name': "TypoByCR", 'slots': {'cr': {'value': "2"}}}
+	>>> error_intent = {
+	...		'name': "TypoByCR",
+	...		'slots': {
+	...			'cr': {'value': "2"}
+	...		}
+	...	}
 	>>> module_from_intent(error_intent)
 	ERROR: No suitable module found
     """

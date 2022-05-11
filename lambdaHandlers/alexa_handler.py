@@ -171,7 +171,33 @@ def handle_session_end_request():
 
 def module_in_alexa_session(intent, session):
 	""" Get a random module at the specified CR or env from the specified
-    environment for the Alexa inteface """
+    environment for the Alexa inteface
+
+	>>> import random
+	>>> random.seed(13)
+	>>> # valid monster intent
+	>>> monster_event = {
+	...		'ip': "2001:0db8:85a3:0000:0000:8a2e:0370:7334",
+	...		'session': {
+	...			'sessionId': "13",
+	...			'new': False,
+	...			'application': {'applicationId': "42"},
+	...		},
+	...		'request' : {
+	...			'type': "IntentRequest",
+	...			'requestId': "42",
+	...			'intent': {
+	...				'name': "MonsterByCRandEnvironment",
+	...				'slots': {
+	...					'cr': {'value': "2"},
+	...					'env': {'value': "swamp"}
+	...				}
+	...			}
+	...		}
+	...	}
+	>>> module_in_alexa_session(monster_event['request']['intent'], monster_event['session'])
+	{'version': '1.0', 'sessionAttributes': {}, 'response': {'outputSpeech': {'type': 'PlainText', 'text': 'A swarm of poisonous snakes attacks!\\n\\nWould you like another monster?'}, 'card': {'type': 'Simple', 'title': 'Random monster By CR and Environment', 'content': 'A swarm of poisonous snakes attacks!\\n\\nWould you like another monster?'}, 'reprompt': {'outputSpeech': {'type': 'PlainText', 'text': 'Would you like another monster?'}}, 'shouldEndSession': False}}
+	"""
 
 	# Log
 	debug_print("module_in_alexa_session: " + intent['name'])
@@ -252,7 +278,33 @@ def on_launch(launch_request, session):
 
 
 def on_alexa_intent(intent_request, session):
-	""" Called when the user specifies an intent for this skill """
+	""" Called when the user specifies an intent for this skill
+
+	>>> import random
+	>>> random.seed(13)
+	>>> # valid monster intent
+	>>> monster_event = {
+	...		'ip': "2001:0db8:85a3:0000:0000:8a2e:0370:7334",
+	...		'session': {
+	...			'sessionId': "13",
+	...			'new': False,
+	...			'application': {'applicationId': "42"},
+	...		},
+	...		'request' : {
+	...			'type': "IntentRequest",
+	...			'requestId': "42",
+	...			'intent': {
+	...				'name': "MonsterByCRandEnvironment",
+	...				'slots': {
+	...					'cr': {'value': "2"},
+	...					'env': {'value': "swamp"}
+	...				}
+	...			}
+	...		}
+	...	}
+	>>> on_alexa_intent(monster_event['request'], monster_event['session'])
+	{'version': '1.0', 'sessionAttributes': {}, 'response': {'outputSpeech': {'type': 'PlainText', 'text': 'A swarm of poisonous snakes attacks!\\n\\nWould you like another monster?'}, 'card': {'type': 'Simple', 'title': 'Random monster By CR and Environment', 'content': 'A swarm of poisonous snakes attacks!\\n\\nWould you like another monster?'}, 'reprompt': {'outputSpeech': {'type': 'PlainText', 'text': 'Would you like another monster?'}}, 'shouldEndSession': False}}
+	"""
 
 	# Get intent
 	intent = intent_request['intent']
@@ -297,7 +349,33 @@ def on_session_ended(session_ended_request, session):
 
 def alexa_lambda_handler(event, context):
 	""" Route the incoming request based on type (LaunchRequest, IntentRequest, etc.)
-     The JSON body of the request is provided in the event parameter. """
+     The JSON body of the request is provided in the event parameter.
+
+	>>> import random
+	>>> random.seed(13)
+	>>> # valid monster intent
+	>>> monster_event = {
+	...		'ip': "2001:0db8:85a3:0000:0000:8a2e:0370:7334",
+	...		'session': {
+	...			'sessionId': "13",
+	...			'new': False,
+	...			'application': {'applicationId': "42"},
+	...		},
+	...		'request' : {
+	...			'type': "IntentRequest",
+	...			'requestId': "42",
+	...			'intent': {
+	...				'name': "MonsterByCRandEnvironment",
+	...				'slots': {
+	...					'cr': {'value': "2"},
+	...					'env': {'value': "swamp"}
+	...				}
+	...			}
+	...		}
+	...	}
+	>>> alexa_lambda_handler(monster_event, "")
+	{'version': '1.0', 'sessionAttributes': {}, 'response': {'outputSpeech': {'type': 'PlainText', 'text': 'A swarm of poisonous snakes attacks!\\n\\nWould you like another monster?'}, 'card': {'type': 'Simple', 'title': 'Random monster By CR and Environment', 'content': 'A swarm of poisonous snakes attacks!\\n\\nWould you like another monster?'}, 'reprompt': {'outputSpeech': {'type': 'PlainText', 'text': 'Would you like another monster?'}}, 'shouldEndSession': False}}
+	"""
 
 	# Log
 	debug_print("alexa_lambda_handler")
