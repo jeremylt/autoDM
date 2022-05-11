@@ -1,8 +1,6 @@
 """
 	Auto DM
 
-	Jeremy L Thompson
-
 	This is the lambda handler for Alexa and web requests.
 """
 # ------------------------------------------------------------------------------
