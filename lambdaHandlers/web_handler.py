@@ -1,10 +1,7 @@
 """
-	Web Auto DM
+	Web lambda handler
 
-	Jeremy L Thompson
-
-	This code provides a website Auto DM for tabletop RPG games that provides
-	monsters within given specifications (Challenge Rating and Environment).
+	This code provides the lambda handler for requests from  websites.
 """
 # ------------------------------------------------------------------------------
 # Imports

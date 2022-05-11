@@ -1,10 +1,7 @@
 """
-	Alexa Auto DM
+	Alexa lambda handler
 
-	Jeremy L Thompson
-
-	This code provides an Alexa Auto DM for tabletop RPG games that provides
-	monsters within given specifications (Challenge Rating and Environment).
+	This code provides the lambda handler for requests from  Alexa devices.
 """
 # ------------------------------------------------------------------------------
 # Imports

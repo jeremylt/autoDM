@@ -1,9 +1,8 @@
 """
-	Auto DM
+	Communicators
 
-	Jeremy L Thompson
-
-	This file provides communicator objects
+	This code provides communicator objects for formatting Module output for
+	  display for Web or Alexa requests.
 """
 # ------------------------------------------------------------------------------
 # Imports
@@ -49,10 +48,10 @@ class AlexaCommunicator(Communicator):
 
         >>> import random
         >>> random.seed(13)
-        >>>
+        >>> # build module
         >>> from lambdaHandlers.modules import Npc
         >>> module = Npc("", "grassland")
-        >>>
+        >>> # display module output for Alexa
         >>> comm = AlexaCommunicator()
         >>> comm.build_reply(module)
         'A centaur confronts you!\\n\\nWould you like another N P C?'
@@ -116,10 +115,10 @@ class WebCommunicator(Communicator):
 
         >>> import random
         >>> random.seed(13)
-        >>>
+        >>> # build module
         >>> from lambdaHandlers.modules import Monster
         >>> module = Monster("", "swamp")
-        >>>
+        >>> # display module output for web
         >>> comm = WebCommunicator()
         >>> comm.build_reply(module)
         '--- Random Monster ---\\ntroll - HP: 131-145'

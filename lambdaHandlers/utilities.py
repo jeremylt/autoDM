@@ -1,10 +1,8 @@
 # coding=utf8
 """
-	Auto DM
+	Utilities
 
-	Jeremy L Thompson
-
-	These are utility functions for the Module class.
+	This code provides utility functions used throughout the module.
 """
 
 # ------------------------------------------------------------------------------

@@ -1,9 +1,7 @@
 """
-	Auto DM
+	Modules
 
-	Jeremy L Thompson
-
-	This file provides module objects
+	This code provides the random Modules (Monster, NPC, etc).
 """
 # ------------------------------------------------------------------------------
 # Imports
@@ -84,11 +82,9 @@ class Monster(Module):
 
         >>> import random
         >>> random.seed(13)
-        >>>
 		>>> # valid monster found
         >>> Monster("2", "")
         gargoyle
-        >>>
 		>>> # no monster found
 		>>> monster = Monster("31", "")
 		ERROR: No suitable monster found
@@ -116,12 +112,10 @@ class Monster(Module):
 
         >>> import random
         >>> random.seed(13)
-        >>>
 		>>> # valid monster found
         >>> monster = Monster("2", "")
         >>> monster.get_short_description()
         'gargoyle'
-        >>>
 		>>> # no monster found
 		>>> monster = Monster("31", "")
 		ERROR: No suitable monster found
@@ -147,12 +141,10 @@ class Monster(Module):
 
         >>> import random
         >>> random.seed(13)
-        >>>
 		>>> # valid monster found
         >>> monster = Monster("2", "")
         >>> monster.get_long_description()
         'gargoyle - HP: 86-100'
-        >>>
 		>>> # no monster found
 		>>> monster = Monster("31", "")
 		ERROR: No suitable monster found
@@ -217,11 +209,9 @@ class Npc(Module):
 
         >>> import random
         >>> random.seed(13)
-        >>>
 		>>> # valid NPC found
         >>> Npc("9", "")
         abjurer
-		>>>
 		>>> # no NPC found
 		>>> npc = Npc("15", "mountain")
 		ERROR: No suitable NPC found
@@ -248,12 +238,10 @@ class Npc(Module):
 
         >>> import random
         >>> random.seed(13)
-        >>>
 		>>> # valid NPC found
         >>> npc = Npc("9", "")
         >>> npc.get_short_description()
         'abjurer'
-		>>>
 		>>> # no NPC found
 		>>> npc = Npc("15", "mountain")
 		ERROR: No suitable NPC found
@@ -279,12 +267,10 @@ class Npc(Module):
 
         >>> import random
         >>> random.seed(13)
-        >>>
 		>>> # valid NPC found
         >>> npc = Npc("9", "")
         >>> npc.get_long_description()
         'Uthemar - abjurer'
-		>>>
 		>>> # no NPC found
 		>>> npc = Npc("15", "mountain")
 		ERROR: No suitable NPC found
@@ -321,11 +307,9 @@ class Encounter(Module):
 
         >>> import random
         >>> random.seed(13)
-        >>>
 		>>> # valid encounter build
         >>> Encounter("", "urban")
         warlock of the great old one and meenlock
-		>>>
 		>>> # no encounter build
 		>>> encounter = Encounter("30", "dummy")
 		ERROR: No suitable NPC found
@@ -391,7 +375,6 @@ class Encounter(Module):
 
         >>> import random
         >>> random.seed(13)
-        >>>
         >>> encounter = Encounter("19", "")
         >>> encounter.get_short_description()
         'warlord and ankheg'
@@ -434,7 +417,6 @@ class Encounter(Module):
 
         >>> import random
         >>> random.seed(13)
-        >>>
         >>> encounter = Encounter("19", "")
         >>> encounter.get_long_description()
         'NPC: \\n\\tUthemar - warlord\\nMonster 1:\\n\\tankheg - HP: 86-100\\n'
@@ -482,11 +464,9 @@ class PlotArc(Module):
 
         >>> import random
         >>> random.seed(13)
-        >>>
 		>>> # valid plot arc built
         >>> PlotArc("9", "")
         abjurer is trying to place a pawn in a position of power
-		>>>
 		>>> # no plot arc built
 		>>> arc = PlotArc("15", "underdark")
 		ERROR: No suitable NPC found
@@ -512,12 +492,10 @@ class PlotArc(Module):
 
         >>> import random
         >>> random.seed(13)
-        >>>
 		>>> # valid plot arc build
         >>> arc = PlotArc("9", "")
         >>> arc.get_short_description()
         'abjurer is trying to place a pawn in a position of power'
-		>>>
 		>>> # no plot arc built
 		>>> arc = PlotArc("15", "underdark")
 		ERROR: No suitable NPC found
@@ -552,12 +530,10 @@ class PlotArc(Module):
 
         >>> import random
         >>> random.seed(13)
-        >>>
 		>>> # valid plot arc built
         >>> arc = PlotArc("9", "")
         >>> arc.get_long_description()
         'Arnbjorg - abjurer,  is trying to place a pawn in a position of power'
-		>>>
 		>>> # no plot arc built
 		>>> arc = PlotArc("15", "underdark")
 		ERROR: No suitable NPC found
@@ -597,13 +573,10 @@ def get_module_args_from_intent_name(intent_name):
 
     >>> get_module_args_from_intent_name("MonsterByCRandEnvironment")
     (True, True, 'Monster')
-
     >>> get_module_args_from_intent_name("NpcByCR")
     (True, False, 'Npc')
-
     >>> get_module_args_from_intent_name("EncounterByCRandEnvironment")
     (True, True, 'Encounter')
-
     >>> get_module_args_from_intent_name("PlotArcByEnvironment")
     (False, True, 'Plot Arc')
     """
