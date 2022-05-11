@@ -229,6 +229,37 @@
 </dd></dl>
 </dd></dl>
 <dl class="py class">
+<dt class="sig sig-object py" id="lambdaHandlers.modules.Error">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lambdaHandlers.modules.</span></span><span class="sig-name descname"><span class="pre">Error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lambdaHandlers.modules.Error" title="Permalink to this definition">#</a></dt>
+<dd><p>Error Class</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lambdaHandlers.modules.Error.get_long_description">
+<span class="sig-name descname"><span class="pre">get_long_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lambdaHandlers.modules.Error.get_long_description" title="Permalink to this definition">#</a></dt>
+<dd><p>Build the long description</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># dummy error Module</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">error</span> <span class="o">=</span> <span class="n">Error</span><span class="p">(</span><span class="s2">"ERROR: message goes here"</span><span class="p">)</span>
+<span class="go">        &gt;&gt;&gt; error.get_long_description()</span>
+<span class="go">        'ERROR: message goes here'</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="lambdaHandlers.modules.Error.get_short_description">
+<span class="sig-name descname"><span class="pre">get_short_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lambdaHandlers.modules.Error.get_short_description" title="Permalink to this definition">#</a></dt>
+<dd><p>Build the short description</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># dummy error Module</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">error</span> <span class="o">=</span> <span class="n">Error</span><span class="p">(</span><span class="s2">"ERROR: message goes here"</span><span class="p">)</span>
+<span class="go">        &gt;&gt;&gt; error.get_short_description()</span>
+<span class="go">        'ERROR: message goes here'</span>
+</pre></div>
+</div>
+</dd></dl>
+</dd></dl>
+<dl class="py class">
 <dt class="sig sig-object py" id="lambdaHandlers.modules.Module">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lambdaHandlers.modules.</span></span><span class="sig-name descname"><span class="pre">Module</span></span><a class="headerlink" href="#lambdaHandlers.modules.Module" title="Permalink to this definition">#</a></dt>
 <dd><p>Module base class</p>
@@ -379,22 +410,45 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="lambdaHandlers.modules.get_module_args_from_intent_name">
 <span class="sig-prename descclassname"><span class="pre">lambdaHandlers.modules.</span></span><span class="sig-name descname"><span class="pre">get_module_args_from_intent_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">intent_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lambdaHandlers.modules.get_module_args_from_intent_name" title="Permalink to this definition">#</a></dt>
-<dd><p>Parses intent name</p>
+<dd><p>Parses intent name into requested features</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_module_args_from_intent_name</span><span class="p">(</span><span class="s2">"MonsterByCRandEnvironment"</span><span class="p">)</span>
-<span class="go">(True, True, 'Monster')</span>
+<span class="go">{'has_cr': True, 'has_environment': True, 'module_type': 'Monster'}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">get_module_args_from_intent_name</span><span class="p">(</span><span class="s2">"NpcByCR"</span><span class="p">)</span>
-<span class="go">(True, False, 'Npc')</span>
+<span class="go">{'has_cr': True, 'has_environment': False, 'module_type': 'Npc'}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">get_module_args_from_intent_name</span><span class="p">(</span><span class="s2">"EncounterByCRandEnvironment"</span><span class="p">)</span>
-<span class="go">(True, True, 'Encounter')</span>
+<span class="go">{'has_cr': True, 'has_environment': True, 'module_type': 'Encounter'}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">get_module_args_from_intent_name</span><span class="p">(</span><span class="s2">"PlotArcByEnvironment"</span><span class="p">)</span>
-<span class="go">(False, True, 'Plot Arc')</span>
+<span class="go">{'has_cr': False, 'has_environment': True, 'module_type': 'Plot Arc'}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_module_args_from_intent_name</span><span class="p">(</span><span class="s2">"TypoByEnvironment"</span><span class="p">)</span>
+<span class="go">{'has_cr': False, 'has_environment': True, 'module_type': 'ERROR'}</span>
 </pre></div>
 </div>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="lambdaHandlers.modules.module_from_intent">
 <span class="sig-prename descclassname"><span class="pre">lambdaHandlers.modules.</span></span><span class="sig-name descname"><span class="pre">module_from_intent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">intent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lambdaHandlers.modules.module_from_intent" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Parses intent object to create module</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">random</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># valid monster intent</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">monster_intent</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'name'</span><span class="p">:</span> <span class="s2">"MonsterByCRandEnvironment"</span><span class="p">,</span> <span class="s1">'slots'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'cr'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'value'</span><span class="p">:</span> <span class="s2">"2"</span><span class="p">},</span> <span class="s1">'env'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'value'</span><span class="p">:</span> <span class="s2">"swamp"</span><span class="p">}}}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">module_from_intent</span><span class="p">(</span><span class="n">monster_intent</span><span class="p">)</span>
+<span class="go">swarm of poisonous snakes</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># invalid npc intent</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">npc_intent</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'name'</span><span class="p">:</span> <span class="s2">"NPCByEnvironment"</span><span class="p">,</span> <span class="s1">'slots'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'cr'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'value'</span><span class="p">:</span> <span class="s2">"2"</span><span class="p">}}}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">module_from_intent</span><span class="p">(</span><span class="n">npc_intent</span><span class="p">)</span>
+<span class="go">ERROR: No environment found</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># invalid plot arc intent</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">npc_intent</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'name'</span><span class="p">:</span> <span class="s2">"PlotArcByCR"</span><span class="p">,</span> <span class="s1">'slots'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'environment'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'value'</span><span class="p">:</span> <span class="s2">"swamp"</span><span class="p">}}}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">module_from_intent</span><span class="p">(</span><span class="n">npc_intent</span><span class="p">)</span>
+<span class="go">ERROR: No CR found</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># invalid module type intent</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">error_intent</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'name'</span><span class="p">:</span> <span class="s2">"TypoByCR"</span><span class="p">,</span> <span class="s1">'slots'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'cr'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'value'</span><span class="p">:</span> <span class="s2">"2"</span><span class="p">}}}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">module_from_intent</span><span class="p">(</span><span class="n">error_intent</span><span class="p">)</span>
+<span class="go">ERROR: No suitable module found</span>
+</pre></div>
+</div>
+</dd></dl>
 </section>
 
         </article>
