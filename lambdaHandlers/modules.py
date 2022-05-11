@@ -39,6 +39,62 @@ class Module:
 
 
 # ------------------------------------------------------------------------------
+# Error Class
+# ------------------------------------------------------------------------------
+
+
+class Error(Module):
+	""" Error Class """
+
+	# Init
+	def __init__(self, message):
+		""" Create error
+
+		>>> # dummy error Module
+		>>> Error("ERROR: message goes here")
+		ERROR: message goes here
+		"""
+
+		# Log
+		debug_print("__init__ for Error")
+
+		self.type = "Error"
+		self._message = message
+
+	# Short description
+	def get_short_description(self):
+		""" Build the short description
+
+		>>> # dummy error Module
+        >>> error = Error("ERROR: message goes here")
+		>>> error.get_short_description()
+		'ERROR: message goes here'
+		"""
+
+		# Log
+		debug_print("get_short_description")
+
+		# Return
+		return self._message
+
+	# Long description
+	def get_long_description(self):
+		""" Build the long description
+
+		>>> # dummy error Module
+        >>> error = Error("ERROR: message goes here")
+		>>> error.get_long_description()
+		'ERROR: message goes here'
+		"""
+
+		# Log
+		debug_print("get_long_description")
+
+		# Return
+		return self._message
+
+
+# ------------------------------------------------------------------------------
 # Monster Class
 # ------------------------------------------------------------------------------
 
@@ -569,16 +625,18 @@ class PlotArc(Module):
 
 
 def get_module_args_from_intent_name(intent_name):
-	""" Parses intent name
+	""" Parses intent name into requested features
 
     >>> get_module_args_from_intent_name("MonsterByCRandEnvironment")
-    (True, True, 'Monster')
+    {'has_cr': True, 'has_environment': True, 'module_type': 'Monster'}
     >>> get_module_args_from_intent_name("NpcByCR")
-    (True, False, 'Npc')
+    {'has_cr': True, 'has_environment': False, 'module_type': 'Npc'}
     >>> get_module_args_from_intent_name("EncounterByCRandEnvironment")
-    (True, True, 'Encounter')
+    {'has_cr': True, 'has_environment': True, 'module_type': 'Encounter'}
     >>> get_module_args_from_intent_name("PlotArcByEnvironment")
-    (False, True, 'Plot Arc')
+    {'has_cr': False, 'has_environment': True, 'module_type': 'Plot Arc'}
+    >>> get_module_args_from_intent_name("TypoByEnvironment")
+    {'has_cr': False, 'has_environment': True, 'module_type': 'ERROR'}
     """
 
 	# Log
@@ -602,38 +660,65 @@ def get_module_args_from_intent_name(intent_name):
 		module_type = "Encounter"
 	elif "PlotArc" in intent_name:
 		module_type = "Plot Arc"
+	else:
+		module_type = "ERROR"
 
-	return has_cr, has_environment, module_type
+	return {
+	    'has_cr': has_cr,
+	    'has_environment': has_environment,
+	    'module_type': module_type
+	}
 
 
 # ------------------------------------------------------------------------------
 
 
 def module_from_intent(intent):
+	""" Parses intent object to create module 
+
+	>>> import random
+	>>> random.seed(13)
+	>>> # valid monster intent
+	>>> monster_intent = {'name': "MonsterByCRandEnvironment", 'slots': {'cr': {'value': "2"}, 'env': {'value': "swamp"}}}
+	>>> module_from_intent(monster_intent)
+	swarm of poisonous snakes
+	>>> # invalid npc intent
+	>>> npc_intent = {'name': "NPCByEnvironment", 'slots': {'cr': {'value': "2"}}}
+	>>> module_from_intent(npc_intent)
+	ERROR: No environment found
+	>>> # invalid plot arc intent
+	>>> npc_intent = {'name': "PlotArcByCR", 'slots': {'environment': {'value': "swamp"}}}
+	>>> module_from_intent(npc_intent)
+	ERROR: No CR found
+	>>> # invalid module type intent
+	>>> error_intent = {'name': "TypoByCR", 'slots': {'cr': {'value': "2"}}}
+	>>> module_from_intent(error_intent)
+	ERROR: No suitable module found
+    """
+
 	# Log
 	debug_print("module_from_intent")
 
 	# Break down name into type, CR, and environment
-	has_cr, has_environment, module_type = get_module_args_from_intent_name(
-	    intent['name'])
+	intent_name_by_parts = get_module_args_from_intent_name(intent['name'])
 
 	cr = ""
-	if has_cr:
+	if intent_name_by_parts['has_cr']:
 		try:
-			cr = intent['slots']['cr']['value']
 			# Amazon rudely uses non-ASCII characters
-			cr = cr.replace('⁄', '/')
+			cr = intent['slots']['cr']['value'].replace('⁄', '/')
 		except BaseException:
-			return "ERROR: No CR found"
+			return Error("ERROR: No CR found")
 
 	environment = ""
-	if has_environment:
+	if intent_name_by_parts['has_environment']:
 		try:
 			environment = intent['slots']['env']['value']
 		except BaseException:
-			return "ERROR: No environment found"
+			return Error("ERROR: No environment found")
 
 	# Log
+	module_type = intent_name_by_parts['module_type']
 	debug_print("  module_type: " + module_type)
 	debug_print("  cr: " + cr)
 	debug_print("  environment: " + environment)
@@ -648,7 +733,7 @@ def module_from_intent(intent):
 	elif module_type == "Plot Arc":
 		return PlotArc(cr, environment)
 	else:
-		return "ERROR: No suitable module found"
+		return Error("ERROR: No suitable module found")
 
 
 # ------------------------------------------------------------------------------
