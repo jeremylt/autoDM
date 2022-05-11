@@ -431,19 +431,40 @@
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">random</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># valid monster intent</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">monster_intent</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'name'</span><span class="p">:</span> <span class="s2">"MonsterByCRandEnvironment"</span><span class="p">,</span> <span class="s1">'slots'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'cr'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'value'</span><span class="p">:</span> <span class="s2">"2"</span><span class="p">},</span> <span class="s1">'env'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'value'</span><span class="p">:</span> <span class="s2">"swamp"</span><span class="p">}}}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">monster_intent</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>            <span class="s1">'name'</span><span class="p">:</span> <span class="s2">"MonsterByCRandEnvironment"</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="s1">'slots'</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>                    <span class="s1">'cr'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'value'</span><span class="p">:</span> <span class="s2">"2"</span><span class="p">},</span>
+<span class="gp">... </span>                    <span class="s1">'env'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'value'</span><span class="p">:</span> <span class="s2">"swamp"</span><span class="p">}</span>
+<span class="gp">... </span>            <span class="p">}</span>
+<span class="gp">... </span>    <span class="p">}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">module_from_intent</span><span class="p">(</span><span class="n">monster_intent</span><span class="p">)</span>
 <span class="go">swarm of poisonous snakes</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># invalid npc intent</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">npc_intent</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'name'</span><span class="p">:</span> <span class="s2">"NPCByEnvironment"</span><span class="p">,</span> <span class="s1">'slots'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'cr'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'value'</span><span class="p">:</span> <span class="s2">"2"</span><span class="p">}}}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">npc_intent</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>            <span class="s1">'name'</span><span class="p">:</span> <span class="s2">"NPCByEnvironment"</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="s1">'slots'</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>                    <span class="s1">'cr'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'value'</span><span class="p">:</span> <span class="s2">"2"</span><span class="p">}</span>
+<span class="gp">... </span>            <span class="p">}</span>
+<span class="gp">... </span>    <span class="p">}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">module_from_intent</span><span class="p">(</span><span class="n">npc_intent</span><span class="p">)</span>
 <span class="go">ERROR: No environment found</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># invalid plot arc intent</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">npc_intent</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'name'</span><span class="p">:</span> <span class="s2">"PlotArcByCR"</span><span class="p">,</span> <span class="s1">'slots'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'environment'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'value'</span><span class="p">:</span> <span class="s2">"swamp"</span><span class="p">}}}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">npc_intent</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>            <span class="s1">'name'</span><span class="p">:</span> <span class="s2">"PlotArcByCR"</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="s1">'slots'</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>                    <span class="s1">'environment'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'value'</span><span class="p">:</span> <span class="s2">"swamp"</span><span class="p">}</span>
+<span class="gp">... </span>            <span class="p">}</span>
+<span class="gp">... </span>    <span class="p">}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">module_from_intent</span><span class="p">(</span><span class="n">npc_intent</span><span class="p">)</span>
 <span class="go">ERROR: No CR found</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># invalid module type intent</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">error_intent</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'name'</span><span class="p">:</span> <span class="s2">"TypoByCR"</span><span class="p">,</span> <span class="s1">'slots'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'cr'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'value'</span><span class="p">:</span> <span class="s2">"2"</span><span class="p">}}}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">error_intent</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>            <span class="s1">'name'</span><span class="p">:</span> <span class="s2">"TypoByCR"</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="s1">'slots'</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>                    <span class="s1">'cr'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'value'</span><span class="p">:</span> <span class="s2">"2"</span><span class="p">}</span>
+<span class="gp">... </span>            <span class="p">}</span>
+<span class="gp">... </span>    <span class="p">}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">module_from_intent</span><span class="p">(</span><span class="n">error_intent</span><span class="p">)</span>
 <span class="go">ERROR: No suitable module found</span>
 </pre></div>

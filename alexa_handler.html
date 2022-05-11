@@ -204,6 +204,32 @@
 <span class="sig-prename descclassname"><span class="pre">lambdaHandlers.alexa_handler.</span></span><span class="sig-name descname"><span class="pre">alexa_lambda_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lambdaHandlers.alexa_handler.alexa_lambda_handler" title="Permalink to this definition">#</a></dt>
 <dd><p>Route the incoming request based on type (LaunchRequest, IntentRequest, etc.)
 The JSON body of the request is provided in the event parameter.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">random</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># valid monster intent</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">monster_event</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>            <span class="s1">'ip'</span><span class="p">:</span> <span class="s2">"2001:0db8:85a3:0000:0000:8a2e:0370:7334"</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="s1">'session'</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>                    <span class="s1">'sessionId'</span><span class="p">:</span> <span class="s2">"13"</span><span class="p">,</span>
+<span class="gp">... </span>                    <span class="s1">'new'</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+<span class="gp">... </span>                    <span class="s1">'application'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'applicationId'</span><span class="p">:</span> <span class="s2">"42"</span><span class="p">},</span>
+<span class="gp">... </span>            <span class="p">},</span>
+<span class="gp">... </span>            <span class="s1">'request'</span> <span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>                    <span class="s1">'type'</span><span class="p">:</span> <span class="s2">"IntentRequest"</span><span class="p">,</span>
+<span class="gp">... </span>                    <span class="s1">'requestId'</span><span class="p">:</span> <span class="s2">"42"</span><span class="p">,</span>
+<span class="gp">... </span>                    <span class="s1">'intent'</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>                            <span class="s1">'name'</span><span class="p">:</span> <span class="s2">"MonsterByCRandEnvironment"</span><span class="p">,</span>
+<span class="gp">... </span>                            <span class="s1">'slots'</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>                                    <span class="s1">'cr'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'value'</span><span class="p">:</span> <span class="s2">"2"</span><span class="p">},</span>
+<span class="gp">... </span>                                    <span class="s1">'env'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'value'</span><span class="p">:</span> <span class="s2">"swamp"</span><span class="p">}</span>
+<span class="gp">... </span>                            <span class="p">}</span>
+<span class="gp">... </span>                    <span class="p">}</span>
+<span class="gp">... </span>            <span class="p">}</span>
+<span class="gp">... </span>    <span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">alexa_lambda_handler</span><span class="p">(</span><span class="n">monster_event</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
+<span class="go">{'version': '1.0', 'sessionAttributes': {}, 'response': {'outputSpeech': {'type': 'PlainText', 'text': 'A swarm of poisonous snakes attacks!\n\nWould you like another monster?'}, 'card': {'type': 'Simple', 'title': 'Random monster By CR and Environment', 'content': 'A swarm of poisonous snakes attacks!\n\nWould you like another monster?'}, 'reprompt': {'outputSpeech': {'type': 'PlainText', 'text': 'Would you like another monster?'}}, 'shouldEndSession': False}}</span>
+</pre></div>
+</div>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="lambdaHandlers.alexa_handler.build_response">
@@ -235,11 +261,63 @@ The JSON body of the request is provided in the event parameter.</p>
 <span class="sig-prename descclassname"><span class="pre">lambdaHandlers.alexa_handler.</span></span><span class="sig-name descname"><span class="pre">module_in_alexa_session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">intent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lambdaHandlers.alexa_handler.module_in_alexa_session" title="Permalink to this definition">#</a></dt>
 <dd><p>Get a random module at the specified CR or env from the specified
 environment for the Alexa inteface</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">random</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># valid monster intent</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">monster_event</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>            <span class="s1">'ip'</span><span class="p">:</span> <span class="s2">"2001:0db8:85a3:0000:0000:8a2e:0370:7334"</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="s1">'session'</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>                    <span class="s1">'sessionId'</span><span class="p">:</span> <span class="s2">"13"</span><span class="p">,</span>
+<span class="gp">... </span>                    <span class="s1">'new'</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+<span class="gp">... </span>                    <span class="s1">'application'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'applicationId'</span><span class="p">:</span> <span class="s2">"42"</span><span class="p">},</span>
+<span class="gp">... </span>            <span class="p">},</span>
+<span class="gp">... </span>            <span class="s1">'request'</span> <span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>                    <span class="s1">'type'</span><span class="p">:</span> <span class="s2">"IntentRequest"</span><span class="p">,</span>
+<span class="gp">... </span>                    <span class="s1">'requestId'</span><span class="p">:</span> <span class="s2">"42"</span><span class="p">,</span>
+<span class="gp">... </span>                    <span class="s1">'intent'</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>                            <span class="s1">'name'</span><span class="p">:</span> <span class="s2">"MonsterByCRandEnvironment"</span><span class="p">,</span>
+<span class="gp">... </span>                            <span class="s1">'slots'</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>                                    <span class="s1">'cr'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'value'</span><span class="p">:</span> <span class="s2">"2"</span><span class="p">},</span>
+<span class="gp">... </span>                                    <span class="s1">'env'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'value'</span><span class="p">:</span> <span class="s2">"swamp"</span><span class="p">}</span>
+<span class="gp">... </span>                            <span class="p">}</span>
+<span class="gp">... </span>                    <span class="p">}</span>
+<span class="gp">... </span>            <span class="p">}</span>
+<span class="gp">... </span>    <span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">module_in_alexa_session</span><span class="p">(</span><span class="n">monster_event</span><span class="p">[</span><span class="s1">'request'</span><span class="p">][</span><span class="s1">'intent'</span><span class="p">],</span> <span class="n">monster_event</span><span class="p">[</span><span class="s1">'session'</span><span class="p">])</span>
+<span class="go">{'version': '1.0', 'sessionAttributes': {}, 'response': {'outputSpeech': {'type': 'PlainText', 'text': 'A swarm of poisonous snakes attacks!\n\nWould you like another monster?'}, 'card': {'type': 'Simple', 'title': 'Random monster By CR and Environment', 'content': 'A swarm of poisonous snakes attacks!\n\nWould you like another monster?'}, 'reprompt': {'outputSpeech': {'type': 'PlainText', 'text': 'Would you like another monster?'}}, 'shouldEndSession': False}}</span>
+</pre></div>
+</div>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="lambdaHandlers.alexa_handler.on_alexa_intent">
 <span class="sig-prename descclassname"><span class="pre">lambdaHandlers.alexa_handler.</span></span><span class="sig-name descname"><span class="pre">on_alexa_intent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">intent_request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lambdaHandlers.alexa_handler.on_alexa_intent" title="Permalink to this definition">#</a></dt>
 <dd><p>Called when the user specifies an intent for this skill</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">random</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># valid monster intent</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">monster_event</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>            <span class="s1">'ip'</span><span class="p">:</span> <span class="s2">"2001:0db8:85a3:0000:0000:8a2e:0370:7334"</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="s1">'session'</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>                    <span class="s1">'sessionId'</span><span class="p">:</span> <span class="s2">"13"</span><span class="p">,</span>
+<span class="gp">... </span>                    <span class="s1">'new'</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+<span class="gp">... </span>                    <span class="s1">'application'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'applicationId'</span><span class="p">:</span> <span class="s2">"42"</span><span class="p">},</span>
+<span class="gp">... </span>            <span class="p">},</span>
+<span class="gp">... </span>            <span class="s1">'request'</span> <span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>                    <span class="s1">'type'</span><span class="p">:</span> <span class="s2">"IntentRequest"</span><span class="p">,</span>
+<span class="gp">... </span>                    <span class="s1">'requestId'</span><span class="p">:</span> <span class="s2">"42"</span><span class="p">,</span>
+<span class="gp">... </span>                    <span class="s1">'intent'</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>                            <span class="s1">'name'</span><span class="p">:</span> <span class="s2">"MonsterByCRandEnvironment"</span><span class="p">,</span>
+<span class="gp">... </span>                            <span class="s1">'slots'</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>                                    <span class="s1">'cr'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'value'</span><span class="p">:</span> <span class="s2">"2"</span><span class="p">},</span>
+<span class="gp">... </span>                                    <span class="s1">'env'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'value'</span><span class="p">:</span> <span class="s2">"swamp"</span><span class="p">}</span>
+<span class="gp">... </span>                            <span class="p">}</span>
+<span class="gp">... </span>                    <span class="p">}</span>
+<span class="gp">... </span>            <span class="p">}</span>
+<span class="gp">... </span>    <span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">on_alexa_intent</span><span class="p">(</span><span class="n">monster_event</span><span class="p">[</span><span class="s1">'request'</span><span class="p">],</span> <span class="n">monster_event</span><span class="p">[</span><span class="s1">'session'</span><span class="p">])</span>
+<span class="go">{'version': '1.0', 'sessionAttributes': {}, 'response': {'outputSpeech': {'type': 'PlainText', 'text': 'A swarm of poisonous snakes attacks!\n\nWould you like another monster?'}, 'card': {'type': 'Simple', 'title': 'Random monster By CR and Environment', 'content': 'A swarm of poisonous snakes attacks!\n\nWould you like another monster?'}, 'reprompt': {'outputSpeech': {'type': 'PlainText', 'text': 'Would you like another monster?'}}, 'shouldEndSession': False}}</span>
+</pre></div>
+</div>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="lambdaHandlers.alexa_handler.on_launch">

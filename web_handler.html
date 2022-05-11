@@ -208,12 +208,44 @@
 <dt class="sig sig-object py" id="lambdaHandlers.web_handler.on_web_intent">
 <span class="sig-prename descclassname"><span class="pre">lambdaHandlers.web_handler.</span></span><span class="sig-name descname"><span class="pre">on_web_intent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">intent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lambdaHandlers.web_handler.on_web_intent" title="Permalink to this definition">#</a></dt>
 <dd><p>Get a random module at the specified CR and/or environment for the web interface</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">random</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># valid monster intent</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">monster_intent</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>            <span class="s1">'web'</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="s1">'ip'</span><span class="p">:</span> <span class="s2">"2001:0db8:85a3:0000:0000:8a2e:0370:7334"</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="s1">'name'</span><span class="p">:</span> <span class="s2">"MonsterByCRandEnvironment"</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="s1">'slots'</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>                    <span class="s1">'cr'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'value'</span><span class="p">:</span> <span class="s2">"2"</span><span class="p">},</span>
+<span class="gp">... </span>                    <span class="s1">'env'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'value'</span><span class="p">:</span> <span class="s2">"swamp"</span><span class="p">}</span>
+<span class="gp">... </span>            <span class="p">}</span>
+<span class="gp">... </span>    <span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">on_web_intent</span><span class="p">(</span><span class="n">monster_intent</span><span class="p">)</span>
+<span class="go">{'body': '--- Random Monster ---\nswarm of poisonous snakes - HP: 86-100'}</span>
+</pre></div>
+</div>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="lambdaHandlers.web_handler.web_lambda_handler">
 <span class="sig-prename descclassname"><span class="pre">lambdaHandlers.web_handler.</span></span><span class="sig-name descname"><span class="pre">web_lambda_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lambdaHandlers.web_handler.web_lambda_handler" title="Permalink to this definition">#</a></dt>
 <dd><p>Route the incoming request based on type.
 The JSON body of the request is provided in the event parameter.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">random</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># valid monster intent</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">monster_intent</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>            <span class="s1">'web'</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="s1">'ip'</span><span class="p">:</span> <span class="s2">"2001:0db8:85a3:0000:0000:8a2e:0370:7334"</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="s1">'name'</span><span class="p">:</span> <span class="s2">"MonsterByCRandEnvironment"</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="s1">'slots'</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>                    <span class="s1">'cr'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'value'</span><span class="p">:</span> <span class="s2">"2"</span><span class="p">},</span>
+<span class="gp">... </span>                    <span class="s1">'env'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'value'</span><span class="p">:</span> <span class="s2">"swamp"</span><span class="p">}</span>
+<span class="gp">... </span>            <span class="p">}</span>
+<span class="gp">... </span>    <span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">web_lambda_handler</span><span class="p">(</span><span class="n">monster_intent</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
+<span class="go">{'body': '--- Random Monster ---\nswarm of poisonous snakes - HP: 86-100'}</span>
+</pre></div>
+</div>
 </dd></dl>
 </section>
 
