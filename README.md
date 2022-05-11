@@ -1,6 +1,7 @@
 # Hetrogeneous Auto Dungeon Master Lambda Handler
 
-[![CI](https://github.com/jeremylt/autoDM/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/jeremylt/autoDM/actions/workflows/main.yml)
+[![Test and Format](https://github.com/jeremylt/autoDM/actions/workflows/test.yml/badge.svg)](https://github.com/jeremylt/autoDM/actions/workflows/test.yml)
+[![Deploy Docs](https://github.com/jeremylt/autoDM/actions/workflows/doc.yml/badge.svg)](https://github.com/jeremylt/autoDM/actions/workflows/doc.yml)
 
 ## Overview
 
