@@ -8,13 +8,13 @@
 # ------------------------------------------------------------------------------
 
 # Dictionaries
-from .dictionaries import *
+from lambdaHandlers.dictionaries import *
 
 # Utilities
 import random
 from abc import ABC, abstractmethod
 from bisect import bisect
-from .utilities import *
+from lambdaHandlers.utilities import *
 
 # ------------------------------------------------------------------------------
 # Base Class - Module
@@ -582,7 +582,7 @@ def get_module_args_from_intent_name(intent_name):
     """
 
 	# Log
-	debug_print("get_intent_args")
+	debug_print("get_module_args_from_intent_name")
 	debug_print("  intent_name: " + intent_name)
 
 	# Get argument flags
@@ -615,14 +615,14 @@ def module_from_intent(intent):
 
 	# Break down name into type, CR, and environment
 	has_cr, has_environment, module_type = get_module_args_from_intent_name(
-	    intent['Name'])
+	    intent['name'])
 
 	cr = ""
 	if has_cr:
 		try:
 			cr = intent['slots']['cr']['value']
 			# Amazon rudely uses non-ASCII characters
-			cr = moduleCR.replace('⁄', '/')
+			cr = cr.replace('⁄', '/')
 		except BaseException:
 			return "ERROR: No CR found"
 

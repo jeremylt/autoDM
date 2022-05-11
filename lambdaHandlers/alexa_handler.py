@@ -8,8 +8,9 @@
 # ------------------------------------------------------------------------------
 
 # Supporting modules
-from .communicators import AlexaCommunicator
-from .modules import module_from_intent
+from lambdaHandlers.communicators import AlexaCommunicator
+from lambdaHandlers.modules import module_from_intent
+from lambdaHandlers.utilities import *
 
 # ------------------------------------------------------------------------------
 # Response card helpers

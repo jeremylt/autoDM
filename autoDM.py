@@ -21,12 +21,10 @@ def lambda_handler(event, context):
 	""" Determine if Alexa or Web request and pass to correct handler """
 
 	# Check for web reqest
-	try:
-		# Web request
-		is_web_event = event['web']
+	is_web_event = 'web' in event.keys()
+	if is_web_event:
 		return web_lambda_handler(event, context)
-	except:
-		# Alexa request
+	else:
 		return alexa_lambda_handler(event, context)
 
 

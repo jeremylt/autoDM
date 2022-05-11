@@ -8,8 +8,9 @@
 # ------------------------------------------------------------------------------
 
 # Supporting modules
-from .communicators import WebCommunicator
-from .modules import module_from_intent
+from lambdaHandlers.communicators import WebCommunicator
+from lambdaHandlers.modules import module_from_intent
+from lambdaHandlers.utilities import *
 
 # ------------------------------------------------------------------------------
 # Response helper

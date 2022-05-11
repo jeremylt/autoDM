@@ -10,7 +10,7 @@
 
 # Utilities
 from abc import ABC, abstractmethod
-from .utilities import *
+from lambdaHandlers.utilities import *
 
 # ------------------------------------------------------------------------------
 # Base Class - Communicator
